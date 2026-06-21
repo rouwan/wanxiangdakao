@@ -1,0 +1,37 @@
+<import src="/components/get-gift$2693dc25" />
+<template name="mySubjectList$373edaf0">
+  <view class="_div data-v-19a8647a m-subject-list sky-bg-2">
+    <view class="_div data-v-19a8647a u-head">
+      <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{tabList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-19a8647a {{[index == current ? 'active' : '']}}"> {{item}} </view>
+    </view>
+    <scroll-view class="_scroll-view data-v-19a8647a u-list" scroll-y="true" scroll-with-animation="true" bindscrolltolower="handleProxy" wx:if="{{dataReady&&subjectList[current].length>0}}" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-19a8647a u-item {{[item.status == 0 ? 'u-type-1' : '', item.status == 2 ? 'u-type-2' : '']}}" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{subjectList[current]}}"
+        wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-19a8647a u-title">
+          <view class="_div data-v-19a8647a">【{{typeMap[item.parentType]}}】</view>{{item.title}}</view>
+        <view class="_div data-v-19a8647a u-info">
+          <view class="_div data-v-19a8647a u-status" wx:if="{{current!=0}}">
+            <view class="_div data-v-19a8647a u-ball"></view> {{subjectType[item.status]}} </view>
+          <view class="_div data-v-19a8647a u-num" wx:if="{{current==0}}">
+            <view class="_div data-v-19a8647a th">正确率:</view>
+            <view class="_div data-v-19a8647a txt">{{item.rightRatio}}%</view>
+            <view class="_div data-v-19a8647a th">答题人数:</view>
+            <view class="_div data-v-19a8647a txt">{{item.replyNum}}</view>
+          </view>
+          <view class="_div data-v-19a8647a btn" wx:if="{{current==0}}">
+            <image class="_img data-v-19a8647a get" catchtap="handleProxy" wx:if="{{statusList[index]==0}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/getBook.png" data-eventid="{{'1-'+index}}"
+              data-comkey="{{$k}}"></image>
+            <image class="_img data-v-19a8647a receved" wx:else src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/receved-txt.png"></image>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="_div data-v-19a8647a u-empty" wx:if="{{subjectList[current].length==0}}">
+      <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/list-empty.png" class="_img data-v-19a8647a"></image>
+      <view wx:if="{{!hasQues&&subjectList[current].length==0}}" class="_div data-v-19a8647a u-empty-word">您尚未参与出题</view>
+      <view wx:if="{{hasQues&&subjectList[current].length==0}}" class="_div data-v-19a8647a u-empty-word">暂无题目</view>
+      <view wx:if="{{!hasQues&&subjectList[current].length==0}}" class="_div data-v-19a8647a u-empty-btn" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">我要出题</view>
+    </view>
+    <template wx:if="{{showGetGift}}" bindclose="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="get-gift$2693dc25"></template>
+  </view>
+</template>

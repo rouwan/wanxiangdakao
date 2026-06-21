@@ -1,0 +1,49 @@
+<template name="quesResult$2c13d147">
+  <view class="_div data-v-aa31b1b4 m-result" wx:if="{{dataReady}}">
+    <view class="_div data-v-aa31b1b4 u-title">
+      <image wx:if="{{myRankNum==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/first.png" class="_img data-v-aa31b1b4"></image>
+      <image wx:if="{{myRankNum==2}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/second.png" class="_img data-v-aa31b1b4"></image>
+      <image wx:if="{{myRankNum==3}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/third.png" class="_img data-v-aa31b1b4"></image>
+      <image wx:if="{{myRankNum==4}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/fourth.png" class="_img data-v-aa31b1b4"></image>
+    </view>
+    <view class="_div data-v-aa31b1b4 u-list">
+      <view class="_div data-v-aa31b1b4 u-item {{[resultList[uIndex] && resultList[uIndex].isMy ? 'my-item' : '']}}" wx:key="uIndex" key="{{uIndex}}" wx:for="{{placeList}}" wx:for-index="uIndex" wx:for-item="item">
+        <view class="_div data-v-aa31b1b4 u-item-inner" wx:if="{{resultList[uIndex]}}">
+          <view class="_div data-v-aa31b1b4 u-icon">
+            <image wx:if="{{uIndex==0}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/icon_first.png" class="_img data-v-aa31b1b4"></image>
+            <image wx:if="{{uIndex==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/icon_second.png" class="_img data-v-aa31b1b4"></image>
+            <image wx:if="{{uIndex==2}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/icon_third.png" class="_img data-v-aa31b1b4"></image>
+            <image wx:if="{{uIndex==3}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/groupBattle/icon_fourth.png" class="_img data-v-aa31b1b4"></image>
+          </view>
+          <image wx:if="{{resultList[uIndex].boot}}" src="{{IMGHEAD+resultList[uIndex].basicInfo.avatarUrl}}" class="_img data-v-aa31b1b4"></image>
+          <image wx:else src="{{resultList[uIndex].basicInfo.avatarUrl}}" class="_img data-v-aa31b1b4"></image>
+          <view class="_div data-v-aa31b1b4 u-item-right">
+            <view class="_div data-v-aa31b1b4">
+              <view class="_div data-v-aa31b1b4 u-name">{{resultList[uIndex].basicInfo.nickName}}</view>
+              <view class="_div data-v-aa31b1b4 u-medal">
+                <image src="{{IMGHEAD+resultList[uIndex].abilityInfo.paragraphImage}}" class="_img data-v-aa31b1b4"></image> {{resultList[uIndex].abilityInfo.paragraphName}} </view>
+            </view>
+            <view class="_div data-v-aa31b1b4">
+              <view class="_div data-v-aa31b1b4 u-ans-list">
+                <view class="_div data-v-aa31b1b4 u-ans-item" wx:key="ansIndex" key="{{ansIndex}}" wx:for="{{resultList[uIndex].ansList}}" wx:for-index="ansIndex" wx:for-item="ansIcon">
+                  <image wx:if="{{ansIcon==0&&!resultList[uIndex].isMy}}" src="/static/main_yes.png" class="_img data-v-aa31b1b4"></image>
+                  <image wx:if="{{ansIcon==1&&!resultList[uIndex].isMy}}" src="/static/main_err.png" class="_img data-v-aa31b1b4"></image>
+                  <image wx:if="{{ansIcon==2&&!resultList[uIndex].isMy}}" src="/static/main_none.png" class="_img data-v-aa31b1b4"></image>
+                  <image wx:if="{{ansIcon==0&&resultList[uIndex].isMy}}" src="/static/main_yes_active.png" class="_img data-v-aa31b1b4"></image>
+                  <image wx:if="{{ansIcon==1&&resultList[uIndex].isMy}}" src="/static/main_err_active.png" class="_img data-v-aa31b1b4"></image>
+                  <image wx:if="{{ansIcon==2&&resultList[uIndex].isMy}}" src="/static/main_none_active.png" class="_img data-v-aa31b1b4"></image>
+                </view>
+              </view>
+              <view class="_div data-v-aa31b1b4 u-score">{{resultList[uIndex].abilityInfo.score}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-aa31b1b4 u-btn">
+      <view class="_div data-v-aa31b1b4 u-btn-back" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">返回房间</view>
+      <view class="_div data-v-aa31b1b4 u-btn-invate" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">本局回顾</view>
+      <button class="_button data-v-aa31b1b4 u-btn-invate" open-type="share" plain="true"> 分享战绩 </button>
+    </view>
+  </view>
+</template>

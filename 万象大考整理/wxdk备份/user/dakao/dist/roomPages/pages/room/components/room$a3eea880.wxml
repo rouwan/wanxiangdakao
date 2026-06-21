@@ -1,0 +1,78 @@
+<import src="/components/quesHead$75ecba5b" />
+<import src="/components/timeCount$55843278" />
+<import src="/components/quesTitle$4ff00926" />
+<import src="/components/quesSelect$329746b7" />
+<import src="/components/quesResult$73356158" />
+<import src="/components/emojiBox$087445ae" />
+<template name="room$a3eea880">
+  <view class="_div data-v-37f52790 room">
+    <view class="_div data-v-37f52790 m-room" wx:if="{{!showQuesModules&&!showResult}}">
+      <view class="_div data-v-37f52790 u-seat">
+        <view class="_div data-v-37f52790 u-seat-box" wx:key="index" key="{{index}}" wx:for="{{placeList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-37f52790 u-seat-top">
+            <image wx:if="{{userList[index]}}" src="{{IMGHEAD+userList[index].abilityInfo.paragraphImage}}" class="_img data-v-37f52790"></image>
+            <view class="_div data-v-37f52790 u-info" wx:if="{{userList[index]}}">
+              <view class="_div data-v-37f52790 u-name">{{userList[index].basicInfo.nickName}}</view>
+              <view class="_div data-v-37f52790 u-area">
+                <view class="_div data-v-37f52790">{{userList[index].basicInfo.province||'宇宙'}}</view>
+                <view class="_div data-v-37f52790">{{userList[index].basicInfo.city||'火星'}}</view>
+                <image wx:if="{{userList[index].basicInfo.gender=='女'}}" class="_img data-v-37f52790 girl" src="/static/girl.png"></image>
+                <image wx:else class="_img data-v-37f52790 boy" src="/static/boy.png"></image>
+              </view>
+            </view>
+            <view class="_div data-v-37f52790 u-master" wx:if="{{userList[index]&&(userList[index].basicInfo.userId==roomData.room.roomMaster)}}">房主</view>
+          </view>
+          <view class="_div data-v-37f52790 u-seat-bottom">
+            <image class="_img data-v-37f52790 u-bg" src="/static/light-bg.png"></image>
+            <image wx:if="{{userList[index]&&userList[index].basicInfo.avatarUrl&&userList[index].boot}}" class="_img data-v-37f52790 u-head-img" src="{{IMGHEAD+userList[index].basicInfo.avatarUrl}}"></image>
+            <image wx:if="{{userList[index]&&userList[index].basicInfo.avatarUrl&&!userList[index].boot}}" class="_img data-v-37f52790 u-head-img" src="{{userList[index].basicInfo.avatarUrl}}"></image>
+            <image wx:if="{{userList[index]&&!userList[index].basicInfo.avatarUrl}}" class="_img data-v-37f52790 u-head-img" src="/static/default-head.png"></image>
+            <image wx:if="{{userList[index]&&userList[index].isReady==1&&!userList[index].isMaster}}" class="_img data-v-37f52790 img-ready" src="/static/ready.png" alt></image>
+            <view class="_div data-v-37f52790 u-mask" wx:if="{{userList[index]&&userList[index].isReady==0}}"> 未准备
+              <view wx:if="{{userRole=='房主'}}" class="_div data-v-37f52790 u-kick" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">踢</view>
+            </view>
+          </view>
+          <view class="_div data-v-37f52790 u-emoji-box {{[userList[index] && seatList[index].showEmoji ? 'showEmj' : '']}}">
+            <view class="_div data-v-37f52790 u-inner-box">
+              <image src="{{seatList[index].emojiUrl}}" class="_img data-v-37f52790"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-37f52790 timer-mask" wx:if="{{showTimerMask}}">
+        <view class="_div data-v-37f52790">玩家准备就绪~</view> {{autoStartTime}} </view>
+      <view class="_div data-v-37f52790 u-btn">
+        <view class="_div data-v-37f52790 u-btn-left" wx:if="{{userRole=='房主'}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">开始游戏</view>
+        <view class="_div data-v-37f52790 u-btn-left" wx:if="{{userRole=='民众'&&myInfo.isReady==0}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">准备</view>
+        <view class="_div data-v-37f52790 u-btn-left" wx:if="{{userRole=='民众'&&myInfo.isReady==1}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">取消准备</view>
+        <view class="_div data-v-37f52790 u-btn-right" wx:if="{{userNum>=4}}" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">邀请</view>
+        <view class="_div data-v-37f52790 u-btn-right" wx:elif="{{userNum<4&&myInfo.isReady==1&&userRole=='民众'}}" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}">邀请</view>
+        <button wx:else open-type="share" plain="true" class="_button data-v-37f52790 u-btn-right">邀请</button>
+        <image bindtap="handleProxy" class="_img data-v-37f52790 u-btn-emoji" src="/static/room/emoji-btn.png" alt data-eventid="{{'6'}}" data-comkey="{{$k}}"></image>
+      </view>
+    </view>
+    <view class="_div data-v-37f52790 m-ques-modal" wx:if="{{showQuesModules}}">
+      <template data="{{...$root[$kk+'0'], $root}}" is="quesHead$75ecba5b"></template>
+      <view class="_div data-v-37f52790 u-time">
+        <template data="{{...$root[$kk+'1'], $root}}" is="timeCount$55843278"></template>
+      </view>
+      <view class="_div data-v-37f52790 u-title">
+        <template bindantEnd="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="quesTitle$4ff00926"></template>
+      </view>
+      <view class="_div data-v-37f52790 u-select">
+        <template bindselected="handleProxy" bindanswerComplete="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="quesSelect$329746b7"></template>
+      </view>
+    </view>
+    <view class="_div data-v-37f52790 u-result" wx:if="{{showResult}}">
+      <template bindclose="handleProxy" bindroute="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'4'], $root}}" is="quesResult$73356158"></template>
+    </view>
+    <view class="_div data-v-37f52790 full-man-mask" wx:if="{{showFullMask}}">
+      <view class="_div data-v-37f52790 f-bg"></view>
+      <view class="_div data-v-37f52790 f-inner">
+        <view class="_div data-v-37f52790 f-txt">房间已满,你不能邀请更多好友</view>
+        <view class="_div data-v-37f52790 f-btn" bindtap="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}">确定</view>
+      </view>
+    </view>
+    <template wx:if="{{emojiBtn}}" bindclose="handleProxy" bindsendEmoji="handleProxy" data-eventid="{{'11'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'5'], $root}}" is="emojiBox$087445ae"></template>
+  </view>
+</template>

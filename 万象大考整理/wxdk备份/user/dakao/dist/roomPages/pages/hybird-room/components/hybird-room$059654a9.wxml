@@ -1,0 +1,73 @@
+<import src="/components/quesHead$75ecba5b" />
+<import src="/components/timeCount$55843278" />
+<import src="/components/quesTitle$4ff00926" />
+<import src="/components/quesSelect$329746b7" />
+<import src="/components/quesResult$73356158" />
+<template name="hybird-room$059654a9">
+  <view class="_div data-v-2162c59e hyb-room">
+    <image class="_img data-v-2162c59e entry-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/entry-test.png"></image>
+    <image class="_img data-v-2162c59e match {{[roomType == 'match' ? 'show-match' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/match-w.png"></image>
+    <image class="_img data-v-2162c59e match-success {{[roomType == 'matchSuccess' ? 'show-match-success' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/match-s.png"></image>
+    <view class="_div data-v-2162c59e hyb-box {{[roomType == 'match' || roomType == 'matchSuccess' ? 'box-match' : '']}}">
+      <view class="_div data-v-2162c59e time-box flex" wx:if="{{roomType=='matchSuccess'}}">{{ctime}}秒后进入</view>
+      <view class="_div data-v-2162c59e h-head">
+        <image class="_img data-v-2162c59e mode-type" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/hybird-type.png"></image>
+        <view class="_div data-v-2162c59e gold-box">
+          <image src="/static/gold.png" class="_img data-v-2162c59e"></image>{{appInfo.money||0}} </view>
+      </view>
+      <view class="_div data-v-2162c59e h-body">
+        <view class="_div data-v-2162c59e user-box flex" wx:key="index" key="{{index}}" wx:for="{{emtptList}}" wx:for-index="index" wx:for-item="seat">
+          <view class="_div data-v-2162c59e user-head flex radius50">
+            <image class="_img data-v-2162c59e ques db-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/ques.png"></image>
+            <image wx:if="{{userList[index]&&userList[index].boot}}" class="_img data-v-2162c59e head-img db-center radius50" src="{{IMGHEAD+userList[index].basicInfo.avatarUrl}}"></image>
+            <image wx:if="{{userList[index]&&!userList[index].boot}}" class="_img data-v-2162c59e head-img db-center radius50" src="{{userList[index].basicInfo.avatarUrl}}"></image>
+            <view wx:if="{{userList[index]&&userList[index].isReady==1&&masterId!=userList[index].basicInfo.userId&&roomType=='wait'}}" class="_div data-v-2162c59e ready db-center radius50">
+              <image class="_img data-v-2162c59e db-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/ready.png"></image>
+            </view>
+            <view class="_div data-v-2162c59e u-ant-cycle-fill" wx:if="{{!userList[index]&&roomType=='match'}}">
+              <view class="_div data-v-2162c59e u-ant-dot"></view>
+              <view class="_div data-v-2162c59e u-ant-dot"></view>
+              <view class="_div data-v-2162c59e u-ant-dot"></view>
+            </view>
+          </view>
+          <view wx:if="{{userList[index]}}" class="_div data-v-2162c59e user-info">
+            <view class="_div data-v-2162c59e">{{userList[index].basicInfo.nickName||'无名氏'}}</view>
+            <view class="_div data-v-2162c59e">{{userList[index].basicInfo.city||'火星'}}</view>
+          </view>
+          <view wx:else class="_div data-v-2162c59e user-info-empty">
+            <view class="_div data-v-2162c59e"></view>
+            <view class="_div data-v-2162c59e"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-2162c59e btn-box flex" wx:if="{{roomType=='wait'}}">
+      <image wx:if="{{masterId==appInfo.userId}}" hover-class="click-active" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/start-btn.png" data-eventid="{{'0'}}" data-comkey="{{$k}}"
+        class="_img data-v-2162c59e"></image>
+      <image wx:if="{{masterId!=appInfo.userId&&userReady==0}}" hover-class="click-active" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/ready-btn.png" data-eventid="{{'1'}}"
+        data-comkey="{{$k}}" class="_img data-v-2162c59e"></image>
+      <image wx:if="{{masterId!=appInfo.userId&&userReady==1}}" bindtap="handleProxy" hover-class="click-active" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/cancel-btn.png" data-eventid="{{'2'}}"
+        data-comkey="{{$k}}" class="_img data-v-2162c59e"></image>
+      <image wx:if="{{userList.length==4||userReady==1&&masterId!=appInfo.userId}}" bindtap="handleProxy" hover-class="click-active" class="_img data-v-2162c59e invate" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/invate-btn.png"
+        data-eventid="{{'3'}}" data-comkey="{{$k}}"></image>
+      <button wx:else hover-class="click-active" open-type="share" plain="true" class="_button data-v-2162c59e">
+        <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/invate-btn.png" class="_img data-v-2162c59e"></image>
+      </button>
+    </view>
+    <view class="_div data-v-2162c59e m-ques-modal" wx:if="{{showQuesModules}}">
+      <template data="{{...$root[$kk+'0'], $root}}" is="quesHead$75ecba5b"></template>
+      <view class="_div data-v-2162c59e u-time">
+        <template data="{{...$root[$kk+'1'], $root}}" is="timeCount$55843278"></template>
+      </view>
+      <view class="_div data-v-2162c59e u-title">
+        <template bindantEnd="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="quesTitle$4ff00926"></template>
+      </view>
+      <view class="_div data-v-2162c59e u-select">
+        <template bindselected="handleProxy" bindanswerComplete="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="quesSelect$329746b7"></template>
+      </view>
+    </view>
+    <view class="_div data-v-2162c59e u-result" wx:if="{{showResult}}">
+      <template bindclose="handleProxy" bindroute="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'4'], $root}}" is="quesResult$73356158"></template>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,100 @@
+<import src="/components/catGame$51c09287" />
+<import src="/components/get-gift$2a56eb90" />
+<template name="day-gift$459c04b2">
+  <view class="_div data-v-2d2c61d3 day-gift">
+    <view class="_div data-v-2d2c61d3 box {{[showCatGame ? 'hide' : '']}}">
+      <image class="_img data-v-2d2c61d3 bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/day-gift-bg.png"></image>
+      <view class="_div data-v-2d2c61d3 content">
+        <view class="_div data-v-2d2c61d3 menu" wx:if="{{type==1}}">
+          <view class="_div data-v-2d2c61d3 {{[globalStatus.isDaySign == 1 ? 'hasTip' : '']}}">
+            <image wx:if="{{menuIndex==0}}" class="_img data-v-2d2c61d3 check" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/check-act.png"></image>
+            <image wx:else class="_img data-v-2d2c61d3 check" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/check.png" data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+          </view>
+          <view class="_div data-v-2d2c61d3 {{[canCat == 1 ? 'hasTip' : '']}}">
+            <image wx:if="{{menuIndex==1}}" class="_img data-v-2d2c61d3 cat" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/cat-act.png"></image>
+            <image wx:else class="_img data-v-2d2c61d3 cat" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/cat.png" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+          </view>
+          <view class="_div data-v-2d2c61d3 {{[canNumber == 1 ? 'hasTip' : '']}}">
+            <image wx:if="{{menuIndex==2}}" class="_img data-v-2d2c61d3 num" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/luck-num-act.png"></image>
+            <image wx:else class="_img data-v-2d2c61d3 num" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/luck-num.png" data-eventid="{{'2'}}" data-comkey="{{$k}}"></image>
+          </view>
+        </view>
+        <view class="_div data-v-2d2c61d3 task-head" wx:if="{{type==0}}">
+          <image class="_img data-v-2d2c61d3 t-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/taskGiftBg.png"></image>
+          <view wx:if="{{receive}}" class="_div data-v-2d2c61d3">已领取</view>
+          <image wx:else class="_img data-v-2d2c61d3 t-gift" src="/static/icon/s-box.png"></image>
+        </view>
+        <view wx:if="{{menuIndex==0&&type==1}}" class="_section data-v-2d2c61d3">
+          <view class="_div data-v-2d2c61d3 check-box">
+            <view class="_div data-v-2d2c61d3 gift-item" wx:key="index" key="{{index}}" wx:for="{{giftList}}" wx:for-index="index" wx:for-item="item">
+              <view class="_div data-v-2d2c61d3 g-box">
+                <image wx:if="{{index==checkDay&&globalStatus.isDaySign==1}}" class="_img data-v-2d2c61d3 g-able" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/able.png"></image>
+                <image class="_img data-v-2d2c61d3 g-gift" src="{{IMGHEAD+item.image}}"></image>
+                <view class="_div data-v-2d2c61d3 g-num" wx:if="{{item.isLookNum}}">{{item.num}}</view>
+                <image class="_img data-v-2d2c61d3 g-receved" wx:if="{{item.status==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/receved.png"></image>
+              </view>
+              <view class="_div data-v-2d2c61d3 g-time">{{item.description}}</view>
+            </view>
+          </view>
+          <button class="_button data-v-2d2c61d3 db-btn" open-type="share" plain="true">
+            <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/double.png" alt class="_img data-v-2d2c61d3"></image>
+          </button>
+          <view class="_div data-v-2d2c61d3 sg-btn" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">普通领取</view>
+        </view>
+        <view wx:if="{{menuIndex==1&&type==1}}" class="_section data-v-2d2c61d3">
+          <view class="_div data-v-2d2c61d3 cat-bg"></view>
+          <image class="_img data-v-2d2c61d3 cat-btn" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/play-cat.png" data-eventid="{{'4'}}" data-comkey="{{$k}}"></image>
+          <view class="_div data-v-2d2c61d3 tip">每天可以从这里获取金币哦</view>
+        </view>
+        <view wx:if="{{menuIndex==2&&type==1}}" class="_section data-v-2d2c61d3">
+          <view class="_div data-v-2d2c61d3 num-tip">每周一0:00更新任务</view>
+          <view class="_div data-v-2d2c61d3 number-box pt44">
+            <view class="_div data-v-2d2c61d3 number-gift-item" wx:key="index" key="{{index}}" wx:for="{{numList}}" wx:for-index="index" wx:for-item="item">
+              <view class="_div data-v-2d2c61d3 score-box">
+                <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/score-box.png" class="_img data-v-2d2c61d3"></image>
+                <view class="_div data-v-2d2c61d3">{{item.number}}</view>
+              </view>
+              <view class="_div data-v-2d2c61d3 gift-box">
+                <image src="{{IMGHEAD+item.image}}" class="_img data-v-2d2c61d3"></image>
+                <view class="_div data-v-2d2c61d3 gift-num" wx:if="{{item.isLookNum==1}}">{{item.num}}</view>
+                <image class="_img data-v-2d2c61d3 r-tag" wx:if="{{item.status==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/receved-tag.png"></image>
+              </view>
+              <image wx:if="{{item.status==0}}" class="_img data-v-2d2c61d3 gift-btn" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/get-btn.png" data-eventid="{{'5-'+index}}"
+                data-comkey="{{$k}}"></image>
+              <image wx:if="{{item.status==-1}}" bindtap="handleProxy" class="_img data-v-2d2c61d3 gift-btn" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/go-btn.png" data-eventid="{{'6-'+index}}"
+                data-comkey="{{$k}}"></image>
+              <image wx:if="{{item.status==1}}" class="_img data-v-2d2c61d3 gift-btn-receved" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/receved-txt.png"></image>
+            </view>
+          </view>
+          <view class="_div data-v-2d2c61d3 tip ft24">排位赛中达到以上分数,可获得相应奖励,获胜情况下,奖励翻倍</view>
+        </view>
+        <view wx:if="{{type==0}}" class="_section data-v-2d2c61d3">
+          <view class="_div data-v-2d2c61d3 number-box task-list">
+            <view class="_div data-v-2d2c61d3 number-gift-item task-item" wx:key="index" key="{{index}}" wx:for="{{taskList}}" wx:for-index="index" wx:for-item="item">
+              <view class="_div data-v-2d2c61d3 task-box">
+                <image wx:if="{{taskList[0]!=0}}" src="{{taskMap[item.type].icon}}" class="_img data-v-2d2c61d3"></image>
+              </view>
+              <view class="_div data-v-2d2c61d3 task-info">
+                <view class="_div data-v-2d2c61d3 t-top"> {{item.description}} </view>
+                <view class="_div data-v-2d2c61d3 t-bottom">
+                  <view class="_div data-v-2d2c61d3">进度:</view> {{item.status}}/1 </view>
+              </view>
+              <image wx:if="{{item.status==0}}" class="_img data-v-2d2c61d3 gift-btn" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/go-btn.png" data-eventid="{{'7-'+index}}"
+                data-comkey="{{$k}}"></image>
+              <image wx:if="{{item.status==1}}" class="_img data-v-2d2c61d3 gift-btn-receved" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/complete.png"></image>
+            </view>
+          </view>
+          <image class="_img data-v-2d2c61d3 get-task" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/get-btn-big.png" data-eventid="{{'8'}}" data-comkey="{{$k}}"></image>
+        </view>
+      </view>
+      <image class="_img data-v-2d2c61d3 tt" wx:if="{{type==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/day-gift-tt.png"></image>
+      <image class="_img data-v-2d2c61d3 tt" wx:if="{{type==0}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/tt-task.png"></image>
+      <view class="_div data-v-2d2c61d3 close" bindtap="handleProxy" data-eventid="{{'9'}}" data-comkey="{{$k}}"></view>
+    </view>
+    <template wx:if="{{showCatGame}}" bindstopGame="handleProxy" data-eventid="{{'10'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="catGame$51c09287"></template>
+    <template wx:if="{{showGetGift}}" bindclose="handleProxy" data-eventid="{{'11'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="get-gift$2a56eb90"></template>
+    <view class="_div data-v-2d2c61d3 main-ad {{[HUAWEI ? 'huawei' : '']}}" wx:if="{{!showCatGame}}">
+      <ad unit-id="adunit-e02686c515746fa0" class="_ad data-v-2d2c61d3"></ad>
+    </view>
+  </view>
+</template>

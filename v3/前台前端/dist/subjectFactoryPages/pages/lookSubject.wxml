@@ -1,0 +1,1 @@
+<import src="/subjectFactoryPages/pages/lookSubject/components/lookSubject$194bcb12" /><template is="lookSubject$194bcb12" data="{{ ...$root['0'], $root }}"/>

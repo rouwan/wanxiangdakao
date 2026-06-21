@@ -1,0 +1,78 @@
+
+.sky-bg{
+  background-size: 100%;
+  background-position-y: -120rpx;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/sky-bg.png");
+}
+.sky-bg-2{
+  background-size:100%;
+  background-position-y: -120rpx;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/sky-bg-2.png");
+  background-color: #28235d;
+}
+.sky-bg-3{
+  background-size:100%;
+  background-position-y: -120rpx;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/sky-bg-3.png");
+}
+.medal-bg{
+  background-size: 100%;
+  background-position-y: -120rpx;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/medal-bg.png");
+  background-color: #1a173c;
+}
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  overflow: scroll;
+}
+.btn-success{
+  width: 452rpx;
+  height: 140rpx;
+  font-size: 48rpx;
+  color:#fff!important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1000rpx;
+  background: #67c29f!important;
+}
+button{
+  border: none!important;
+  line-height: 1;
+}
+
+.moon{
+  width: 750rpx;
+  height: 225rpx;
+  position: fixed;
+  bottom:-165rpx;
+  left: 0;
+  overflow: visible;
+}
+.moon::before{
+  content: "";
+  width: 800rpx;
+  height: 225rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: -20rpx;
+  transform: translate(-50%,0);
+  z-index: -1;
+  background:#3c6171;
+  opacity: .8;
+  filter: blur(20px);
+}
+@media screen and (min-height:720px){
+  .moon{
+    bottom:0;
+  }
+}
+@mixin test{
+  display: flex;
+  justify-content: center;
+}

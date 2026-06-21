@@ -1,0 +1,10 @@
+<template name="get-gift$2693dc25">
+  <view class="_div data-v-ca2b8b78 get-gift-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-ca2b8b78 get-gift">
+      <image wx:if="{{double}}" class="_img data-v-ca2b8b78 double" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/db-gfit.png"></image>
+      <view class="_div data-v-ca2b8b78 img-box {{[showAnt ? 'showAnt' : '']}}">
+        <image class="_img data-v-ca2b8b78 box-bg" src="/static/icon/gift-light.png"></image>
+        <image class="_img data-v-ca2b8b78 img-gift" src="{{giftList[showIndex].url}}"></image>
+      </view> {{giftList[showIndex].name}}X{{giftList[showIndex].num}} </view>
+  </view>
+</template>

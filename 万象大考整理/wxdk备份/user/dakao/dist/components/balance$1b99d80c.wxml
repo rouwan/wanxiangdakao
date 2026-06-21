@@ -1,0 +1,38 @@
+<template name="balance$1b99d80c">
+  <view class="_div data-v-318f4ea8 m-ant-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-318f4ea8 m-clear-box {{[ant3 ? 'sliderIn' : '']}}">
+      <image class="_img data-v-318f4ea8 m-box-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/gift-bg(new).png"></image>
+      <view class="_div data-v-318f4ea8 c-content">
+        <view class="_div data-v-318f4ea8 c-head">答题评分</view>
+        <view class="_div data-v-318f4ea8 c-star-list">
+          <view class="_div data-v-318f4ea8 c-bg-list">
+            <image wx:key="index" key="{{index}}" class="_img data-v-318f4ea8 c-star-bg" src="/static/star-black.png" wx:for="{{starBgList}}" wx:for-index="index" wx:for-item="item"></image>
+          </view>
+          <view class="_div data-v-318f4ea8 c-act-list">
+            <image wx:key="index" key="{{index}}" class="_img data-v-318f4ea8 c-star-act {{[ant4 ? 'show-star' : '']}}" src="/static/star.png" wx:for="{{starActList}}" wx:for-index="index" wx:for-item="item"></image>
+          </view>
+        </view>
+        <view class="_div data-v-318f4ea8 c-line">
+          <view class="_div data-v-318f4ea8">战力提升</view>
+        </view>
+        <view class="_div data-v-318f4ea8 c-fight">
+          <view class="_div data-v-318f4ea8 f-old">{{oldCombat}}</view>
+          <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/arrow.png" class="_img data-v-318f4ea8"></image>
+          <view class="_div data-v-318f4ea8 f-new">{{gift.combat}}</view>
+        </view>
+        <view class="_div data-v-318f4ea8 c-num-box {{[gift.combatList.length == 1 ? 'align-center' : '']}}">
+          <view wx:key="index" key="{{index}}" wx:for="{{gift.combatList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-318f4ea8">{{fightType[item.parentType]}}{{item.combat}}</view>
+        </view>
+        <view class="_div data-v-318f4ea8 c-line">
+          <view class="_div data-v-318f4ea8">获得奖励</view>
+        </view>
+        <view class="_div data-v-318f4ea8 c-gift">
+          <image src="/static/entry/energe-normal.png" class="_img data-v-318f4ea8"></image>+{{gift.energe||0}} </view>
+      </view>
+    </view>
+    <image class="_img data-v-318f4ea8 m-box-top {{[ant1 ? 'show' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antBalance/banner.png"></image>
+    <image class="_img data-v-318f4ea8 u-sheng {{[ant2 ? 'u-word-in' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antBalance/ping.png" alt></image>
+    <image class="_img data-v-318f4ea8 u-li {{[ant2 ? 'u-word-in' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antBalance/ju.png" alt></image>
+    <view class="_div data-v-318f4ea8 tip {{[ant5 ? 'show' : '']}}">点击任意键继续</view>
+  </view>
+</template>

@@ -1,0 +1,32 @@
+<template name="quesSelect$254b5a74">
+  <view class="_div data-v-6a490c85 m-select" wx:if="{{dataReady}}">
+    <view class="_div data-v-6a490c85 select-list {{[showList ? 'listIn' : '']}}">
+      <view class="_div data-v-6a490c85 select-item {{[  item.state == 'success' ? 'success' : '',  item.hideBg && showAnswer ? 'transparent' : '',  item.state == 'fail' ? 'fail' : '',  list[currentIndex].modeType == 4 ? 'big' : '']}}" wx:key="index" key="{{index}}"
+        bindtap="handleProxy" data-eventid="{{'0-'+sIndex}}" data-comkey="{{$k}}" wx:for="{{list[currentIndex].optionList}}" wx:for-index="sIndex" wx:for-item="item">
+        <view class="_div data-v-6a490c85 select-item-txt">
+          <image wx:if="{{item.state=='success'&&item.userOne&&list[currentIndex].modeType!=4}}" class="_img data-v-6a490c85 left-img yes" src="/static/rank/yes.png" alt></image>
+          <image wx:if="{{item.state=='fail'&&item.userOne&&list[currentIndex].modeType!=4}}" class="_img data-v-6a490c85 left-img err" src="/static/rank/error.png" alt></image>
+          <view class="_div data-v-6a490c85 txt" wx:if="{{list[currentIndex].modeType!=4}}"> {{item.name}} </view>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&!item.state}}" class="_img data-v-6a490c85 select-img select-yes" src="/static/rank/b_yes.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&!item.state}}" class="_img data-v-6a490c85 select-img select-err" src="/static/rank/b_error.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&item.state}}" class="_img data-v-6a490c85 select-img select-yes" src="/static/rank/yes_w.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&item.state}}" class="_img data-v-6a490c85 select-img select-err" src="/static/rank/error_w.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&item.state=='success'&&item.hideBg&&showAnswer}}" class="_img data-v-6a490c85 select-img select-yes" src="/static/rank/icon_yes_green.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&item.state=='success'&&item.hideBg&&showAnswer}}" class="_img data-v-6a490c85 select-img select-err" src="/static/rank/icon_no_green.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&item.state=='fail'&&item.hideBg&&showAnswer}}" class="_img data-v-6a490c85 select-img select-yes" src="/static/rank/icon_yes_red.png" alt></image>
+          <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&item.state=='fail'&&item.hideBg&&showAnswer}}" class="_img data-v-6a490c85 select-img select-err" src="/static/rank/icon_no_red.png" alt></image>
+        </view>
+        <view class="_div data-v-6a490c85 select-num" wx:if="{{item.selectNum&&item.selectNum>0&&showAnswer}}">{{item.selectNum}}人</view>
+        <view class="_div data-v-6a490c85 select-mask" style=" {{item.maskWidth}}">
+          <view class="_div data-v-6a490c85 select-txt">
+            <view wx:if="{{list[currentIndex].modeType!=4}}" class="_div data-v-6a490c85"> {{item.name}} </view>
+            <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'}}" class="_img data-v-6a490c85 select-img select-yes" src="/static/rank/yes_w.png" alt></image>
+            <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'}}" class="_img data-v-6a490c85 select-img select-err" src="/static/rank/error_w.png" alt></image>
+            <view class="_div data-v-6a490c85 select-num">{{item.selectNum}}人</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-6a490c85 fail-mask" wx:if="{{showFailMask}}"></view>
+  </view>
+</template>

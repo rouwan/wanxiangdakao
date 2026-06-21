@@ -1,0 +1,121 @@
+<template name="index$4cf5f754">
+  <view class="_div data-v-1dc7a795 out-box">
+    <image class="_img data-v-1dc7a795 entry-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/entry-test.png"></image>
+    <view class="_div data-v-1dc7a795 body" wx:if="{{dataReady}}">
+      <view class="_div data-v-1dc7a795 top  flex {{[query == 'friend' ? 'friend-type' : '']}}">
+        <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{tabList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-1dc7a795 {{[currentType == item.type ? 'selected' : '']}}">{{item.name}}</view>
+        <image class="_img data-v-1dc7a795 tip-box" wx:if="{{query=='friend'}}" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/box.png" data-eventid="{{'1'}}"
+          data-comkey="{{$k}}"></image>
+      </view>
+      <view class="_div data-v-1dc7a795 bigMiddle">
+        <view class="_div data-v-1dc7a795 bigRankList" bindtap="handleProxy" wx:key="index" key="{{index}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{allList[currentType].dataList}}" wx:for-index="index" wx:for-item="data">
+          <view class="_div data-v-1dc7a795 rankList {{[currentType == 3 ? 'big' : '']}}">
+            <view class="_div data-v-1dc7a795 rank">
+              <view wx:if="{{index==0}}" class="_div data-v-1dc7a795 rank-num rank-icon rank-icon-num-1"></view>
+              <view wx:elif="{{index==1}}" class="_div data-v-1dc7a795 rank-num rank-icon rank-icon-num-2"></view>
+              <view wx:elif="{{index==2}}" class="_div data-v-1dc7a795 rank-num rank-icon rank-icon-num-3"></view>
+              <view wx:elif="{{index==3}}" class="_div data-v-1dc7a795 rank-num rank-icon rank-icon-num-4"></view>
+              <view wx:elif="{{index==4}}" class="_div data-v-1dc7a795 rank-num rank-icon rank-icon-num-5"></view>
+              <label wx:else class="_span data-v-1dc7a795">{{index+1}}</label>
+            </view>
+            <view wx:if="{{currentType!=3}}" class="_div data-v-1dc7a795 headImg">
+              <image src="{{data.headImgUrl}}" class="_img data-v-1dc7a795"></image>
+            </view>
+            <view wx:if="{{currentType!=3}}" class="_div data-v-1dc7a795 u-info">
+              <view class="_div data-v-1dc7a795 ninckName">{{data.nickName}}</view>
+              <view class="_div data-v-1dc7a795 place">{{data.province||'宇宙'}} {{data.city||'火星'}}</view>
+            </view>
+            <view wx:if="{{currentType==1||currentType==5}}" class="_div data-v-1dc7a795 paraghImg">
+              <image wx:if="{{data.paragraphImage}}" src="{{IMGHEAD+data.paragraphImage}}" class="_img data-v-1dc7a795"></image>
+            </view>
+            <view wx:if="{{currentType==1||currentType==5}}" class="_div data-v-1dc7a795 paraghStar">
+              <view class="_div data-v-1dc7a795 star">
+                <image src="/static/star.png" class="_img data-v-1dc7a795"></image>
+                <label class="_span data-v-1dc7a795">{{data.star}}</label>
+              </view>
+              <view class="_div data-v-1dc7a795 paraghName">{{data.paragraphName}}</view>
+            </view>
+            <view wx:if="{{currentType==2||currentType==6||currentType==7||currentType==8}}" class="_div data-v-1dc7a795 rank-spec">
+              <view class="_div data-v-1dc7a795 s-t" wx:if="{{currentType==2||currentType==6}}">战斗力</view>
+              <view class="_div data-v-1dc7a795 s-t" wx:if="{{currentType==7||currentType==8}}">胜场</view>
+              <view class="_div data-v-1dc7a795 s-b">
+                <image src="{{iconPos[item]}}" wx:key="iconIndex" key="{{iconIndex}}" wx:for="{{allList[currentType].numList[index]}}" wx:for-index="iconIndex" wx:for-item="item" class="_img data-v-1dc7a795"></image>
+              </view>
+            </view>
+            <view wx:if="{{currentType==4}}" class="_div data-v-1dc7a795 rank-spec">
+              <view class="_div data-v-1dc7a795 s-t">最高分</view>
+              <view class="_div data-v-1dc7a795 s-b">
+                <image src="{{iconPos[item]}}" wx:key="iconIndex" key="{{iconIndex}}" wx:for="{{allList[currentType].numList[index]}}" wx:for-index="iconIndex" wx:for-item="item" class="_img data-v-1dc7a795"></image>
+              </view>
+            </view>
+            <view class="_div data-v-1dc7a795 c-l" wx:if="{{currentType==3}}">
+              <image class="_img data-v-1dc7a795 c-head" src="{{data.headImgUrl}}"></image>
+              <view class="_div data-v-1dc7a795 c-name">{{data.nickName}}</view>
+              <view class="_div data-v-1dc7a795 c-type">连胜者</view>
+            </view>
+            <view class="_div data-v-1dc7a795 c-m" wx:if="{{currentType==3}}">
+              <view class="_div data-v-1dc7a795 c-img">
+                <image src="{{iconPos[item]}}" wx:key="iconIndex" key="{{iconIndex}}" wx:for="{{allList[currentType].numList[index]}}" wx:for-index="iconIndex" wx:for-item="item" class="_img data-v-1dc7a795"></image>
+              </view>
+              <view class="_div data-v-1dc7a795 c-tag">连胜</view>
+              <view class="_div data-v-1dc7a795 c-status stoped" wx:if="{{data.endWinUserId!=0}}">已终结</view>
+              <view class="_div data-v-1dc7a795 c-status" wx:else>未终结</view>
+            </view>
+            <view class="_div data-v-1dc7a795 c-r" wx:if="{{currentType==3}}">
+              <image wx:if="{{data.endWinUserId<0}}" class="_img data-v-1dc7a795 c-head" src="{{IMGHEAD+data.endHeadImgUrl}}"></image>
+              <image wx:elif="{{data.endWinUserId>0}}" class="_img data-v-1dc7a795 c-head" src="{{data.endHeadImgUrl}}"></image>
+              <image wx:else class="_img data-v-1dc7a795 c-head" src="/static/empty-head.png"></image>
+              <view wx:if="{{data.endWinUserId!=0}}" class="_div data-v-1dc7a795 c-name">{{data.endNickName}}</view>
+              <view wx:else class="_div data-v-1dc7a795 c-name">暂无终结者</view>
+              <view class="_div data-v-1dc7a795 c-type">终结者</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-1dc7a795 bigBottom" wx:if="{{allList[currentType].selfRank&&allList[currentType].selfRank.index}}">
+        <view class="_div data-v-1dc7a795 rank">{{allList[currentType].selfRank.index
+          < 0 ? "-":allList[currentType].selfRank.index}}</view>
+            <view class="_div data-v-1dc7a795 headImg">
+              <image src="{{allList[currentType].selfRank.headImgUrl}}" class="_img data-v-1dc7a795"></image>
+            </view>
+            <view class="_div data-v-1dc7a795 ninckName">{{allList[currentType].selfRank.nickName}}</view>
+            <view class="_div data-v-1dc7a795 paraghImg" wx:if="{{currentType==1||currentType==5}}">
+              <image wx:if="{{allList[currentType].selfRank.paragraphImage}}" src="{{IMGHEAD+ allList[currentType].selfRank.paragraphImage}}" class="_img data-v-1dc7a795"></image>
+            </view>
+            <view class="_div data-v-1dc7a795 paraghStar" wx:if="{{currentType==1||currentType==5}}">
+              <view class="_div data-v-1dc7a795 star">
+                <image src="/static/star.png" class="_img data-v-1dc7a795"></image>
+                <label class="_span data-v-1dc7a795">{{allList[currentType].selfRank.star}}</label>
+              </view>
+              <view class="_div data-v-1dc7a795 paraghName">{{allList[currentType].selfRank.paragraphName}}</view>
+            </view>
+            <view class="_div data-v-1dc7a795 b-fight" wx:if="{{currentType==2||currentType==6}}">
+              <view class="_div data-v-1dc7a795 b-l">战斗力</view>
+              <view class="_div data-v-1dc7a795 b-r">{{allList[currentType].selfRank.combat}}</view>
+            </view>
+            <view class="_div data-v-1dc7a795 b-fight" wx:if="{{currentType==4}}">
+              <view class="_div data-v-1dc7a795 b-l">最高分</view>
+              <view class="_div data-v-1dc7a795 b-r">{{allList[currentType].selfRank.maxSingleScore}}</view>
+            </view>
+            <view class="_div data-v-1dc7a795 b-fight" wx:if="{{currentType==3}}">
+              <view class="_div data-v-1dc7a795 b-l">连胜</view>
+              <view class="_div data-v-1dc7a795 b-r">{{allList[currentType].selfRank.maxContinueWinNum}}场</view>
+            </view>
+            <view class="_div data-v-1dc7a795 b-fight" wx:if="{{currentType==7||currentType==8}}">
+              <view class="_div data-v-1dc7a795 b-l">胜场</view>
+              <view class="_div data-v-1dc7a795 b-r">{{allList[currentType].selfRank.winNum}}场</view>
+            </view>
+        </view>
+      </view>
+      <view class="_div data-v-1dc7a795 mask-bg" wx:if="{{showGiftTip}}">
+        <view class="_div data-v-1dc7a795 gift-modal pos-a left-center">
+          <image class="_img data-v-1dc7a795 modal-head" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/mvp-gift.png"></image>
+          <view class="_div data-v-1dc7a795 line flex" wx:key="index" key="{{index}}" wx:for="{{giftList}}" wx:for-index="index" wx:for-item="item"> {{item.name}}
+            <image src="{{item.url}}" class="_img data-v-1dc7a795"></image> x{{item.num}} </view>
+          <view class="_div data-v-1dc7a795 text">好友榜、MVP榜每周一凌晨2点更新</view>
+          <image class="_img data-v-1dc7a795 close-btn pos-a" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/close-btn.png" bindtap="handleProxy" data-eventid="{{'3'}}"
+            data-comkey="{{$k}}"></image>
+        </view>
+      </view>
+    </view>
+</template>

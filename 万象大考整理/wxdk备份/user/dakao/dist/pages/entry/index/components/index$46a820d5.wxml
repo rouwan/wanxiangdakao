@@ -1,0 +1,80 @@
+<import src="/components/energeModal$35d818a2" />
+<import src="/components/seasonModal$69a7c820" />
+<import src="/components/menu$3796a1b0" />
+<import src="/components/adBoxNew$e02a3abe" />
+<import src="/components/day-gift$459c04b2" />
+<import src="/components/invateBox$aff69ebc" />
+<template name="index$46a820d5">
+  <view class="_div data-v-762317e4 out-box">
+    <image class="_img data-v-762317e4 entry-bg" lazy-load="true" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/entry-test.png"></image>
+    <view class="_div data-v-762317e4 wrap">
+      <view class="_div data-v-762317e4 head-menu {{[hasTipMenu ? 'hasTip' : '', !showMenu ? 'show' : '']}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-762317e4 et-img bg-menu"></view>
+      </view>
+      <view class="_div data-v-762317e4 link-menu {{[hasTipAd ? 'hasTipAd' : '', !showAdBox ? 'show' : '']}}" lazy-load="true" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-762317e4 et-img bg-ad_btn"></view>
+      </view>
+      <view class="_div data-v-762317e4 head">
+        <view class="_div data-v-762317e4 gold-box">
+          <image src="/static/gold.png" class="_img data-v-762317e4"></image> {{appInfo.money}} </view>
+        <scroll-view class="_scroll-view data-v-762317e4 season-tag" scroll-y="{{true}}" scroll-with-animation="{{true}}" scroll-into-view="{{'id'+messageIndex}}">
+          <cover-view class="_cover-view data-v-762317e4 season-mask" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"></cover-view>
+          <view class="_div data-v-762317e4 tag-inner" wx:if="{{messageList&&messageList.length>0}}" wx:key="index" key="{{index}}" id="{{'id'+index}}" wx:for="{{messageList}}" wx:for-index="index" wx:for-item="item">
+            <image wx:if="{{item.type==0}}" lazy-load="true" src="{{item.headImgUrl}}" class="_img data-v-762317e4"></image>
+            <view wx:if="{{item.type==0}}" class="_div data-v-762317e4">:</view>
+            <view wx:if="{{item.type==0}}" class="_div data-v-762317e4 tag-txt"> {{item.message}} </view>
+            <view class="_div data-v-762317e4 top" wx:if="{{item.type==1}}"> 恭喜
+              <image lazy-load="true" src="{{item.headImgUrl}}" class="_img data-v-762317e4"></image>
+              <view class="_div data-v-762317e4">{{item.nickname}}</view> 登顶
+              <image lazy-load="true" src="{{IMGHEAD+item.highParagraphImage}}" class="_img data-v-762317e4"></image>
+              <view class="_div data-v-762317e4">最强王者</view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <image class="_img data-v-762317e4 star-bg" lazy-load="true" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/star-bg.png"></image>
+      <view class="_div data-v-762317e4 icon-box">
+        <image lazy-load="true" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/dayGift.png" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_img data-v-762317e4"></image>
+        <image lazy-load="true" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/invate.png" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_img data-v-762317e4"></image>
+        <image lazy-load="true" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/lottery.png" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_img data-v-762317e4"></image>
+        <image lazy-load="true" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/rank.png" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_img data-v-762317e4"></image>
+      </view>
+      <view class="_div data-v-762317e4 content">
+        <form bindsubmit="handleProxy" report-submit="true" data-eventid="{{'8'}}" data-comkey="{{$k}}" class="_form data-v-762317e4">
+          <button bindgetuserinfo="handleProxy" bindtap="handleProxy" form-type="submit" open-type="getUserInfo" lang="zh_CN" hover-class="click-active" class="_button data-v-762317e4 rank" plain="true" data-eventid="{{'7'}}" data-comkey="{{$k}}">
+            <view class="_div data-v-762317e4">
+              <view class="_div data-v-762317e4 et-img bg-rank"></view>
+            </view>
+          </button>
+        </form>
+        <view class="_div data-v-762317e4 btn-box">
+          <view class="_div data-v-762317e4 btn-place"></view>
+          <form bindsubmit="handleProxy" report-submit="true" data-eventid="{{'10'}}" data-comkey="{{$k}}" class="_form data-v-762317e4">
+            <button form-type="submit" class="_button data-v-762317e4 btn-group" bindtap="handleProxy" hover-class="click-active" plain="true" data-eventid="{{'9'}}" data-comkey="{{$k}}">
+              <view class="_div data-v-762317e4 et-img bg-group"></view>
+            </button>
+          </form>
+          <view class="_div data-v-762317e4 btn-rank" bindtap="handleProxy" hover-class="click-active" data-eventid="{{'11'}}" data-comkey="{{$k}}">
+            <view class="_div data-v-762317e4 card">第{{newFoodCard}}关</view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-762317e4 login-page sky-bg" wx:if="{{isAuthorize=='0'}}">
+        <image lazy-load="true" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/logo.png" alt class="_img data-v-762317e4"></image>
+        <button class="_button data-v-762317e4 login-btn" bindgetuserinfo="handleProxy" open-type="getUserInfo" lang="zh_CN" data-eventid="{{'12'}}" data-comkey="{{$k}}">
+          <image lazy-load="true" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/login-btn.png" alt class="_img data-v-762317e4"></image>
+        </button>
+        <image wx:if="{{true}}" lazy-load="true" class="_img data-v-762317e4 moon" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/moon.png"></image>
+      </view>
+      <view class="_div data-v-762317e4 wx-ad {{[HUAWEI ? 'huawei' : '']}}">
+        <ad unit-id="adunit-1f1cc70776e2e407" class="_ad data-v-762317e4"></ad>
+      </view>
+      <template wx:if="{{showEnerge}}" bindclose="handleProxy" data-eventid="{{'13'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="energeModal$35d818a2"></template>
+      <template wx:if="{{showSeason}}" bindclose="handleProxy" data-eventid="{{'14'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="seasonModal$69a7c820"></template>
+      <template wx:if="{{showMenu}}" bindinvateBox="handleProxy" bindshowModal="handleProxy" bindclose="handleProxy" data-eventid="{{'15'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'4'], $root}}" is="menu$3796a1b0"></template>
+      <template wx:if="{{showAdBox}}" bindclose="handleProxy" data-eventid="{{'16'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'5'], $root}}" is="adBoxNew$e02a3abe"></template>
+      <template wx:if="{{showDayGfit}}" bindclose="handleProxy" data-eventid="{{'17'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'6'], $root}}" is="day-gift$459c04b2"></template>
+      <template wx:if="{{showInvateBox}}" bindclose="handleProxy" data-eventid="{{'18'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'7'], $root}}" is="invateBox$aff69ebc"></template>
+    </view>
+  </view>
+</template>

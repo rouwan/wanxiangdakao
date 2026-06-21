@@ -1,0 +1,19 @@
+<template name="gift-box$187d0eb6">
+  <view class="_div data-v-059b0380 gift-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <image class="_img data-v-059b0380 light-bg {{[showBg ? 'show' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/giftAnt/box-light.png"></image>
+    <image class="_img data-v-059b0380 box-head {{[showEl ? 'show' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/giftAnt/box-head.png"></image>
+    <view class="_div data-v-059b0380 book-wrap {{[showEl ? 'show' : '', showBook ? 'antBook' : '']}}" wx:if="{{bookListFormat.length>0}}">
+      <view class="_div data-v-059b0380 book" wx:key="index" key="{{index}}" wx:for="{{bookListFormat}}" wx:for-index="index" wx:for-item="item">
+        <image wx:if="{{!isMaxLv}}" src="{{bookMap[item.type].img}}" class="_img data-v-059b0380"></image>
+        <view wx:if="{{!isMaxLv}}" class="_div data-v-059b0380 book-name">{{bookMap[item.type].name}}X{{item.num}}</view>
+        <image wx:if="{{isMaxLv}}" src="{{bottleMap[item.type].img}}" class="_img data-v-059b0380"></image>
+        <view wx:if="{{isMaxLv}}" class="_div data-v-059b0380 book-name">{{bottleMap[item.type].name}}X{{item.num}}</view>
+      </view>
+    </view>
+    <view class="_div data-v-059b0380 box-wrap {{[antBox ? 'box-shake' : '']}}">
+      <image class="_img data-v-059b0380 b-b {{[antBoxBottom ? 'boxBottomAnt' : '']}}" src="{{boxMap[type].bottom}}"></image>
+      <image class="_img data-v-059b0380 b-l {{[showBook ? 'show' : '']}}" src="{{boxMap[type].light}}"></image>
+      <image class="_img data-v-059b0380 b-t {{[antBoxTop ? 'boxTopAnt' : '']}}" src="{{boxMap[type].top}}"></image>
+    </view>
+  </view>
+</template>

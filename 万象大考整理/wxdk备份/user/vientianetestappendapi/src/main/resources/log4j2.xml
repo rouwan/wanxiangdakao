@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <properties>
+        <property name="LOG_HOME">logs</property>
+        <property name="FILE_NAME">mylog</property>
+    </properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${LOG_HOME}/${FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+            </Policies>
+            <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+        <Async name="AsyncAppender">
+            <AppenderRef ref="RollingRandomAccessFile"/>
+        </Async>
+    </Appenders>
+
+    <Loggers>
+
+    </Loggers>
+
+    <Loggers>
+        <Logger name="com.example" level="debug"/>
+        <Root level="warn">
+            <AppenderRef ref="AsyncAppender"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

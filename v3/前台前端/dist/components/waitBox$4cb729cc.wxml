@@ -1,0 +1,52 @@
+<template name="waitBox$4cb729cc">
+  <view class="_div data-v-262b6a68 m-match-box sky-bg-2">
+    <view class="_div data-v-262b6a68 u-match-type">{{mactchType}}</view>
+    <view class="_div data-v-262b6a68 u-user-box">
+      <view class="_div data-v-262b6a68 u-left">
+        <view class="_div data-v-262b6a68 u-head">
+          <image src="{{appInfo.headImgUrl}}" alt class="_img data-v-262b6a68"></image>
+        </view>
+        <view class="_div data-v-262b6a68 u-medal">
+          <image wx:if="{{appInfo.image}}" src="{{IMGHEAD+appInfo.image}}" class="_img data-v-262b6a68"></image>
+          <view class="_div data-v-262b6a68 u-name">{{appInfo.nickname}}</view>
+          <view class="_div data-v-262b6a68 u-medal-name">{{appInfo.paragraphName}}</view>
+        </view>
+      </view>
+      <image class="_img data-v-262b6a68 u-lighting" src="/static/lighting.png" alt></image>
+      <view class="_div data-v-262b6a68 u-right">
+        <view class="_div data-v-262b6a68 u-ant" wx:if="{{other&&!other.basicInfo}}">
+          <view class="_div data-v-262b6a68 u-ant-head">
+            <view class="_div data-v-262b6a68 u-ant-big-cycle">
+              <image class="_img data-v-262b6a68 u-big-star" src="/static/big-star.png" alt></image>
+            </view>
+            <view class="_div data-v-262b6a68 u-ant-cycle">
+              <image class="_img data-v-262b6a68 u-small-star" src="/static/small-star.png" alt></image>
+            </view>
+            <view class="_div data-v-262b6a68 u-ant-cycle-fill">
+              <view class="_div data-v-262b6a68 u-ant-dot"></view>
+              <view class="_div data-v-262b6a68 u-ant-dot"></view>
+              <view class="_div data-v-262b6a68 u-ant-dot"></view>
+            </view>
+          </view>
+          <view class="_div data-v-262b6a68 u-ant-medal"></view>
+        </view>
+        <view class="_div data-v-262b6a68 u-data" wx:if="{{other&&other.basicInfo}}">
+          <view class="_div data-v-262b6a68 u-head">
+            <image src="{{other.basicInfo.avatarUrl}}" alt class="_img data-v-262b6a68"></image>
+          </view>
+          <view class="_div data-v-262b6a68 u-medal">
+            <image src="{{IMGHEAD+other.abilityInfo.paragraphImage}}" class="_img data-v-262b6a68"></image>
+            <view class="_div data-v-262b6a68 u-name">{{other.basicInfo.nickName}}</view>
+            <view class="_div data-v-262b6a68 u-medal-name">{{other.abilityInfo.paragraphName}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-262b6a68 u-match-tag">
+      <view class="_div data-v-262b6a68 u-tag-normal">匹配到了一位</view>
+      <view class="_div data-v-262b6a68 u-tag-spec" wx:if="{{!match}}" style=" {{wordColor}}">{{randomList[randomNum]}}</view>
+      <view class="_div data-v-262b6a68 u-tag-spec" wx:else style=" {{wordColor}}">{{staticList[staticRandomNum]}}{{sex}}</view>
+    </view>
+    <view wx:if="{{!isMatched}}" class="_div data-v-262b6a68 btn" catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">取消匹配</view>
+  </view>
+</template>

@@ -1,0 +1,6 @@
+<template name="index$11175a98">
+  <view class="_div data-v-736c8812">
+    <view style="font-size:50rpx;" class="_div data-v-736c8812">{{value}}</view>
+    <button bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_button data-v-736c8812">点击测试</button>
+  </view>
+</template>

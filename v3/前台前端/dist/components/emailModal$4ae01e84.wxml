@@ -1,0 +1,41 @@
+<import src="/components/get-gift$2693dc25" />
+<template name="emailModal$4ae01e84">
+  <view class="_div data-v-04553d05 m-modal">
+    <view class="_div data-v-04553d05 u-modal-inner">
+      <view class="_div data-v-04553d05 close" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+      <view class="_div data-v-04553d05 u-head">
+        <view class="_div data-v-04553d05">邮件</view>
+        <image class="_img data-v-04553d05 u-head-img" src="/static/modal-bg.png" alt></image>
+      </view>
+      <view class="_div data-v-04553d05 u-content">
+        <view class="_div data-v-04553d05 u-content-inner">
+          <view class="_div data-v-04553d05 u-email {{[showIndex == index ? 'show-inner' : '']}}" wx:key="index" key="{{index}}" wx:for="{{emailList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-04553d05 u-email-head">
+              <image class="_img data-v-04553d05 gift" src="/static/icon/gift.png"></image>
+              <view class="_div data-v-04553d05 u-basic-info">
+                <view class="_div data-v-04553d05 u-title">{{item.title}}</view>
+                <view class="_div data-v-04553d05 u-time">{{item.createTime}}</view>
+              </view>
+              <view class="_div data-v-04553d05 u-btn u-btn-samll u-btn-red" wx:if="{{item.isReceive==0&&item.gift&&showIndex==index}}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">领取</view>
+              <view class="_div data-v-04553d05 u-btn u-btn-samll u-btn-green" wx:if="{{showIndex!=index}}" bindtap="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}">查看</view>
+              <view class="_div data-v-04553d05 u-btn u-btn-samll u-btn-green" wx:if="{{(showIndex==index&&!item.gift)||(item.gift&&item.isReceive==1&&showIndex==index)}}" bindtap="handleProxy" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}">收回</view>
+            </view>
+            <view class="_div data-v-04553d05 u-email-content">
+              <view class="_div data-v-04553d05 u-txt">亲爱的用户:</view>
+              <view class="_div data-v-04553d05 u-txt u-txt-indent">{{item.content}}</view>
+              <view class="_div data-v-04553d05 u-gift" wx:if="{{item.gift&&item.isReceive==0}}">
+                <view class="_div data-v-04553d05 u-gift-item" wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[index]}}" wx:for-index="gIndex" wx:for-item="good">
+                  <image src="{{goodMap[good.type]}}" class="_img data-v-04553d05"></image>
+                  <view class="_div data-v-04553d05 u-gift-num">{{good.num}}</view>
+                </view>
+              </view>
+            </view>
+            <image class="_img data-v-04553d05 u-back" src="/static/icon/back.png" bindtap="handleProxy" data-eventid="{{'4-'+index}}" data-comkey="{{$k}}"></image>
+          </view>
+        </view>
+        <view class="_div data-v-04553d05 u-tip">邮件只保存7天</view>
+      </view>
+    </view>
+    <template wx:if="{{showGetGift}}" bindclose="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="get-gift$2693dc25"></template>
+  </view>
+</template>

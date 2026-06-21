@@ -1,0 +1,20 @@
+<template name="index$544b6984">
+  <view class="_div data-v-6220ac63 body sky-bg">
+    <view class="_div data-v-6220ac63 top">
+      <view class="_div data-v-6220ac63 title">题目纠错</view>
+    </view>
+    <view class="_div data-v-6220ac63 middle">
+      <view class="_div data-v-6220ac63 typeList">
+        <view class="_div data-v-6220ac63 type {{[index == selectType ? 'selectType' : '']}}" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{typeList}}" wx:for-index="index" wx:for-item="type">{{type}}</view>
+      </view>
+    </view>
+    <view class="_div data-v-6220ac63 bottom">
+      <view class="_div data-v-6220ac63 title">详细情况</view>
+      <view class="_div data-v-6220ac63 remark">
+        <textarea maxlength="300" placeholder="我有意见" class="_textarea data-v-6220ac63 remarkText" value="{{remark}}" bindinput="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" />
+      </view>
+      <view class="_div data-v-6220ac63 submitBtn" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">提交</view>
+    </view>
+    <image class="_img data-v-6220ac63 moon" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/moon.png"></image>
+  </view>
+</template>

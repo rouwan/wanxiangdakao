@@ -1,0 +1,25 @@
+<template name="index$3d1b3200">
+  <view class="_div data-v-d13f413e m-talk sky-bg">
+    <view class="_div data-v-d13f413e u-text">
+      <input type="text" value="{{msgValue}}" bindinput="handleProxy" class="_input data-v-d13f413e u-input" data-eventid="{{'0'}}" data-comkey="{{$k}}" />
+      <view class="_div data-v-d13f413e u-submit" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">提交</view>
+    </view>
+    <scroll-view class="_scroll-view data-v-d13f413e u-scroll" scroll-y="true" scroll-with-animation="true" bindscrolltolower="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-d13f413e u-msg" wx:if="{{item.message}}" bindtap="handleProxy" wx:key="index" key="{{index}}" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}" wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-d13f413e u-user" wx:if="{{item.type==0}}">
+          <image src="{{IMGHEAD+item.paragraphImage}}" class="_img data-v-d13f413e"></image>
+          <view class="_div data-v-d13f413e u-medal-name">{{item.paragraphName}}</view> {{item.nickname}} </view>
+        <image src="{{item.headImgUrl}}" wx:if="{{item.type==0}}" class="_img data-v-d13f413e"></image>
+        <view wx:if="{{item.type==0}}" class="_div data-v-d13f413e u-txt">{{item.message}}</view>
+        <view class="_div data-v-d13f413e top" wx:if="{{item.type==1}}"> 恭喜
+          <image src="{{item.headImgUrl}}" class="_img data-v-d13f413e"></image>
+          <view class="_div data-v-d13f413e">{{item.nickname}}</view> 登顶
+          <image src="{{IMGHEAD+item.highParagraphImage}}" class="_img data-v-d13f413e"></image>
+          <view class="_div data-v-d13f413e">最强王者</view>
+        </view>
+      </view>
+      <image class="_img data-v-d13f413e story" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/story-icon.jpg" data-eventid="{{'3'}}" data-comkey="{{$k}}"></image>
+      <image class="_img data-v-d13f413e red-bag" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/redBag.png" data-eventid="{{'4'}}" data-comkey="{{$k}}"></image>
+    </scroll-view>
+  </view>
+</template>

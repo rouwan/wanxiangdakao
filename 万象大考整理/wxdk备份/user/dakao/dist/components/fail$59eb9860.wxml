@@ -1,0 +1,39 @@
+<template name="fail$59eb9860">
+  <view class="_div data-v-db8087fc m-ant-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-db8087fc m-clear-box {{[ant3 ? 'sliderIn' : '']}}">
+      <image class="_img data-v-db8087fc m-box-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/gift-bg(new).png"></image>
+      <view class="_div data-v-db8087fc c-content">
+        <view class="_div data-v-db8087fc c-head">答题评分</view>
+        <view class="_div data-v-db8087fc c-star-list">
+          <view class="_div data-v-db8087fc c-bg-list">
+            <image wx:key="index" key="{{index}}" class="_img data-v-db8087fc c-star-bg" src="/static/star-black.png" wx:for="{{starBgList}}" wx:for-index="index" wx:for-item="item"></image>
+          </view>
+          <view class="_div data-v-db8087fc c-act-list">
+            <image wx:key="index" key="{{index}}" class="_img data-v-db8087fc c-star-act {{[ant4 ? 'show-star' : '']}}" src="/static/star.png" wx:for="{{starActList}}" wx:for-index="index" wx:for-item="item"></image>
+          </view>
+        </view>
+        <view class="_div data-v-db8087fc c-line">
+          <view class="_div data-v-db8087fc">战力提升</view>
+        </view>
+        <view class="_div data-v-db8087fc c-fight">
+          <view class="_div data-v-db8087fc f-old">{{oldCombat}}</view>
+          <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/arrow.png" class="_img data-v-db8087fc"></image>
+          <view class="_div data-v-db8087fc f-new">{{gift.combat}}</view>
+        </view>
+        <view class="_div data-v-db8087fc c-num-box {{[gift.combatList.length == 1 ? 'align-center' : '']}}">
+          <view wx:key="index" key="{{index}}" wx:for="{{gift.combatList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-db8087fc">{{fightType[item.parentType]}}{{item.combat}}</view>
+        </view>
+        <view class="_div data-v-db8087fc c-line">
+          <view class="_div data-v-db8087fc">获得奖励</view>
+        </view>
+        <view class="_div data-v-db8087fc c-gift">
+          <image src="/static/entry/energe-normal.png" class="_img data-v-db8087fc"></image>+{{gift.energe||0}} </view>
+      </view>
+    </view>
+    <image class="_img data-v-db8087fc m-box-top {{[ant1 ? 'show' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antFail/banner.png"></image>
+    <image class="_img data-v-db8087fc u-sheng {{[ant2 ? 'u-word-in' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antFail/shi.png" alt></image>
+    <image class="_img data-v-db8087fc u-li {{[ant2 ? 'u-word-in' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antFail/bai.png" alt></image>
+    <image class="_img data-v-db8087fc u-star {{[ant5 ? 'u-star-in' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antFail/snow-mask.png"></image>
+    <view class="_div data-v-db8087fc tip {{[ant6 ? 'show' : '']}}">点击任意键继续</view>
+  </view>
+</template>

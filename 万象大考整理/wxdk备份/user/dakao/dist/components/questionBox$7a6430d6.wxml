@@ -1,0 +1,37 @@
+<import src="/components/timeCount$dffe1a5a" />
+<import src="/components/answerList$ff0e438a" />
+<template name="questionBox$7a6430d6">
+  <view class="_div data-v-4ec69c62 question-box {{[gamePageType == 1 ? 'blue-type' : '']}}">
+    <view class="_div data-v-4ec69c62 head-box">
+      <view class="_div data-v-4ec69c62 u-head-left {{[showHead ? 'head-in' : '']}}">
+        <image class="_img data-v-4ec69c62 u-img" src="{{myHeadInfo.headImg}}" alt></image>
+        <view class="_div data-v-4ec69c62 u-info">
+          <view class="_div data-v-4ec69c62 u-head-name">{{myHeadInfo.name}}</view>
+          <view class="_div data-v-4ec69c62 u-head-sore">{{myScore.score||0}}</view>
+        </view>
+        <image class="_img data-v-4ec69c62 emoji-btn" src="/static/icon/emojiBtn.png" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+        <view class="_div data-v-4ec69c62 emoji-box" wx:if="{{showEmojiBox}}">
+          <image wx:key="index" key="{{index}}" src="{{item}}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{emojiList}}" wx:for-index="index" wx:for-item="item" class="_img data-v-4ec69c62"></image>
+        </view>
+      </view>
+      <view class="_div data-v-4ec69c62 u-head-right {{[showHead ? 'head-in' : '']}}">
+        <view class="_div data-v-4ec69c62 u-info">
+          <view class="_div data-v-4ec69c62 u-head-name">{{otherHeadInfo.name}}</view>
+          <view class="_div data-v-4ec69c62 u-head-sore">{{otherScore.score||0}}</view>
+        </view>
+        <image class="_img data-v-4ec69c62 u-img" src="{{otherHeadInfo.headImg}}" alt></image>
+      </view>
+      <view class="_div data-v-4ec69c62 round-cvs" wx:if="{{showTime}}">
+        <template data="{{...$root[$kk+'0'], $root}}" is="timeCount$dffe1a5a"></template>
+      </view>
+    </view>
+    <image class="_img data-v-4ec69c62 antEomji left130 {{[showEmojiMe ? 'sendAnt' : '']}}" src="{{emojiList[emojiIndexMe]}}"></image>
+    <image class="_img data-v-4ec69c62 antEomji right130 {{[showEmojiHe ? 'sendAnt-r' : '']}}" src="{{emojiList[emojiIndexHe]}}"></image>
+    <view class="_div data-v-4ec69c62 main-conent">
+      <view wx:if="{{showAnsList}}" class="_div data-v-4ec69c62">
+        <template bindshowSelectComplete="handleProxy" bindsuccess="handleProxy" bindfail="handleProxy" bindansTimeOut="handleProxy" bindansStart="handleProxy" bindnextQuestion="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}"
+          is="answerList$ff0e438a"></template>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,159 @@
+前端
+项目路径：\game-front-xcx\mp-dakao\dakao\dakao
+构建
+终端-安装依赖》npm install 
+终端-运行项目》npm run dev
+终端项目终止》ctrl+c
+
+WebSocket服务
+修改》src/pages/game/index.uve299  "wss://ggbsq.xingpanwang.com/vientianetest/ws?code=" +
+更改为》url ="ws://127.0.0.1:8008/vientianetest/ws?code=" +
+修改》src/pages/game/index.uve312  "wss://ggbsq.xingpanwang.com/vientianetest/wsRank?code=" +
+=》更改为 "ws://127.0.0.1:8008/vientianetest/wsRank?code=" +
+=》需要Socket服务的支持
+
+无法对人对战：
+src/store/websocket.js
+文件136行 将ws://ggbsq.xingpanwang.com改为wss://ggbsq.xingpanwang.com
+Ws域名不合法==
+
+
+接口请求地址src/config/flyio.js
+修改13行 // fly.config.baseURL = "http://192.168.0.14:8009/vientianetest/mobile/" // 开发调试  
+更改为》fly.config.baseURL = "http://106.53.219.11:8009/vientianetest/mobile/" // 开发调试 
+备注》接口地址的请求
+修改17行 // fly.config.baseURL = "https://ggbsq.xingpanwang.com/vientianetest/mobile/" // 测试外网
+更改为》 fly.config.baseURL = "http://106.53.219.11:8009/vientianetest/mobile/" // 开发调试 
+
+备注》修改完后要重新启动  终端》npm run dev
+
+
+
+日志输出禁用
+报错》：ald-stat.js:1 GET https://log.aldwx.com/d.html?br=devtools&pm=iPhone%2012%2F13%20(Pro)&pr=3。。。。
+原因》ald不提供服务了
+
+问题文件static/sdk/ald-stat.js
+解决》注释src/main.js文件地一样//import '../static/sdk/ald-stat'
+
+
+跳过登录
+
+
+按钮更改按钮图片 src\pages\entry\index.vue-142行，登录图片注释，添加文字点击进入游戏 or更换一张图片
+文字更改src\pages\entry\index.vue-615行改为正在进入游戏
+Api接口
+Springboot项目构建
+依赖下载>Pom.Xml
+
+打包》idea终端》mvn clean package
+项目配置文件
+配置微信测试的appid和aecret
+更改为》
+    appid: wx1cddc59f845d6489
+secret: 78e87c19791d9f423e5af2e0849d8937
+备注》用户开发小程序的appid和secret在微信公众平台 登录后获取
+
+数据库
+配置中不校验ssl
+    url: jdbc:mysql://101.132.104.79:3306/smalldo?useSSL=false&serverTimezone=UTC
+    username: appuser
+    password: Xcx_2018
+备注》账号、密码、数据库地址、数据库名字要正确
+
+Redis服务
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: test123
+    timeout: 60000
+环境需要启动redis服务，windows启动环境参考redis/redis配置文档，
+》redis.windows.conf文件-打开-添加密码=》requirepass test123
+》配置参考网址=》https://blog.csdn.net/m0_71202849/article/details/137586973
+》打开进入cmd=》redis文件位置==》redis-server.exe redis.windows.conf
+》==》挂着窗口不关闭
+》打开另一个cmd窗口
+》没有密码=》redis-cli.exe
+》有密码=》redis-cli -h 127.0.0.1 -p 6379 -a 密码
+》有密码=》redis-cli -h 127.0.0.1 -p 6379 -a test123
+》=测试=》127.0.0.1:6379> ping
+》==成功=》pong
+Linux系统配置需要前往官网下载redis的linux版本，并且使用linux的相关命令来配置
+
+备注》端口信息、地址、密码要正确
+
+验证
+Api接口》直接网址打开看是否会显示数据或者页面信息
+前端》图片地址是否能正常访问，是否向有向后端发起请求，后端有没有返回结果
+
+
+云服务器
+在opt/app/lxb_wxdkgame下执行了
+启动》nohup java -jar /opt/app/lxb_wxdkgame/vientianetestapi.jar &
+测试》 java -jar /opt/app/lxb_wxdkgame/vientianetestapi.jar
+
+执行结果不清楚只是没报错
+关闭java程序
+使用jps -l 列出java程序  查看PID
+然后使用kill -SIGTERM PID关闭java程序或者 kill PID关闭程序
+
+=》 java -jar /opt/app/lxb_wxdkgame/vientianetestapi.jar
+执行后，看到redis没设置密码后在本地将redis的密码注释掉后重新打包上传服务器，并用 
+=》java -jar /opt/app/lxb_wxdkgame/vientianetestapi.jar
+执行，显示执行结果正常，但是本地小程序访问向https://ggbsq.xingpanwang.com/vientianetest/mobile/login?code=0f304LFa1jJ6OH0GsIHa1924Yu304LFA
+的登录请求返回502， 通过网址的检查发现地址指向101.132.104.79：443
+使用netstat -tuln检查发现8009端口有开启==可能需要做一个端口映射==》nginx配置文件里写代理请求
+
+使用curl http://127.0.0.1:8009/vientianetest/mobile/login?code=0c35P1100T3ZtS1fee300wt7Ya45P11M测试网络连接发现有数据返回【{"Message":"","Result":{"code":"dc27d98304131fa45f59205ff8f08339231b80c80c70fa9e40d4dab9b55d2e145dfefcb8226a4a13","Ve                                                          rsion":0,"userId":39917},"SessionId":"b2b0d25b-0cc6-4d7d-9617-61f7cb8d6f4f","Tag":1,"TotalCount":0,"Type":0}】
+修改本地的端口为8008 打包后上传服务器，且云服务器的nginx上有对应的文件配置，执行命令
+=》nohup java -jar /opt/app/lxb_wxdkgame/vientianetestapi.jar &
+本地向云服务器的小程序访问正常
+
+
+2=》 ps -ef|grep /[v]ientianetestapi执行没有任何返回
+3查看Java进程=》ps -ef | grep java
+发现Vientianetestapi.Jar有在执行
+4网址访问=》https://ggbsq.xingpanwang.com/vientianetest/mobile/login
+返回502  小程序登录也时返回502 
+5=》查看端口netstat -tuln
+结果》
+
+命令功能	命令	结果
+查看端口	netstat -tuln	
+查看java进程	ps -ef | grep java	不如使用jps -l
+查看Java进程	Jps -l	Pid和jar的包名
+根据pid关闭程序	kill -SIGTERM 13940或者 kill 13940	
+		
+
+
+
+nginx的配置
+代理到不同本地端口的请求，例如 8004、8005、8006、8007、8008、8009、8010。
+疑似配置代码
+
+	 location ^~ /vientianetest/ {
+            proxy_pass http://localhost:8008;
+            proxy_set_header Host $host;
+            proxy_read_timeout 3600s;
+	    proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+小程序登录
+微信扫码登录：xlys006
+
+多人对战
+问题描述：向好友发起邀请，好友点击链接无法转跳到房间，不能一起组队
+测试：
+使用本地地址127.0.0.1：8008测试可以进行多人对战具体修改位置为src/store/websocket.js
+文件136行
+发现问题： ws://ggbsq.xingpanwang.com 不在以下 socket 合法域名列表中
+将其修改为 wss://ggbsq.xingpanwang.com 可以在组队页面显示用户
+
+用户领取双倍奖励
+问题描述：用户领取双倍奖励后在次领取双倍奖励依然有效
+【万象大考域名证书更新】
+Key和pem文件上传到服务器上替换原来的文件，不知道文件位置可以看nginx配置的位置在什么地方，替换完成后执行sudo nginx -s reload 重载nginx配置

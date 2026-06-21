@@ -1,0 +1,30 @@
+<template name="seasonModal$3a89f040">
+  <view class="_div data-v-9e6a9a8a m-modal" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-9e6a9a8a u-modal-inner" wx:if="{{showInner}}">
+      <view class="_div data-v-9e6a9a8a u-head">
+        <view class="_div data-v-9e6a9a8a">赛季奖励</view>
+        <image class="_img data-v-9e6a9a8a u-head-img" src="/static/modal-bg.png"></image>
+      </view>
+      <view class="_div data-v-9e6a9a8a u-content">
+        <view class="_div data-v-9e6a9a8a u-tt">{{year}}年{{month}}月赛季段位</view>
+        <image wx:if="{{seasonData.paragraphImage}}" class="_img data-v-9e6a9a8a u-medal" src="{{IMGHEAD+seasonData.paragraphImage}}"></image>
+        <view class="_div data-v-9e6a9a8a u-medal-name">{{seasonData.paragraphName}}</view>
+        <view class="_div data-v-9e6a9a8a u-line">
+          <view class="_div data-v-9e6a9a8a line-txt">获得奖励</view>
+        </view>
+        <view class="_div data-v-9e6a9a8a u-gift-list">
+          <view class="_div data-v-9e6a9a8a gift-item" wx:key="index" key="{{index}}" wx:for="{{giftList[gIndex]}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{goodsMap[item.type].url}}" class="_img data-v-9e6a9a8a"></image>
+            <view class="_div data-v-9e6a9a8a gift-num">{{item.num}}</view>
+          </view>
+        </view>
+        <view class="_div data-v-9e6a9a8a u-confirm" catchtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">确定</view>
+      </view>
+    </view>
+    <view class="_div data-v-9e6a9a8a get-gift" wx:if="{{seasonData.paragraph&&showGift}}">
+      <view class="_div data-v-9e6a9a8a img-box {{[showAnt ? 'showAnt' : '']}}">
+        <image class="_img data-v-9e6a9a8a box-bg" src="/static/icon/gift-light.png" alt></image>
+        <image class="_img data-v-9e6a9a8a img-gift" src="{{goodsMap[giftList[gIndex][showIndex].type].url}}"></image>
+      </view> {{goodsMap[giftList[gIndex][showIndex].type].name}}X{{giftList[gIndex][showIndex].num}} </view>
+  </view>
+</template>

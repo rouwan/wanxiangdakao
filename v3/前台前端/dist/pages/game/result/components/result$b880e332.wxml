@@ -1,0 +1,89 @@
+<template name="result$b880e332">
+  <view class="_div data-v-d64d4e30 result sky-bg-3" wx:if="{{dataReady}}">
+    <view class="_div data-v-d64d4e30 inner">
+      <view class="_div data-v-d64d4e30 r-head">
+        <view class="_div data-v-d64d4e30 r-user-head {{[  myInfo.abilityInfo.score > otherInfo.abilityInfo.score || oRun    ? 'success-type'    : '']}}">
+          <image class="_img data-v-d64d4e30 crown" src="/static/crown.png"></image>
+          <image class="_img data-v-d64d4e30 r-user-img" src="{{myInfo.basicInfo.avatarUrl}}" alt></image>
+          <view class="_div data-v-d64d4e30 r-user-name">{{myInfo.basicInfo.nickName}}</view>
+          <view class="_div data-v-d64d4e30 r-user-score">{{myInfo.abilityInfo.score||0}}</view>
+        </view>
+        <view class="_div data-v-d64d4e30 r-r">
+          <image wx:if="{{myInfo.abilityInfo.score>otherInfo.abilityInfo.score||oRun}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/success-head.png" alt class="_img data-v-d64d4e30"></image>
+          <image wx:if="{{myInfo.abilityInfo.score<otherInfo.abilityInfo.score}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/fail-head.png" alt class="_img data-v-d64d4e30"></image>
+          <image wx:if="{{(myInfo.abilityInfo.score==otherInfo.abilityInfo.score)&&!oRun}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/balance-head.png" alt class="_img data-v-d64d4e30"></image>
+          <view wx:if="{{myInfo.abilityInfo.continueWinNum>1}}" class="_div data-v-d64d4e30">
+            <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/feather_l.png" alt class="_img data-v-d64d4e30"></image> {{myInfo.abilityInfo.continueWinNum}}连胜
+            <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/feather_r.png" alt class="_img data-v-d64d4e30"></image>
+          </view>
+        </view>
+        <view class="_div data-v-d64d4e30 r-user-head {{[otherInfo.abilityInfo.score > myInfo.abilityInfo.score ? 'success-type' : '']}}">
+          <image class="_img data-v-d64d4e30 crown" src="/static/crown.png"></image>
+          <view class="_div data-v-d64d4e30 r-user-img-box">
+            <image class="_img data-v-d64d4e30 r-user-img" wx:if="{{otherInfo.boot}}" src="{{IMGHEAD+otherInfo.basicInfo.avatarUrl}}"></image>
+            <image class="_img data-v-d64d4e30 r-user-img" wx:else src="{{otherInfo.basicInfo.avatarUrl}}"></image>
+            <view class="_div data-v-d64d4e30 r-user-run" wx:if="{{oRun}}">逃跑</view>
+          </view>
+          <view class="_div data-v-d64d4e30 r-user-name">{{otherInfo.basicInfo.nickName}}</view>
+          <view class="_div data-v-d64d4e30 r-user-score">{{otherInfo.abilityInfo.score||0}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-d64d4e30 game-table">
+        <view class="_div data-v-d64d4e30 t-head">
+          <image src="{{IMGHEAD+myInfo.abilityInfo.paragraphImage}}" class="_img data-v-d64d4e30"></image> {{myInfo.abilityInfo.paragraphName}}
+          <view class="_div data-v-d64d4e30 vs">VS</view> {{otherInfo.abilityInfo.paragraphName}}
+          <image src="{{IMGHEAD+otherInfo.abilityInfo.paragraphImage}}" class="_img data-v-d64d4e30"></image>
+        </view>
+        <view class="_div data-v-d64d4e30 t-line" wx:key="index" key="{{index}}" wx:for="{{myAnsList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-d64d4e30">
+            <image wx:if="{{item.type==1}}" src="/static/yes.png" class="_img data-v-d64d4e30"></image>
+            <image wx:if="{{item.type==2}}" src="/static/err.png" class="_img data-v-d64d4e30"></image>
+            <image wx:if="{{item.type==0}}" src="/static/none.png" class="_img data-v-d64d4e30"></image>
+            <view class="_div data-v-d64d4e30 t-score">{{item.score}}
+              <view class="_div data-v-d64d4e30 b-score" wx:if="{{item.score>0}}">+{{item.bookScore}}</view>
+            </view>
+          </view>
+          <view class="_div data-v-d64d4e30">
+            <view class="_div data-v-d64d4e30 t-score">{{otherAnsList[index].score}}
+              <view class="_div data-v-d64d4e30 b-score" wx:if="{{otherAnsList[index].score>0}}">+{{otherAnsList[index].bookScore}}</view>
+            </view>
+            <image wx:if="{{otherAnsList[index].type==1}}" src="/static/yes.png" class="_img data-v-d64d4e30"></image>
+            <image wx:if="{{otherAnsList[index].type==2}}" src="/static/err.png" class="_img data-v-d64d4e30"></image>
+            <image wx:if="{{otherAnsList[index].type==0}}" src="/static/none.png" class="_img data-v-d64d4e30"></image>
+          </view>
+        </view>
+        <view class="_div data-v-d64d4e30 t-divition">
+          <view class="_div data-v-d64d4e30">{{questionType[gameRecord.Result.subjectList[0].parentType]}}</view>
+          <view class="_div data-v-d64d4e30">{{questionType[gameRecord.Result.subjectList[1].parentType]}}</view>
+          <view class="_div data-v-d64d4e30">{{questionType[gameRecord.Result.subjectList[2].parentType]}}</view>
+          <view class="_div data-v-d64d4e30">{{questionType[gameRecord.Result.subjectList[3].parentType]}}</view>
+          <view class="_div data-v-d64d4e30">{{questionType[gameRecord.Result.subjectList[4].parentType]}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-d64d4e30 btn-box">
+      <view class="_div data-v-d64d4e30 btn-game" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"> 再玩一局 </view>
+      <view wx:if="{{!oRun}}" class="_div data-v-d64d4e30 btn-back" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"> 本局回顾 </view>
+      <view wx:if="{{myInfo.abilityInfo.score<=otherInfo.abilityInfo.score}}" class="_div data-v-d64d4e30 btn-book" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"> 知识升级 </view>
+      <button wx:if="{{myInfo.abilityInfo.score>otherInfo.abilityInfo.score}}" plain="true" class="_button data-v-d64d4e30 btn-share" open-type="share"> 分享战绩 </button>
+    </view>
+    <view class="_div data-v-d64d4e30 ad-box">
+      <ad unit-id="adunit-aa03c7a8d0838a81" class="_ad data-v-d64d4e30"></ad>
+    </view>
+    <view class="_div data-v-d64d4e30 advice-modal" wx:if="{{showModal}}">
+      <view class="_div data-v-d64d4e30 mask"></view>
+      <view class="_div data-v-d64d4e30 modal">
+        <view class="_div data-v-d64d4e30 close" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"></view>
+        <view class="_div data-v-d64d4e30 head"> 举报玩家
+          <image src="/static/modal-bg.png" alt class="_img data-v-d64d4e30"></image>
+        </view>
+        <view class="_div data-v-d64d4e30 content">请您选择相应的举报类型,我们会尽快审查和处理,您的反馈是对我们最大的支持。</view>
+        <view class="_div data-v-d64d4e30 select-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'4-'+index}}" data-comkey="{{$k}}" wx:for="{{selectList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-d64d4e30 select-box">
+            <image wx:if="{{adviceType==item.type}}" src="/static/gou.png" alt class="_img data-v-d64d4e30"></image>
+          </view> {{item.text}} </view>
+        <view class="_div data-v-d64d4e30 advice-submit" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">提交</view>
+      </view>
+    </view>
+  </view>
+</template>

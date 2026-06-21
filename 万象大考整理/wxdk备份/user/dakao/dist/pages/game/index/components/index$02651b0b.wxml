@@ -1,0 +1,21 @@
+<import src="/components/waitBox$6de6de32" />
+<import src="/components/questionBox$7a6430d6" />
+<import src="/components/success$77160cbe" />
+<import src="/components/fail$238f7020" />
+<import src="/components/balance$1b99d80c" />
+<import src="/components/medalChange$15a40ac2" />
+<import src="/components/imgPreLoad$d5dfd588" />
+<template name="index$02651b0b">
+  <view class="_div data-v-9c0cc528 wrap sky-bg-3 ">
+    <template wx:if="{{showWaitBox}}" bindcancleMatch="handleProxy" bindpageReady="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="waitBox$6de6de32"></template>
+    <template wx:if="{{showQuestion}}" bindback="handleProxy" bindansRight="handleProxy" bindansFail="handleProxy" bindend="handleProxy" bindnextQuestion="handleProxy" bindsendEmoji="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"
+      data="{{...$root[$kk+'1'], $root}}" is="questionBox$7a6430d6"></template>
+    <template wx:if="{{showAntSuccess}}" bindclose="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="success$77160cbe"></template>
+    <template wx:if="{{showAntFail}}" bindclose="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="fail$238f7020"></template>
+    <template wx:if="{{showAntBalance}}" bindclose="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'4'], $root}}" is="balance$1b99d80c"></template>
+    <view class="_div data-v-9c0cc528 result-box" wx:if="{{showStarBox}}">
+      <template bindclose="handleProxy" bindoRun="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'5'], $root}}" is="medalChange$15a40ac2"></template>
+    </view>
+    <template wx:if="{{getImg}}" data="{{...$root[$kk+'6'], $root}}" is="imgPreLoad$d5dfd588"></template>
+  </view>
+</template>

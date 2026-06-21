@@ -1,0 +1,38 @@
+<template name="lookSubject$7f77b57e">
+  <view class="_div data-v-404e3506 m-edit-subject sky-bg-2">
+    <view class="_div data-v-404e3506 u-head">
+      <view class="_div data-v-404e3506 u-type" wx:if="{{wordList[parentType]}}"> {{wordList[parentType].type||"未知type-parentType"}} </view> {{wordList[parentType].desc||"未知type"}}
+      <view wx:if="{{subjectStatus==2}}" class="_div data-v-404e3506 u-edit" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image src="/static/bi.png" class="_img data-v-404e3506"></image> 重新修改 </view>
+    </view>
+    <view class="_div data-v-404e3506 u-area">
+      <textarea placeholder-style="color:#a69ee3;font-size:30rpx;" disabled="true" placeholder="题目字数在30个字以内" maxlength="30" value="{{quesTxt}}" bindblur="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_textarea data-v-404e3506" />
+    </view>
+    <view class="_div data-v-404e3506 u-selct u-yes">
+      <image src="/static/rank/yes.png" alt class="_img data-v-404e3506"></image>
+      <input type="text" maxlength="10" placeholder-style="color:#fff;font-size:28rpx;" placeholder="请输入正确选项" value="{{op1}}" bindblur="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_input data-v-404e3506" />
+    </view>
+    <view class="_div data-v-404e3506 u-selct">
+      <image src="/static/rank/error.png" alt class="_img data-v-404e3506"></image>
+      <input type="text" maxlength="10" placeholder-style="color:#fff;font-size:28rpx;" placeholder="请输入错误选项" value="{{op2}}" bindblur="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_input data-v-404e3506" />
+    </view>
+    <view class="_div data-v-404e3506 u-selct">
+      <image src="/static/rank/error.png" alt class="_img data-v-404e3506"></image>
+      <input type="text" maxlength="10" placeholder-style="color:#fff;font-size:28rpx;" placeholder="请输入错误选项" value="{{op3}}" bindblur="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_input data-v-404e3506" />
+    </view>
+    <view class="_div data-v-404e3506 u-selct mb50">
+      <image src="/static/rank/error.png" alt class="_img data-v-404e3506"></image>
+      <input type="text" maxlength="10" placeholder-style="color:#fff;font-size:28rpx;" placeholder="请输入错误选项" value="{{op4}}" bindblur="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_input data-v-404e3506" />
+    </view>
+    <view class="_div data-v-404e3506 u-hr">
+      <view class="_div data-v-404e3506 u-hr-txt">本题解析</view>
+    </view>
+    <view class="_div data-v-404e3506 u-desc pl30"> {{descTxt}}
+      <view class="_div data-v-404e3506 u-info"> ——
+        <image wx:if="{{createInfo.img}}" src="{{createInfo.img}}" class="_img data-v-404e3506"></image>
+        <image wx:else src="/static/default-head.png" class="_img data-v-404e3506"></image> {{createInfo.name}} </view>
+    </view>
+    <view class="_div data-v-404e3506 fail-desc" wx:if="{{subjectStatus==2}}"> {{rejectRemark||"驳回理由:不符合规定"}} </view>
+    <view class="_div data-v-404e3506 u-mask"></view>
+  </view>
+</template>

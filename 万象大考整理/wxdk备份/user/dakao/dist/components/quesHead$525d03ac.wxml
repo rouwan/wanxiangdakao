@@ -1,0 +1,20 @@
+<template name="quesHead$525d03ac">
+  <view class="_div data-v-73519ba9 m-head" wx:if="{{list.length>0}}">
+    <view class="_div data-v-73519ba9 u-head-item" wx:key="headIndex" key="{{headIndex}}" wx:for="{{list}}" wx:for-index="headIndex" wx:for-item="item">
+      <view class="_div data-v-73519ba9 u-score-box {{[  item.abilityInfo.scoreSub > 0 && item.showAnswer ? 'show-add-type' : '',  item.abilityInfo.scoreSub == 0 && item.showAnswer ? 'show-none-type' : '']}}" wx:if="{{item!=0}}">
+        <view class="_div data-v-73519ba9 u-inner-box">
+          <view class="_div data-v-73519ba9 u-add-score" wx:if="{{item.showAnswer}}">+{{item.abilityInfo.scoreSub}}</view>
+          <view class="_div data-v-73519ba9 u-score" wx:else>{{item.abilityInfo.score}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-73519ba9 u-out">
+        <view class="_div data-v-73519ba9 u-inner">
+          <image wx:if="{{item!=0&&item.basicInfo.avatarUrl&&item.boot}}" src="{{IMGHEAD+item.basicInfo.avatarUrl}}" class="_img data-v-73519ba9 {{[item.status == 0 ? 'off-net' : '']}}"></image>
+          <image wx:if="{{item!=0&&item.basicInfo.avatarUrl&&!item.boot}}" src="{{item.basicInfo.avatarUrl}}" class="_img data-v-73519ba9 {{[item.status == 0 ? 'off-net' : '']}}"></image>
+        </view>
+        <view class="_div data-v-73519ba9 u-net-off" wx:if="{{item!=0&&item.status==0}}">掉线</view>
+      </view>
+      <view class="_div data-v-73519ba9 u-name" wx:if="{{item!=0}}">{{item.abilityInfo.nickName}}</view>
+    </view>
+  </view>
+</template>

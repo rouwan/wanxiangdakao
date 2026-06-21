@@ -1,0 +1,37 @@
+<import src="/components/adBoxNew$4c1607d8" />
+<template name="roomList$9396d388">
+  <view class="_div data-v-dd86f63e m-room-list">
+    <image class="_img data-v-dd86f63e entry-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/entry-test.png"></image>
+    <view class="_div data-v-dd86f63e box">
+      <view class="_div data-v-dd86f63e link-menu {{[!showAdBox ? 'show' : '']}}" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <view class="_div data-v-dd86f63e et-img bg-ad_btn"></view>
+      </view>
+      <image class="_img data-v-dd86f63e friend-rank" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/friend-rank.png" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+      <scroll-view class="_scroll-view data-v-dd86f63e season-tag" scroll-y="{{true}}" scroll-with-animation="{{true}}" scroll-into-view="{{'id'+messageIndex}}">
+        <cover-view class="_cover-view data-v-dd86f63e season-mask" catchtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}"></cover-view>
+        <view class="_div data-v-dd86f63e tag-inner flex" wx:if="{{messageListStorage&&messageListStorage.length>0}}" wx:key="index" key="{{index}}" id="{{'id'+index}}" wx:for="{{messageListStorage}}" wx:for-index="index" wx:for-item="item">
+          <image wx:if="{{item.type==0}}" src="{{item.headImgUrl}}" class="_img data-v-dd86f63e"></image>
+          <view wx:if="{{item.type==0}}" class="_div data-v-dd86f63e">:</view>
+          <view wx:if="{{item.type==0}}" class="_div data-v-dd86f63e tag-txt"> {{item.message}} </view>
+          <view class="_div data-v-dd86f63e top flex" wx:if="{{item.type==1}}"> 恭喜
+            <image src="{{item.headImgUrl}}" class="_img data-v-dd86f63e"></image>
+            <view class="_div data-v-dd86f63e">{{item.nickname}}</view> 登顶
+            <image src="{{IMGHEAD+item.highParagraphImage}}" class="_img data-v-dd86f63e"></image>
+            <view class="_div data-v-dd86f63e">最强王者</view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="_div data-v-dd86f63e text pos-a flex left-center">今天我答对了
+        <view class="_div data-v-dd86f63e">{{rightNum}}题</view>
+      </view>
+      <image class="_img data-v-dd86f63e hybird pos-a left-center" hover-class="click-act" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/hybird.png" data-eventid="{{'3'}}"
+        data-comkey="{{$k}}"></image>
+      <image class="_img data-v-dd86f63e group pos-a left-center" hover-class="click-act" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/3v3.png" data-eventid="{{'4'}}"
+        data-comkey="{{$k}}"></image>
+    </view>
+    <template wx:if="{{showAdBox}}" bindclose="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="adBoxNew$4c1607d8"></template>
+    <view class="_div data-v-dd86f63e ad-wrap">
+      <ad unit-id="adunit-c0021eb44a5dc3e2" class="_ad data-v-dd86f63e"></ad>
+    </view>
+  </view>
+</template>

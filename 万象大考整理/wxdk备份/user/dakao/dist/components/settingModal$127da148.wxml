@@ -1,0 +1,57 @@
+<template name="settingModal$127da148">
+  <view class="_div data-v-109ccddc m-modal">
+    <view class="_div data-v-109ccddc u-modal-inner">
+      <view class="_div data-v-109ccddc close" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+      <view class="_div data-v-109ccddc u-head">
+        <view wx:if="{{showRadio}}" class="_div data-v-109ccddc">设置</view>
+        <view wx:else class="_div data-v-109ccddc">公告</view>
+        <image class="_img data-v-109ccddc u-head-img" src="/static/modal-bg.png" alt></image>
+      </view>
+      <view class="_div data-v-109ccddc u-content">
+        <view class="_div data-v-109ccddc u-radio-box" wx:if="{{showRadio}}">
+          <view class="_div data-v-109ccddc u-radio {{[radioOne ? 'u-radio-act' : '']}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+            <view class="_div data-v-109ccddc u-radio-name">音乐</view>
+            <view class="_div data-v-109ccddc u-radio-body">
+              <view class="_div data-v-109ccddc u-radio-ball"></view>
+              <view class="_div data-v-109ccddc u-radio-txt-act">开</view>
+              <view class="_div data-v-109ccddc u-radio-txt">关</view>
+            </view>
+          </view>
+          <view class="_div data-v-109ccddc u-radio {{[radioTwo ? 'u-radio-act' : '']}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+            <view class="_div data-v-109ccddc u-radio-name">音效</view>
+            <view class="_div data-v-109ccddc u-radio-body">
+              <view class="_div data-v-109ccddc u-radio-ball"></view>
+              <view class="_div data-v-109ccddc u-radio-txt-act">开</view>
+              <view class="_div data-v-109ccddc u-radio-txt">关</view>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-109ccddc theme" wx:if="{{showRadio}}">
+          <view class="_div data-v-109ccddc t-t"> 主题选择 </view>
+          <view class="_div data-v-109ccddc t-radio-box {{[index == radioIndex ? 'selected' : '']}}" wx:key="index" key="{{index}}" wx:for="{{radioList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-109ccddc t-radio" bindtap="handleProxy" data-eventid="{{'3-'+index}}" data-comkey="{{$k}}"></view>
+            <view class="_div data-v-109ccddc t-radio-label" bindtap="handleProxy" data-eventid="{{'4-'+index}}" data-comkey="{{$k}}" style=" {{item.color}}">{{item.name}}</view>
+            <view class="_div data-v-109ccddc t-btn" bindtap="handleProxy" data-eventid="{{'5-'+index}}" data-comkey="{{$k}}">预览</view>
+          </view>
+        </view>
+        <view class="_div data-v-109ccddc u-notice-box" wx:else>
+          <view class="_div data-v-109ccddc u-notice-head">游戏宗旨:</view>
+          <view class="_div data-v-109ccddc u-notice-content">公平竞技、巩固知识！</view>
+          <view class="_div data-v-109ccddc u-notice-head">温馨提示:</view>
+          <view class="_div data-v-109ccddc u-notice-content">适度游戏益脑，沉迷游戏伤身，</view>
+          <view class="_div data-v-109ccddc u-notice-content">合理安排时间，享受生活快乐！</view>
+          <view class="_div data-v-109ccddc u-notice-content">添加微信号：bingiling，进入万象大考互助群</view>
+        </view>
+        <view class="_div data-v-109ccddc u-btn-box">
+          <view class="_div data-v-109ccddc u-btn u-btn-red" wx:if="{{showRadio}}" bindtap="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}">公告</view>
+          <view class="_div data-v-109ccddc u-btn u-btn-red" wx:else bindtap="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}">设置</view>
+          <button class="_button data-v-109ccddc u-btn u-btn-green" open-type="contact">客服</button>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-109ccddc theme-view" wx:if="{{showThemeView}}" bindtap="handleProxy" data-eventid="{{'8'}}" data-comkey="{{$k}}">
+      <image wx:if="{{viewIndex==0}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/theme-1.png" class="_img data-v-109ccddc"></image>
+      <image wx:if="{{viewIndex==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/theme-2.png" class="_img data-v-109ccddc"></image>
+    </view>
+  </view>
+</template>

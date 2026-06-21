@@ -1,0 +1,82 @@
+<template name="index$3ef0409c">
+  <view class="_div data-v-86cc6bb8 wrap sky-bg">
+    <view class="_div data-v-86cc6bb8 desc">
+      <image class="_img data-v-86cc6bb8 title" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/title.png"></image>
+      <view class="_div data-v-86cc6bb8 advice" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image src="/static/icon/gantan.png" alt class="_img data-v-86cc6bb8"></image> 题目纠错 </view>
+      <view class="_div data-v-86cc6bb8 like-box">
+        <view wx:if="{{likeList[current]}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_div data-v-86cc6bb8">
+          <image wx:if="{{likeList[current]&&likeList[current].status==1}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/gp.png" class="_img data-v-86cc6bb8"></image>
+          <image wx:else src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/gp-null.png" class="_img data-v-86cc6bb8"></image> ({{likeList[current].goodNum}}) </view>
+        <view wx:if="{{likeList[current]}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_div data-v-86cc6bb8">
+          <image wx:if="{{likeList[current]&&likeList[current].status==0}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/bp.png" class="_img data-v-86cc6bb8"></image>
+          <image wx:else src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/bp-null.png" class="_img data-v-86cc6bb8"></image> ({{likeList[current].badNum}}) </view>
+      </view>
+      <view class="_div data-v-86cc6bb8 desc-text" wx:if="{{dataReady}}">{{subjectList[current].description}}</view>
+    </view>
+    <view class="_div data-v-86cc6bb8 quesIndex">
+      <view class="_div data-v-86cc6bb8 q-txt"> 第{{current+1}}/{{subjectList.length}}题 </view>
+    </view>
+    <view class="_div data-v-86cc6bb8 swiper-wrap" wx:if="{{dataReady}}">
+      <image class="_img data-v-86cc6bb8 left-btn" src="/static/arrow.png" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}"></image>
+      <image class="_img data-v-86cc6bb8 right-btn" src="/static/arrow.png" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}"></image>
+      <swiper current="{{current}}" bindanimationfinish="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_swiper data-v-86cc6bb8">
+        <swiper-item wx:key="index" key="{{index}}" wx:for="{{subjectList}}" wx:for-index="index" wx:for-item="subject" class="_swiper-item data-v-86cc6bb8">
+          <view class="_div data-v-86cc6bb8 box-top">
+            <view class="_div data-v-86cc6bb8 m-word-title {{[showTitle ? 'titleIn' : '', subject.modeType == 6 ? 'english' : '']}}" wx:if="{{subject.modeType==3||subject.modeType==4||subject.modeType==6}}"> {{subject.title}} </view>
+            <view class="_div data-v-86cc6bb8 m-idiom {{[showTitle ? 'titleIn' : '']}}" wx:if="{{subject.modeType==5}}">
+              <view class="_div data-v-86cc6bb8 u-word-box">
+                <view class="_div data-v-86cc6bb8 u-word" wx:key="wordIndex" key="{{wordIndex}}" wx:for="{{idiomList[current]}}" wx:for-index="wordIndex" wx:for-item="item">{{item}}</view>
+              </view>
+            </view>
+            <view class="_div data-v-86cc6bb8 m-img" wx:if="{{subject.modeType==1}}">
+              <view class="_div data-v-86cc6bb8 img-title"> {{subject.title}} </view>
+              <view class="_div data-v-86cc6bb8 img-box">
+                <image mode="aspectFit" src="{{IMGHEAD+subject.image}}" alt class="_img data-v-86cc6bb8"></image>
+              </view>
+            </view>
+            <view class="_div data-v-86cc6bb8 m-poetry {{[  subject.modeType == 8 || subject.modeType == 10 ? 'm-poetry-reverce' : '',  showTitle ? 'titleIn' : '']}}" wx:if="{{subject.modeType==7||subject.modeType==8||subject.modeType==9||subject.modeType==10}}">
+              <view class="_div data-v-86cc6bb8 u-sentence">{{subject.title}}
+                <view class="_div data-v-86cc6bb8 u-symbol" wx:if="{{subject.modeType==7||subject.modeType==9}}">,</view>
+                <view class="_div data-v-86cc6bb8 u-symbol" wx:else>。</view>
+              </view>
+              <view class="_div data-v-86cc6bb8 u-line">
+                <view class="_div data-v-86cc6bb8 u-line-item" wx:key="poetryIndex" key="{{poetryIndex}}" wx:for="{{poetryList[current]}}" wx:for-index="poetryIndex" wx:for-item="poetry"></view>
+                <view class="_div data-v-86cc6bb8 u-symbol" wx:if="{{subject.modeType==7||subject.modeType==9}}">。</view>
+                <view class="_div data-v-86cc6bb8 u-symbol" wx:else>,</view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-86cc6bb8 select-list">
+            <view class="_div data-v-86cc6bb8 select-item {{[  subject.modeType == 4 ? 'judge-type' : '',  item.sortId == subject.optionSortId ? 'success' : '',  (!myInfo.ansList[current].right &&    myInfo.ansList[current].answer == item.sortId) ||  (!oInfo.ansList[current].right &&    oInfo.ansList[current].answer == item.sortId &&    !from)    ? 'fail'    : '']}}"
+              wx:key="indexKey" key="{{indexKey}}" wx:for="{{subject.optionList}}" wx:for-index="indexKey" wx:for-item="item">
+              <view wx:if="{{myInfo.ansList[current].right&&myInfo.ansList[current].answer==item.sortId}}" class="_div data-v-86cc6bb8 yes-arrow-l"></view>
+              <view wx:if="{{!myInfo.ansList[current].right&&myInfo.ansList[current].answer==item.sortId}}" class="_div data-v-86cc6bb8 err-arrow-l"></view>
+              <view class="_div data-v-86cc6bb8 select-item-txt">
+                <image wx:if="{{myInfo.ansList[current].right&&myInfo.ansList[current].answer==item.sortId&&subject.modeType!=4}}" class="_img data-v-86cc6bb8 left-img yes" src="/static/rank/yes.png" alt></image>
+                <image wx:if="{{!myInfo.ansList[current].right&&myInfo.ansList[current].answer==item.sortId&&subject.modeType!=4}}" class="_img data-v-86cc6bb8 left-img err" src="/static/rank/error.png" alt></image>
+                <view class="_div data-v-86cc6bb8 txt" wx:if="{{subject.modeType!=4}}"> {{item.name}} </view>
+                <image wx:if="{{subject.modeType==4&&item.name=='对'&&(myInfo.ansList[current].answer!=item.sortId&&oInfo.ansList[current].answer!=item.sortId)}}" class="_img data-v-86cc6bb8 select-img select-yes" src="/static/rank/b_yes.png"
+                  alt></image>
+                <image wx:if="{{subject.modeType==4&&item.name=='错'&&(myInfo.ansList[current].answer!=item.sortId&&oInfo.ansList[current].answer!=item.sortId)}}" class="_img data-v-86cc6bb8 select-img select-err" src="/static/rank/b_error.png"
+                  alt></image>
+                <image wx:if="{{subject.modeType==4&&item.name=='对'&&(myInfo.ansList[current].answer==item.sortId||oInfo.ansList[current].answer==item.sortId||item.sortId==subject.optionSortId)}}" class="_img data-v-86cc6bb8 select-img select-yes"
+                  src="/static/rank/yes_w.png" alt></image>
+                <image wx:if="{{subject.modeType==4&&item.name=='错'&&(myInfo.ansList[current].answer==item.sortId||oInfo.ansList[current].answer==item.sortId||item.sortId==subject.optionSortId)}}" class="_img data-v-86cc6bb8 select-img select-err"
+                  src="/static/rank/error_w.png" alt></image>
+                <image wx:if="{{oInfo.ansList[current].right&&oInfo.ansList[current].answer==item.sortId&&subject.modeType!=4&&!from}}" class="_img data-v-86cc6bb8 right-img yes" src="/static/rank/yes.png" alt></image>
+                <image wx:if="{{!oInfo.ansList[current].right&&oInfo.ansList[current].answer==item.sortId&&subject.modeType!=4&&!from}}" class="_img data-v-86cc6bb8 right-img err" src="/static/rank/error.png" alt></image>
+              </view>
+              <view wx:if="{{!from&&oInfo.ansList[current].right&&oInfo.ansList[current].answer==item.sortId}}" class="_div data-v-86cc6bb8 yes-arrow-r"></view>
+              <view wx:if="{{!from&&!oInfo.ansList[current].right&&oInfo.ansList[current].answer==item.sortId}}" class="_div data-v-86cc6bb8 err-arrow-r"></view>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="_div data-v-86cc6bb8 creat-info {{[true ? 'showCreat' : '']}}"> ——本题由
+      <image wx:if="{{subjectList[current]&&subjectList[current].createUserUrl}}" src="{{subjectList[current].createUserUrl}}" class="_img data-v-86cc6bb8"></image>
+      <image wx:else src="/static/default-head.png" class="_img data-v-86cc6bb8"></image>
+      <view wx:if="{{subjectList[current]&&subjectList[current].createUserName}}" class="_div data-v-86cc6bb8">{{subjectList[current].createUserName}}</view> 贡献—— </view>
+  </view>
+</template>

@@ -1,0 +1,1 @@
+<import src="/roomPages/pages/group-room/components/group-room$51c4bacc" /><template is="group-room$51c4bacc" data="{{ ...$root['0'], $root }}"/>

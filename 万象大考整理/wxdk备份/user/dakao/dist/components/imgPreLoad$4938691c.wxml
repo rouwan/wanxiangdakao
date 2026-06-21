@@ -1,0 +1,5 @@
+<template name="imgPreLoad$4938691c">
+  <view class="_div data-v-6e30297e empty">
+    <image src="{{item}}" wx:key="index" key="{{index}}" wx:for="{{imgList}}" wx:for-index="index" wx:for-item="item" class="_img data-v-6e30297e"></image>
+  </view>
+</template>

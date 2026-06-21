@@ -1,0 +1,262 @@
+@import "/vendor/css/main.wxss";
+
+.hideItem.data-v-601acc64 {
+  visibility: hidden;
+}
+.g-wrap.data-v-601acc64 {
+  position: relative;
+  height: 100%;
+  padding-top: 100rpx;
+  box-sizing: border-box;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newYear/bg-food.png");
+  background-size: 750rpx 113rpx;
+  background-repeat: repeat-y;
+}
+.g-wrap .inner-wrap.data-v-601acc64 {
+  padding: 0 70rpx;
+}
+.g-wrap .gold.data-v-601acc64 {
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+  width: 200rpx;
+  color: #fff;
+}
+.g-wrap .gold ._img.data-v-601acc64 {
+  width: 48rpx;
+  height: 48rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.g-wrap .content.data-v-601acc64 {
+  margin: 0 auto 20rpx auto;
+  width: 569rpx;
+  height: 572rpx;
+  padding: 20rpx;
+  position: relative;
+  box-sizing: border-box;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newYear/bg-food-content.png");
+  background-size: 100%;
+}
+.g-wrap .content .current-level.data-v-601acc64 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -50rpx;
+  width: 250rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  text-align: center;
+  border: 8rpx solid #53a3f4;
+  border-radius: 8rpx;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #3c3b79;
+  background: #ecfffe;
+}
+.g-wrap .content .image-box.data-v-601acc64 {
+  padding: 0 30rpx;
+  margin: 40rpx 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.g-wrap .content .image-box ._img.data-v-601acc64 {
+  max-width: 500rpx;
+  max-height: 290rpx;
+  margin-bottom: 20rpx;
+}
+.g-wrap .content .image-box .image-title.data-v-601acc64 {
+  font-size: 30rpx;
+  color: #62261c;
+}
+.g-wrap .content .anwer.data-v-601acc64 {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 50rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.g-wrap .content .anwer .text-item.data-v-601acc64 {
+  width: 76rpx;
+  height: 76rpx;
+  text-align: center;
+  line-height: 76rpx;
+  margin-right: 20rpx;
+  color: #af6351;
+  font-weight: bold;
+  font-size: 48rpx;
+  color: #fff;
+  background: #87c8f2;
+  border-radius: 8rpx;
+}
+.g-wrap .content .anwer .text-item.data-v-601acc64:last-child {
+  margin-right: 0;
+}
+.g-wrap .select-area.data-v-601acc64 {
+  margin: 0 auto 20rpx auto;
+  width: 90%;
+  display: flex;
+}
+.g-wrap .select-list.data-v-601acc64 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-right: 4rpx;
+}
+.g-wrap .select-list .select-item.data-v-601acc64 {
+  display: inline-block;
+  margin-bottom: 10rpx;
+  margin-right: 4rpx;
+  text-align: center;
+  width: 81rpx;
+  height: 81rpx;
+  line-height: 81rpx;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newYear/bg-food-item.png");
+  background-size: 100%;
+  color: #3c3b79;
+  font-size: 38rpx;
+}
+.g-wrap .select-list .select-item.data-v-601acc64:nth-of-type(5n + 5) {
+  margin-right: 0;
+}
+.g-wrap .btn-list.data-v-601acc64 {
+  text-align: center;
+}
+.g-wrap .btn-list ._img.data-v-601acc64 {
+  width: 179rpx;
+  height: 101rpx;
+}
+.g-wrap .btn-list ._img.data-v-601acc64:last-child {
+  margin-right: 0;
+}
+.g-wrap .btn-list .hint.data-v-601acc64 {
+  height: 126rpx;
+}
+.g-wrap .btn-list ._button.data-v-601acc64 {
+  width: 179rpx;
+  height: 101rpx;
+  display: inline-block;
+  padding: 0;
+}
+.g-wrap .model-box.data-v-601acc64 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100%;
+}
+.g-wrap .model-box .mask.data-v-601acc64 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 15;
+}
+.g-wrap .model-box .model.data-v-601acc64 {
+  padding: 210rpx 40rpx 0 40rpx;
+  width: 564rpx;
+  height: 435rpx;
+  box-sizing: border-box;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  z-index: 20;
+  border-radius: 8rpx;
+}
+.g-wrap .model-box .model .title.data-v-601acc64 {
+  width: 238rpx;
+  height: 238rpx;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -70rpx;
+}
+.g-wrap .model-box .model .close.data-v-601acc64 {
+  position: absolute;
+  right: 15rpx;
+  top: 15rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.g-wrap .model-box .model .text.data-v-601acc64 {
+  color: #eb8d6c;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  margin-bottom: 34rpx;
+  text-align: center;
+}
+.g-wrap .model-box .model .model-btn.data-v-601acc64 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.g-wrap .model-box .model .model-btn ._button.data-v-601acc64 {
+  height: 72rpx !important;
+}
+.g-wrap .model-box .model .model-btn .btn-yellow.data-v-601acc64 {
+  width: 230rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  color: #a8503b;
+  font-size: 30rpx;
+  font-weight: normal;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAABKCAIAAADiyjm4AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA39pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1YjNkMTY1ZS02MzFhLTRmNGMtYTQ2NS01OTZhYjljOGYzOGEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzZCMERBRDQ1OEVGMTFFOEJGNkJGNkY0Q0NBQkU0NTEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzZCMERBRDM1OEVGMTFFOEJGNkJGNkY0Q0NBQkU0NTEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmM3MTM1MDA0LWIwM2MtYTE0Mi05MTVlLWYxYWM0NTdjNGFhYyIgc3RSZWY6ZG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmNmMjIzN2IyLTEwMDUtZDQ0Yi04MGFkLWM2YmJhNzQzNDVhNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk5LjpsAAABASURBVHjaYvz/bgHDr3sMLEIMrIoMjCwMEPD/N0jw30cGViUmBkJgVMWoilEVoypGVYyqGFUxqmJUxcCqAAgwAPP2CyKDaSfIAAAAAElFTkSuQmCC");
+  background-size: 11rpx 74rpx;
+  background-repeat: repeat-x;
+  text-align: center;
+  border-radius: 100rpx;
+  border: 4rpx solid #eeab4c;
+}
+.g-wrap .model-box .model .model-btn .btn-yellow.data-v-601acc64:active {
+  opacity: 0.8;
+}
+.g-wrap .model-box .model .model-btn .help.data-v-601acc64 {
+  margin-right: 20rpx;
+  padding: 0;
+}
+.g-wrap .pass-model .model.data-v-601acc64 {
+  width: 570rpx;
+  height: 525rpx;
+  padding-top: 286rpx;
+}
+.g-wrap .pass-model .model .title.data-v-601acc64 {
+  width: 405rpx;
+  height: 393rpx;
+  top: -148rpx;
+}
+.g-wrap .pass-model .model .text.data-v-601acc64 {
+  font-size: 48rpx;
+}
+.g-wrap .pass-model .model .help.data-v-601acc64 {
+  margin: 0 !important;
+  width: 320rpx !important;
+  height: 90rpx !important;
+  line-height: 90rpx !important;
+  background-size: 11rpx 90rpx !important;
+}
+.text-mode.data-v-601acc64 {
+  width: 504rpx;
+  height: 394rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #3c3b79;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin: 40rpx auto 0 auto;
+}
+.ad-box.data-v-601acc64 {
+  width: 100%;
+}

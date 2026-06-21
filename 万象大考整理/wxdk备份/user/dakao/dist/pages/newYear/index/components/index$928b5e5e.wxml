@@ -1,0 +1,43 @@
+<template name="index$928b5e5e">
+  <view class="_div data-v-232958ce g-wrap">
+    <view class="_div data-v-232958ce inner-wrap">
+      <view class="_div data-v-232958ce gold" wx:if="{{pageData}}">
+        <image src="/static/gold.png" alt class="_img data-v-232958ce"></image>{{appInfo.money}} </view>
+      <view class="_div data-v-232958ce content" wx:if="{{pageData&&!isPass}}">
+        <view class="_div data-v-232958ce current-level">第{{pageData.cardNumber}}关</view>
+        <view class="_div data-v-232958ce image-box" wx:if="{{pageData.modeType==1}}">
+          <image mode="aspectFit" src="{{IMGHEAD+pageData.image}}" alt class="_img data-v-232958ce"></image>
+          <view class="_div data-v-232958ce image-title">{{pageData.title}}</view>
+        </view>
+        <view class="_div data-v-232958ce text-mode" wx:if="{{pageData.modeType==3}}"> {{pageData.title}} </view>
+        <view class="_div data-v-232958ce anwer">
+          <view class="_div data-v-232958ce text-item" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{answerList}}" wx:for-index="index" wx:for-item="aItem">{{aItem.word}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-232958ce select-area" wx:if="{{!isPass}}">
+        <view class="_div data-v-232958ce select-list">
+          <view class="_div data-v-232958ce select-item {{[!sItem.show ? 'hideItem' : '']}}" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{selectList}}" wx:for-index="index" wx:for-item="sItem">{{sItem.word}}</view>
+        </view>
+        <view class="_div data-v-232958ce btn-list">
+          <image class="_img data-v-232958ce hint" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newYear/promt.png" bindtap="handleProxy" alt data-eventid="{{'2'}}" data-comkey="{{$k}}"></image>
+          <button open-type="share" class="_button data-v-232958ce">
+            <image src="/static/btn-help.png" alt class="_img data-v-232958ce"></image>
+          </button>
+        </view>
+      </view>
+      <view class="_div data-v-232958ce model-box pass-model" wx:if="{{isPass}}">
+        <view class="_div data-v-232958ce mask"></view>
+        <view class="_div data-v-232958ce model">
+          <image class="_img data-v-232958ce title" src="/static/pass-model-head.png" alt></image>
+          <view class="_div data-v-232958ce text">恭喜你通关了!</view>
+          <view class="_div data-v-232958ce model-btn">
+            <view class="_div data-v-232958ce btn-yellow help" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">返回</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-232958ce ad-box">
+      <ad unit-id="adunit-b4aadf3766ad114d" class="_ad data-v-232958ce"></ad>
+    </view>
+  </view>
+</template>

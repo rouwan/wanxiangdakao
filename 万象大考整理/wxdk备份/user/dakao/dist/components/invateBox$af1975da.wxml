@@ -1,0 +1,38 @@
+<import src="/components/get-gift$6e429932" />
+<template name="invateBox$af1975da">
+  <view class="_div data-v-191c79be invate-box mask-bg ">
+    <view class="_div data-v-191c79be i-body pos-r">
+      <image class="_img data-v-191c79be bg w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/invate-bg.png"></image>
+      <view class="_div data-v-191c79be list pos-a left-center">
+        <view class="_div data-v-191c79be item w100 flex" wx:key="index" key="{{index}}" wx:for="{{userList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-191c79be item-index border-50 flex">{{index+1}}</view>
+          <view class="_div data-v-191c79be item-head-box flex">
+            <view class="_div data-v-191c79be item-head flex {{[item.userId != 0 ? 'head-bg' : '']}}">
+              <button wx:if="{{item.userId==0}}" class="_button data-v-191c79be item-empty w100 h100" open-type="share" plain="true">
+                <image class="_img data-v-191c79be w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/empty-btn.png"></image>
+              </button>
+              <image wx:else src="{{item.headImgUrl}}" class="_img data-v-191c79be"></image>
+            </view>
+            <view class="_div data-v-191c79be item-name">{{item.nickname}}</view>
+          </view>
+          <view class="_div data-v-191c79be item-gift flex border-50">
+            <image src="/static/icon/m-box.png" class="_img data-v-191c79be"></image>
+          </view>
+          <view class="_div data-v-191c79be item-stauts flex">
+            <button wx:if="{{item.status==0&&item.userId!=0}}" open-type="share" plain="true" bindtap="handleProxy" class="_button data-v-191c79be get-btn" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}">
+              <image class="_img data-v-191c79be w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/get-btn.png"></image>
+            </button>
+            <image wx:elif="{{item.status==0&&item.userId==0}}" class="_img data-v-191c79be btn-unable" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/get-btn-unable.png"></image>
+            <image wx:else class="_img data-v-191c79be receved-btn" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/receved-txt.png"></image>
+          </view>
+        </view>
+      </view>
+      <image class="_img data-v-191c79be close-btn pos-a" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/close-btn.png" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+      <image class="_img data-v-191c79be box pos-a" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/box.png"></image>
+      <button class="_button data-v-191c79be invate-btn left-center pos-a" open-type="share" plain="true">
+        <image class="_img data-v-191c79be w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/invate-btn.png"></image>
+      </button>
+    </view>
+    <template wx:if="{{showGetGift}}" bindclose="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="get-gift$6e429932"></template>
+  </view>
+</template>

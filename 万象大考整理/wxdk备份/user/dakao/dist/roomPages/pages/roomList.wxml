@@ -1,0 +1,1 @@
+<import src="/roomPages/pages/roomList/components/roomList$58949bd5" /><template is="roomList$58949bd5" data="{{ ...$root['0'], $root }}"/>

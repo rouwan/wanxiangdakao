@@ -1,0 +1,38 @@
+<import src="/components/get-gift$6e429932" />
+<template name="adBoxNew$55b052dc">
+  <view class="_div data-v-58130d26 invate-box mask-bg ">
+    <view class="_div data-v-58130d26 i-body pos-r">
+      <image class="_img data-v-58130d26 bg w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/ad-bg.png"></image>
+      <view class="_div data-v-58130d26 list pos-a left-center">
+        <view class="_div data-v-58130d26 item w100 flex" wx:key="index" key="{{index}}" wx:for="{{giftList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-58130d26 item-head flex">
+            <image src="{{imgHead+item.imgName}}" class="_img data-v-58130d26"></image>
+          </view>
+          <view class="_div data-v-58130d26 item-name">{{item.name}}</view>
+          <view class="_div data-v-58130d26 item-gift flex border-50">
+            <image src="/static/icon/s-box.png" class="_img data-v-58130d26"></image>
+          </view>
+          <view class="_div data-v-58130d26 item-status flex">
+            <button wx:if="{{item.type&&!item.status}}" open-type="share" plain="true" bindtap="handleProxy" class="_button data-v-58130d26 get-btn" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">
+              <image class="_img data-v-58130d26 w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/get-btn-y.png"></image>
+            </button>
+            <navigator wx:elif="{{!item.type}}" target="miniProgram" open-type="navigate" app-id="{{item.appId}}" bindsuccess="handleProxy" bindfail="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" class="_navigator data-v-58130d26">
+              <image class="_img data-v-58130d26 try-btn" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/try-btn.png"></image>
+            </navigator>
+            <image wx:else class="_img data-v-58130d26 receved-btn" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/receved-txt.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-58130d26 like-box flex pos-a">
+        <view class="_div data-v-58130d26 l-item" wx:key="index" key="{{index}}" wx:for="{{likeList}}" wx:for-index="index" wx:for-item="item">
+          <navigator target="miniProgram" class="_navigator data-v-58130d26 flex" open-type="navigate" app-id="{{item.appId}}" bindsuccess="handleProxy" bindfail="handleProxy" data-eventid="{{'2-'+index}}" data-comkey="{{$k}}">
+            <image src="{{imgHead+item.imgName}}" class="_img data-v-58130d26"></image>
+          </navigator>
+          <view class="_div data-v-58130d26 ad-name">{{item.name}}</view>
+        </view>
+      </view>
+      <image class="_img data-v-58130d26 close-btn pos-a" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/invateBox/close-btn.png" data-eventid="{{'3'}}" data-comkey="{{$k}}"></image>
+    </view>
+    <template wx:if="{{showGetGift}}" bindclose="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="get-gift$6e429932"></template>
+  </view>
+</template>

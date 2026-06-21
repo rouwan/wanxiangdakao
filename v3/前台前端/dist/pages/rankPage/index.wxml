@@ -1,0 +1,1 @@
+<import src="/pages/rankPage/index/components/index$fc7e00be" /><template is="index$fc7e00be" data="{{ ...$root['0'], $root }}"/>

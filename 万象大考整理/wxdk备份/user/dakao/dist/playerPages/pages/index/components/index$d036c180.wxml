@@ -1,0 +1,149 @@
+<template name="index$d036c180">
+  <view class="_div data-v-8b6fa102 m-user sky-bg-2">
+    <view class="_div data-v-8b6fa102 u-user-head">
+      <image wx:if="{{dataReady}}" src="{{userInfo.avatarUrl}}" class="_img data-v-8b6fa102"></image>
+      <image wx:else src="/static/default-head.png" class="_img data-v-8b6fa102"></image>
+      <view class="_div data-v-8b6fa102 game-info">
+        <view class="_div data-v-8b6fa102 info-top">
+          <view class="_div data-v-8b6fa102 name">{{userInfo.nickname}}</view>
+          <image wx:if="{{userInfo.gender=='女'}}" class="_img data-v-8b6fa102 girl" src="/static/girl.png"></image>
+          <image wx:else class="_img data-v-8b6fa102 boy" src="/static/boy.png"></image>
+          <view class="_div data-v-8b6fa102 province">{{userInfo.province||"宇宙"}}</view>
+          <view class="_div data-v-8b6fa102 city">{{userInfo.city||"火星"}}</view>
+        </view>
+        <view class="_div data-v-8b6fa102 info-bottom"> 等级{{userInfo.grade}}
+          <view class="_div data-v-8b6fa102 exp-process">
+            <view class="_div data-v-8b6fa102 exp-inner" style=" {{expStyle}}"></view>
+            <view class="_div data-v-8b6fa102 exp-num">{{(userInfo.expValue||0)+"/"+(userInfo.maxExpValue||100)}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-8b6fa102 list">
+      <view class="_div data-v-8b6fa102 list-head">
+        <view wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{headList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-8b6fa102 {{[index == current ? 'active' : '']}}">{{item}}</view>
+      </view>
+      <view class="_div data-v-8b6fa102 info-box">
+        <view wx:if="{{current==0}}" class="_div data-v-8b6fa102 total-data">
+          <view class="_div data-v-8b6fa102 total-head">
+            <view class="_div data-v-8b6fa102 head-item">
+              <image wx:if="{{userInfo.paragraphImage}}" src="{{IMGHEAD+userInfo.paragraphImage}}" class="_img data-v-8b6fa102"></image>
+              <view class="_div data-v-8b6fa102 item-name">{{userInfo.paragraphName||"无段位信息"}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 head-item">
+              <view class="_div data-v-8b6fa102 item-title">总场数</view>
+              <view class="_div data-v-8b6fa102 item-num">{{userInfo.totalNum}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 head-item">
+              <view class="_div data-v-8b6fa102 item-title">胜率</view>
+              <view class="_div data-v-8b6fa102 item-num">{{userInfo.winRatio}}%</view>
+            </view>
+            <view class="_div data-v-8b6fa102 head-item">
+              <view class="_div data-v-8b6fa102 item-title">逃跑率</view>
+              <view class="_div data-v-8b6fa102 item-num">{{userInfo.exitRatio}}%</view>
+            </view>
+          </view>
+          <view class="_div data-v-8b6fa102 total-content">
+            <view class="_div data-v-8b6fa102 content-item"> 胜局数
+              <view class="_div data-v-8b6fa102">{{userInfo.winNum}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 content-item"> 连胜纪录
+              <view class="_div data-v-8b6fa102">{{userInfo.maxContinueWinNum}}胜</view>
+            </view>
+            <view class="_div data-v-8b6fa102 content-item"> 平局数
+              <view class="_div data-v-8b6fa102">{{userInfo.flatNum}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 content-item"> 单局最高
+              <view class="_div data-v-8b6fa102">{{userInfo.maxSingleScore}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 content-item"> 败局数
+              <view class="_div data-v-8b6fa102">{{userInfo.loseNum}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 content-item"> 全对纪录
+              <view class="_div data-v-8b6fa102">{{userInfo.maxAllRightNum}}</view>
+            </view>
+            <view class="_div data-v-8b6fa102 content-item"> 逃跑数
+              <view class="_div data-v-8b6fa102">{{userInfo.exitNum}}</view>
+            </view>
+            <button plain="true" open-type="share" class="_button data-v-8b6fa102 bnt-share">分享战绩</button>
+          </view>
+        </view>
+        <view wx:if="{{current==1}}" class="_div data-v-8b6fa102 total-fight">
+          <view class="_div data-v-8b6fa102 f-head">
+            <image src="/static/icon/fight.png" class="_img data-v-8b6fa102"></image> {{totalFight}} </view>
+          <view class="_div data-v-8b6fa102 f-list">
+            <view class="_div data-v-8b6fa102 f-item" wx:key="index" key="{{index}}" wx:for="{{fightList}}" wx:for-index="index" wx:for-item="item">
+              <view class="_div data-v-8b6fa102 f-type">{{item.type}}</view>
+              <view class="_div data-v-8b6fa102 f-num">{{item.num}}</view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{current==2}}" class="_div data-v-8b6fa102 season">
+          <view class="_div data-v-8b6fa102 s-head">
+            <view class="_div data-v-8b6fa102 h-item sActive" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">2018年</view>
+            <view class="_div data-v-8b6fa102 h-item {{[nowYear >= 2019 ? 'sActive' : '']}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">2019年</view>
+          </view>
+          <view class="_div data-v-8b6fa102 s-list" wx:if="{{seasonFomateList[seasonIndex].length>0}}">
+            <view class="_div data-v-8b6fa102 s-item" wx:key="index" key="{{index}}" wx:for="{{seasonFomateList[seasonIndex]}}" wx:for-index="index" wx:for-item="item">
+              <view class="_div data-v-8b6fa102 s-time">{{item.year}}年{{item.day}}月</view>
+              <view class="_div data-v-8b6fa102 s-medal">
+                <image class="_img data-v-8b6fa102 medal-img" src="{{IMGHEAD+item.paragraphImage}}" alt></image>
+                <view class="_div data-v-8b6fa102 medal-info">
+                  <view class="_div data-v-8b6fa102 medal-star">
+                    <image src="/static/star.png" alt class="_img data-v-8b6fa102"></image> {{item.star}} </view>
+                  <view class="_div data-v-8b6fa102 medal-name"> {{item.paragraphName}} </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{current==3}}" class="_div data-v-8b6fa102 game-data">
+          <view class="_div data-v-8b6fa102 g-item" wx:key="index" key="{{index}}" wx:for="{{hisData}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-8b6fa102 g-res">
+              <image wx:if="{{((item.myInfo.abilityInfo.score>item.otherInfo.abilityInfo.score)&&userId!=item.exitUserId)||item.otherInfo.basicInfo.userId==item.exitUserId}}" class="_img data-v-8b6fa102 word-s" src="/static/word-success.png"></image>
+              <image wx:if="{{(item.myInfo.abilityInfo.score<item.otherInfo.abilityInfo.score&&item.otherInfo.basicInfo.userId!=item.exitUserId)||userId==item.exitUserId}}" class="_img data-v-8b6fa102 word-f" src="/static/word-fail.png"></image>
+              <image wx:if="{{(item.myInfo.abilityInfo.score==item.otherInfo.abilityInfo.score)&&userId!=item.exitUserId&&item.otherInfo.basicInfo.userId!=item.exitUserId}}" class="_img data-v-8b6fa102 word-b" src="/static/word-balance.png"></image>
+            </view>
+            <view class="_div data-v-8b6fa102 g-user g-user-left">
+              <view class="_div data-v-8b6fa102 user-top">
+                <image wx:if="{{item.myInfo.basicInfo.avatarUrl}}" src="{{item.myInfo.basicInfo.avatarUrl}}" class="_img data-v-8b6fa102"></image>
+                <image wx:else src="/static/default-head.png" class="_img data-v-8b6fa102"></image>
+                <view class="_div data-v-8b6fa102 top-right">
+                  <view class="_div data-v-8b6fa102 score">{{item.myInfo.abilityInfo.score}}</view>
+                  <view class="_div data-v-8b6fa102 ans">
+                    <view class="_div data-v-8b6fa102 ans-item" wx:key="ansIndex" key="{{ansIndex}}" wx:for="{{item.myAns}}" wx:for-index="ansIndex" wx:for-item="ans">
+                      <image wx:if="{{ans==0}}" src="/static/main_yes.png" class="_img data-v-8b6fa102"></image>
+                      <image wx:if="{{ans==1}}" src="/static/main_err.png" class="_img data-v-8b6fa102"></image>
+                      <image wx:if="{{ans==2}}" src="/static/main_none.png" class="_img data-v-8b6fa102"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="_div data-v-8b6fa102 user-bottom">
+                <image src="{{IMGHEAD+item.myInfo.abilityInfo.paragraphImage}}" class="_img data-v-8b6fa102"></image> {{item.myInfo.basicInfo.nickName}} </view>
+            </view>
+            <image class="_img data-v-8b6fa102 g-vs" src="/static/vs2.png"></image>
+            <view class="_div data-v-8b6fa102 g-user g-user-left">
+              <view class="_div data-v-8b6fa102 user-top">
+                <image wx:if="{{item.otherInfo.boot}}" src="{{IMGHEAD+item.otherInfo.basicInfo.avatarUrl}}" class="_img data-v-8b6fa102"></image>
+                <image wx:else src="{{item.otherInfo.basicInfo.avatarUrl}}" class="_img data-v-8b6fa102"></image>
+                <view class="_div data-v-8b6fa102 top-right">
+                  <view class="_div data-v-8b6fa102 score">{{item.otherInfo.abilityInfo.score}}</view>
+                  <view class="_div data-v-8b6fa102 ans">
+                    <view class="_div data-v-8b6fa102 ans-item" wx:key="ansIndex2" key="{{ansIndex2}}" wx:for="{{item.otherAns}}" wx:for-index="ansIndex2" wx:for-item="ans2">
+                      <image wx:if="{{ans2==0}}" src="/static/main_yes.png" class="_img data-v-8b6fa102"></image>
+                      <image wx:if="{{ans2==1}}" src="/static/main_err.png" class="_img data-v-8b6fa102"></image>
+                      <image wx:if="{{ans2==2}}" src="/static/main_none.png" class="_img data-v-8b6fa102"></image>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class="_div data-v-8b6fa102 user-bottom">
+                <image src="{{IMGHEAD+item.otherInfo.abilityInfo.paragraphImage}}" class="_img data-v-8b6fa102"></image> {{item.otherInfo.basicInfo.nickName}} </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,162 @@
+@import "/vendor/css/main.wxss";
+
+.m-talk.data-v-327c4068 {
+  width: 100%;
+  height: 100%;
+  padding-top: 118rpx;
+  box-sizing: border-box;
+  background-attachment: fixed;
+}
+.u-text.data-v-327c4068 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 118rpx;
+  width: 100%;
+  background: #31396a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+.u-input.data-v-327c4068 {
+  width: 530rpx;
+  height: 66rpx;
+  margin-right: 30rpx;
+  border-radius: 12rpx;
+  background: #fff;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.u-submit.data-v-327c4068 {
+  width: 130rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  background: #32b3e2;
+  border-radius: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+}
+.u-scroll.data-v-327c4068 {
+  width: 100%;
+  height: 98%;
+  padding-left: 38rpx;
+  position: relative;
+}
+.u-msg.data-v-327c4068 {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 80rpx;
+}
+.u-msg .top.data-v-327c4068 {
+  margin-left: 20rpx;
+  width: 637rpx;
+  height: 107rpx;
+  padding-top: 30rpx;
+  padding-left: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 638rpx 107rpx;
+  background-repeat: no-repeat;
+  background-image: url("https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/top-bg.png");
+  font-size: 24rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.u-msg .top ._img.data-v-327c4068 {
+  margin: 0 10rpx;
+}
+.u-msg .top ._img.data-v-327c4068:nth-of-type(1) {
+  width: 60rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+  border: 4rpx solid #fff;
+  border-radius: 50%;
+}
+.u-msg .top ._img.data-v-327c4068:nth-of-type(2) {
+  width: 65rpx;
+  height: 65rpx;
+}
+.u-msg .top ._div.data-v-327c4068 {
+  width: 5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #82fbfb;
+  text-align: center;
+}
+.u-msg.data-v-327c4068:first-child {
+  margin-top: 100rpx;
+}
+.u-msg .u-user.data-v-327c4068 {
+  position: absolute;
+  top: -40rpx;
+  left: 100rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fcee21;
+  font-size: 24rpx;
+}
+.u-msg .u-user ._img.data-v-327c4068 {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 8rpx;
+}
+.u-msg .u-user .u-medal-name.data-v-327c4068 {
+  color: #fff;
+  margin-right: 8rpx;
+}
+.u-msg > ._img.data-v-327c4068 {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.u-msg .u-txt.data-v-327c4068 {
+  padding: 20rpx;
+  width: 550rpx;
+  min-height: 65rpx;
+  border-radius: 12rpx;
+  background: #fff;
+  font-size: 24rpx;
+  color: #000;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  position: relative;
+  box-sizing: border-box;
+}
+.u-msg .u-txt.data-v-327c4068::before {
+  content: "";
+  height: 0;
+  width: 0;
+  border-right: 10rpx solid #fff;
+  border-top: 10rpx dashed transparent;
+  border-bottom: 10rpx dashed transparent;
+  position: absolute;
+  top: 50%;
+  left: -8rpx;
+  transform: translateY(-50%);
+}
+.red-bag.data-v-327c4068 {
+  width: 113rpx;
+  height: 138rpx;
+  position: fixed;
+  right: 0;
+  top: 360rpx;
+}
+.story.data-v-327c4068 {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 0;
+  border-radius: 10rpx;
+  top: 230rpx;
+}

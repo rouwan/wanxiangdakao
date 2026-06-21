@@ -1,0 +1,89 @@
+<template name="answerList$3a4b2f2c">
+  <view class="_div data-v-e0d65da2 ans-box {{[gamePageType == 1 ? 'bule-type' : '']}}" wx:if="{{dataReady}}">
+    <view class="_div data-v-e0d65da2 title-type {{[showTitleType ? 'titleTypeIn' : '']}}">
+      <view class="_div data-v-e0d65da2 title-txt rank-icon {{[  questionType == '德' ? 'rank-icon-word-de' : '',  questionType == '商' ? 'rank-icon-word-shang' : '',  questionType == '文' ? 'rank-icon-word-wen' : '',  questionType == '理' ? 'rank-icon-word-li' : '',  questionType == '艺' ? 'rank-icon-word-yi' : '',  questionType == '体' ? 'rank-icon-word-ti' : '',  questionType == '综' ? 'rank-icon-word-zong' : '']}}"></view>
+      <image class="_img data-v-e0d65da2 tt-bg" src="/static/title-bg.png" alt></image>
+      <view class="_div data-v-e0d65da2 title-number">第{{currentIndex+1}}题</view>
+      <image class="_img data-v-e0d65da2 tt-double" wx:if="{{showDoubleTip}}" src="/static/X2.png"></image>
+    </view>
+    <view class="_div data-v-e0d65da2 b-score-left {{[  showLeftBook ? 'show-score' : '',  myScore.bookType == 2 ? 'shang' : '',  myScore.bookType == 3 ? 'wen' : '',  myScore.bookType == 4 ? 'li' : '',  myScore.bookType == 5 ? 'yi' : '',  myScore.bookType == 6 ? 'ti' : '',  myScore.bookType == 7 ? 'zong' : '']}}">
+      <image src="{{bookTypeMap[myScore.bookType||2].img}}" class="_img data-v-e0d65da2"></image> +{{myScore.bookScore||0}}
+      <view class="_div data-v-e0d65da2 b-level">{{myScore.bookLevel}}</view>
+    </view>
+    <view class="_div data-v-e0d65da2 b-score-right {{[  showRightBook ? 'show-score' : '',  otherScore.bookType == 2 ? 'shang' : '',  otherScore.bookType == 3 ? 'wen' : '',  otherScore.bookType == 4 ? 'li' : '',  otherScore.bookType == 5 ? 'yi' : '',  otherScore.bookType == 6 ? 'ti' : '',  otherScore.bookType == 7 ? 'zong' : '']}}">
+      <image src="{{bookTypeMap[otherScore.bookType||2].img}}" class="_img data-v-e0d65da2"></image> +{{otherScore.bookScore||0}}
+      <view class="_div data-v-e0d65da2 b-level">{{otherScore.bookLevel}}</view>
+    </view>
+    <view class="_div data-v-e0d65da2 box-top">
+      <view class="_div data-v-e0d65da2 m-word-title {{[showTitle ? 'titleIn' : '', list[currentIndex].modeType == 6 ? 'english' : '']}}" wx:if="{{list[currentIndex].modeType==3||list[currentIndex].modeType==4||list[currentIndex].modeType==6}}">
+        <view class="_div data-v-e0d65da2 u-word-level {{[  showTitleType ? 'titleLevelIn' : '',  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}" wx:if="{{isRank}}">
+        {{levelList[currentIndex].type}} </view> {{list[currentIndex].title}} </view>
+      <view class="_div data-v-e0d65da2 m-idiom {{[showTitle ? 'titleIn' : '']}}" wx:if="{{list[currentIndex].modeType==5}}">
+        <view class="_div data-v-e0d65da2 u-word-level {{[  showTitleType ? 'titleLevelIn' : '',  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}" wx:if="{{isRank}}">
+        {{levelList[currentIndex].type}} </view>
+        <view class="_div data-v-e0d65da2 u-word-box">
+          <view class="_div data-v-e0d65da2 u-word" wx:key="index" key="{{index}}" wx:for="{{idiomList[currentIndex]}}" wx:for-index="index" wx:for-item="item">{{item}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-e0d65da2 m-img {{[showTitle ? 'titleIn' : '']}}" wx:if="{{list[currentIndex].modeType==1}}">
+        <view class="_div data-v-e0d65da2 img-title">
+          <view class="_div data-v-e0d65da2 img-level {{[  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}">{{levelList[currentIndex].type}}</view> {{list[currentIndex].title}} </view>
+        <view class="_div data-v-e0d65da2 img-box {{[showTitle ? 'titleIn' : '']}}">
+          <image mode="aspectFit" src="{{IMGHEAD+list[currentIndex].image}}" alt class="_img data-v-e0d65da2"></image>
+        </view>
+      </view>
+      <view class="_div data-v-e0d65da2 m-poetry {{[  list[currentIndex].modeType == 8 || list[currentIndex].modeType == 10    ? 'm-poetry-reverce'    : '',  showTitle ? 'titleIn' : '']}}" wx:if="{{list[currentIndex].modeType==7||list[currentIndex].modeType==8||list[currentIndex].modeType==9||list[currentIndex].modeType==10}}">
+        <view class="_div data-v-e0d65da2 u-word-level {{[  showTitleType ? 'titleLevelIn' : '',  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}" wx:if="{{isRank}}">
+        {{levelList[currentIndex].type}} </view>
+        <view class="_div data-v-e0d65da2 u-sentence">{{list[currentIndex].title}}
+          <view class="_div data-v-e0d65da2 u-symbol" wx:if="{{list[currentIndex].modeType==7||list[currentIndex].modeType==9}}">,</view>
+          <view class="_div data-v-e0d65da2 u-symbol" wx:else>。</view>
+        </view>
+        <view class="_div data-v-e0d65da2 u-line">
+          <view class="_div data-v-e0d65da2 u-line-item" wx:key="index" key="{{index}}" wx:for="{{poetryList[currentIndex]}}" wx:for-index="index" wx:for-item="item"></view>
+          <view class="_div data-v-e0d65da2 u-symbol" wx:if="{{list[currentIndex].modeType==7||list[currentIndex].modeType==9}}">。</view>
+          <view class="_div data-v-e0d65da2 u-symbol" wx:else>,</view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-e0d65da2 box-bottom">
+      <view class="_div data-v-e0d65da2 score-process {{[showProcess ? 'processIn' : '']}}">
+        <view class="_div data-v-e0d65da2 score">{{myScoreNumber}}</view>
+        <view class="_div data-v-e0d65da2 process" style=" {{myProcess}}"></view>
+      </view>
+      <view class="_div data-v-e0d65da2 ans-center" wx:if="{{dataReady}}">
+        <view class="_div data-v-e0d65da2 select-list {{[showList ? 'listIn' : '']}}">
+          <view class="_div data-v-e0d65da2 select-item {{[  item.state == 'success' ? 'success' : '',  item.state == 'fail' ? 'fail' : '',  item.state == 'waitResoponse' ? 'wait' : '',  item.noSelect ? 'noSelect' : '',  list[currentIndex].modeType == 4 ? 'big' : '']}}"
+            wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{list[currentIndex].optionList}}" wx:for-index="index" wx:for-item="item">
+            <view wx:if="{{item.state=='success'&&item.userOne}}" class="_div data-v-e0d65da2 yes-arrow-l"></view>
+            <view wx:if="{{item.state=='fail'&&item.userOne}}" class="_div data-v-e0d65da2 err-arrow-l"></view>
+            <view class="_div data-v-e0d65da2 select-item-txt">
+              <image wx:if="{{item.state=='success'&&item.userOne&&list[currentIndex].modeType!=4}}" class="_img data-v-e0d65da2 left-img yes" src="/static/rank/yes.png" alt></image>
+              <image wx:if="{{item.state=='fail'&&item.userOne&&list[currentIndex].modeType!=4}}" class="_img data-v-e0d65da2 left-img err" src="/static/rank/error.png" alt></image>
+              <view class="_div data-v-e0d65da2 txt" wx:if="{{list[currentIndex].modeType!=4}}"> {{item.name}} </view>
+              <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&!item.state&&gamePageType==0}}" class="_img data-v-e0d65da2 select-img select-yes" src="/static/rank/b_yes.png" alt></image>
+              <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&!item.state&&gamePageType==0}}" class="_img data-v-e0d65da2 select-img select-err" src="/static/rank/b_error.png" alt></image>
+              <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&!item.state&&gamePageType==1}}" class="_img data-v-e0d65da2 select-img select-yes" src="/static/rank/d_yes.png" alt></image>
+              <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&!item.state&&gamePageType==1}}" class="_img data-v-e0d65da2 select-img select-err" src="/static/rank/d_error.png" alt></image>
+              <image wx:if="{{list[currentIndex].modeType==4&&item.name=='对'&&item.state}}" class="_img data-v-e0d65da2 select-img select-yes" src="/static/rank/yes_w.png" alt></image>
+              <image wx:if="{{list[currentIndex].modeType==4&&item.name=='错'&&item.state}}" class="_img data-v-e0d65da2 select-img select-err" src="/static/rank/error_w.png" alt></image>
+              <image wx:if="{{item.state=='success'&&item.userTwo&&list[currentIndex].modeType!=4}}" class="_img data-v-e0d65da2 right-img yes" src="/static/rank/yes.png" alt></image>
+              <image wx:if="{{item.state=='fail'&&item.userTwo&&list[currentIndex].modeType!=4}}" class="_img data-v-e0d65da2 right-img err" src="/static/rank/error.png" alt></image>
+            </view>
+            <view wx:if="{{item.state=='success'&&item.userTwo}}" class="_div data-v-e0d65da2 yes-arrow-r"></view>
+            <view wx:if="{{item.state=='fail'&&item.userTwo}}" class="_div data-v-e0d65da2 err-arrow-r"></view>
+          </view>
+          <view class="_div data-v-e0d65da2 creat-info {{[showList ? 'showCreat' : '']}}"> ——本题由
+            <image wx:if="{{!list[currentIndex].createUserUrl}}" src="/static/default-head.png" class="_img data-v-e0d65da2"></image>
+            <image wx:else src="{{list[currentIndex].createUserUrl}}" class="_img data-v-e0d65da2"></image>
+            <view class="_div data-v-e0d65da2">{{list[currentIndex].createUserName}}</view> 贡献—— </view>
+        </view>
+      </view>
+      <view class="_div data-v-e0d65da2 score-process {{[showProcess ? 'processIn' : '']}}">
+        <view class="_div data-v-e0d65da2 score">{{otherScoreNumber}}</view>
+        <view class="_div data-v-e0d65da2 process {{[otherAnsFail ? 'otherAnsFail' : '']}}" style=" {{otherProcess}}"></view>
+      </view>
+    </view>
+    <view class="_div data-v-e0d65da2 fail-mask" wx:if="{{showFailMask}}"></view>
+  </view>
+</template>

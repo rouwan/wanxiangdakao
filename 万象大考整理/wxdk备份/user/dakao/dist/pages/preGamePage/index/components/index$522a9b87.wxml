@@ -1,0 +1,256 @@
+<import src="/components/energeModal$35d818a2" />
+<import src="/components/get-gift$2a56eb90" />
+<template name="index$522a9b87">
+  <view class="_div data-v-b3b60480 m-box sky-bg-2">
+    <view class="_div data-v-b3b60480 x-box">
+      <view class="_div data-v-b3b60480 l-gold">
+        <image src="/static/icon/gold.png" class="_img data-v-b3b60480"></image> {{appInfo.money}} </view>
+      <view class="_div data-v-b3b60480 m-energe flex pos-a" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+        <image src="/static/entry/energe.png" class="_img data-v-b3b60480"></image> {{strengthCount||0}}/{{maxStrength}}
+        <view class="_div data-v-b3b60480 u-add-energe">
+          <view class="_div data-v-b3b60480"></view>
+          <view class="_div data-v-b3b60480"></view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-b3b60480 m-wrap">
+      <image class="_img data-v-b3b60480 pos-a rank-t left-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/rank-t.png"></image>
+      <image class="_img data-v-b3b60480 pos-a rank-qa" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/rankQA.png" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+      <scroll-view class="_scroll-view data-v-b3b60480 ant-list" scroll-y="{{true}}" scroll-into-view="{{viewId}}" scroll-with-animation="true">
+        <view class="_div data-v-b3b60480 r-item pos-r {{[  item.isAntHideStep ? 'ant-unlock-1' : '',  item.isAntShowStep ? 'ant-unlock-2' : '',  item.isTask ? 'task-type' : '',  item.level >= 9 && !item.isLock ? 'top-type' : '',  index < currentMedal && hideItem ? 'hide' : '',  showTrans && index <= currentMedal ? 'trans' : '']}}"
+          wx:key="index" key="{{index}}" id="{{item.id}}" wx:for="{{medalList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-b3b60480 info-box pos-a db-center flex" wx:if="{{!item.isLock&&!item.isTask&&item.level<9}}">
+            <view class="_div data-v-b3b60480 l flex">
+              <image src="{{IMGHEAD+item.paragraphImage}}" class="_img data-v-b3b60480"></image>
+            </view>
+            <view class="_div data-v-b3b60480 md">
+              <image class="_img data-v-b3b60480 md-medal-name" src="{{item.medalNameImg}}"></image>
+              <view class="_div data-v-b3b60480 star-box flex pos-r">
+                <view class="_div data-v-b3b60480 star-bg flex">
+                  <image class="_img data-v-b3b60480 star" src="/static/star-black.png" wx:key="bgIndex" key="{{bgIndex}}" wx:for="{{item.maxStar}}" wx:for-index="bgIndex" wx:for-item="starBg"></image>
+                </view>
+                <view class="_div data-v-b3b60480 star-over flex pos-a top-center" wx:if="{{item.starList&&item.starList.length>0}}">
+                  <image class="_img data-v-b3b60480 star-act {{[starAct.isStatic ? 'star-show' : '', starAct.isAnt ? 'star-ant' : '']}}" src="/static/star.png" wx:key="actIndex" key="{{actIndex}}" wx:for="{{item.starList}}" wx:for-index="actIndex" wx:for-item="starAct"></image>
+                </view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 r flex">
+              <image wx:if="{{item.isReceive==2}}" class="_img data-v-b3b60480 r-getted" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/getted.png"></image>
+              <image wx:if="{{(item.isReceive==0||item.isReceive==1)&&item.goodType>0}}" class="_img data-v-b3b60480 r-gift" src="{{goodsMap[item.goodType].url}}"></image>
+            </view>
+          </view>
+          <image wx:if="{{!item.isLock&&!item.isTask&&item.level<9}}" class="_img data-v-b3b60480 item-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/rank-unLock.png"></image>
+          <image wx:if="{{item.isLock&&!item.isTask&&item.level<=9}}" class="_img data-v-b3b60480 item-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/rank-lock.png"></image>
+          <image wx:if="{{item.isTask||(item.level>=9&&!item.isLock)}}" class="_img data-v-b3b60480 item-bg-task" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/rank-unLock-big.png"></image>
+          <view class="_div data-v-b3b60480 task-box pos-a db-center" wx:if="{{item.isTask||(item.level>=9&&!item.isLock)}}">
+            <image class="_img data-v-b3b60480 w100 h100" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/rank-big-inner.png"></image>
+            <view class="_div data-v-b3b60480 task-box-inner pos-a w100 h100 db-center {{[taskOverStepHide && index == currentMedal ? 'hide-task-info' : '']}}">
+              <view class="_div data-v-b3b60480 task-list pos-a left-center flex {{[  taskInfo.total == 7 ? 'w350' : '',  taskInfo.total == 10 ? 'w520' : '',  (item.level >= 9 && !isRefine) || (isRefine && item.isReceive == 1)    ? 'hide'    : '']}}">
+                <view class="_div data-v-b3b60480 t-box pos-r" wx:key="t" key="{{t}}" wx:for="{{taskList}}" wx:for-index="t" wx:for-item="taskItem">
+                  <view class="_div data-v-b3b60480 t-icon-box pos-a db-center">
+                    <view class="_div data-v-b3b60480 t-icon pos-a db-center {{[  taskItem.status == 1 ? 't-icon-over' : '',  taskItem.status == 0 ? 't-icon-fail' : '']}}"></view>
+                  </view>
+                  <image wx:if="{{isRefine&&medalList[currentMedal].totalNum==t}}" class="_img data-v-b3b60480 t-arrow pos-a left-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/arrow.png"></image>
+                </view>
+                <view class="_div data-v-b3b60480 t-line pos db-center"></view>
+              </view>
+              <view class="_div data-v-b3b60480 t-desc flex pos-a left-center {{[  (item.level >= 9 && !isRefine) || (isRefine && item.isReceive == 1)    ? 'hide'    : '']}}">
+                <view class="_div data-v-b3b60480 flex">通关条件：
+                  <view class="_div data-v-b3b60480">{{taskInfo.total}}局{{taskInfo.need}}胜</view>
+                </view>
+                <view class="_div data-v-b3b60480 flex">试炼奖励：
+                  <image src="{{goodsMap[taskInfo.goodType].url}}" class="_img data-v-b3b60480"></image>
+                </view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 task-over-ant left-center {{[  (taskOverStepShow && index == currentMedal) ||  (isRefine && item.isReceive == 1)    ? 'show-over-ant'    : '']}}">
+              <image src="{{goodsMap[taskInfo.goodType].url}}" class="_img data-v-b3b60480"></image>
+            </view>
+            <view class="_div data-v-b3b60480 top-area pos-a db-center w100 h100 flex {{[item.level < 9 || isRefine ? 'hide' : '']}}">
+              <view class="_div data-v-b3b60480 star-num flex">
+                <image class="_img data-v-b3b60480 star-img" src="/static/star.png"></image> {{item.star}} </view>
+              <view class="_div data-v-b3b60480 star-line-box">
+                <view class="_div data-v-b3b60480 star-line pos-a top-center" style=" {{topInfo.style}}"></view>
+                <view class="_div data-v-b3b60480 line-gold pos-a db-center flex ">
+                  <view class="_div data-v-b3b60480 gold-item border-50 pos-r {{[!topInfo.hasGoldToGet && topInfo.getIndex >= 1 ? 'gold-item-getted' : '']}}">
+                    <image class="_img data-v-b3b60480 pos-a left-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/gold.png"></image>
+                  </view>
+                  <view class="_div data-v-b3b60480 gold-item border-50 pos-r {{[!topInfo.hasGoldToGet && topInfo.getIndex >= 2 ? 'gold-item-getted' : '']}}">
+                    <image class="_img data-v-b3b60480 pos-a left-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/gold.png"></image>
+                  </view>
+                  <view class="_div data-v-b3b60480 gold-item border-50 pos-r {{[!topInfo.hasGoldToGet && topInfo.getIndex >= 3 ? 'gold-item-getted' : '']}}">
+                    <image class="_img data-v-b3b60480 pos-a left-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/gold.png"></image>
+                  </view>
+                  <view class="_div data-v-b3b60480 gold-item border-50 pos-r {{[!topInfo.hasGoldToGet && topInfo.getIndex >= 4 ? 'gold-item-getted' : '']}}">
+                    <image class="_img data-v-b3b60480 pos-a left-center" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/gold.png"></image>
+                  </view>
+                </view>
+                <view class="_div data-v-b3b60480 line-start pos-a top-center border-50 flex">
+                  <image class="_img data-v-b3b60480 star-img" src="/static/star.png"></image>
+                  <view class="_div data-v-b3b60480 line-text pos-a left-center">{{topInfo.start}}</view>
+                </view>
+                <view class="_div data-v-b3b60480 line-end pos-a top-center">
+                  <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/task-icon.png" class="_img data-v-b3b60480"></image>
+                  <view class="_div data-v-b3b60480 line-text pos-a left-center">{{topInfo.end}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-b3b60480 task-head pos-a left-center" wx:if="{{item.isTask||(item.level>=9&&!item.isLock)}}">
+            <image class="_img data-v-b3b60480 w100 h100" wx:if="{{item.level<9}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/medal-bg-1.png"></image>
+            <image class="_img data-v-b3b60480 w100 h100" wx:if="{{item.level>=9}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/medal-bg-2.png"></image>
+            <image class="_img data-v-b3b60480 head-medal pos-a db-center" src="{{IMGHEAD+item.paragraphImage}}"></image>
+            <image class="_img data-v-b3b60480 head-name-img pos-a left-center" wx:if="{{item.level==4}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/task-g.png"></image>
+            <image class="_img data-v-b3b60480 head-name-img pos-a left-center" wx:if="{{item.level==7}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/task-d.png"></image>
+            <image class="_img data-v-b3b60480 head-name-img pos-a left-center" wx:if="{{item.level>=9&&isRefine}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/task-k.png"></image>
+            <image class="_img data-v-b3b60480 head-name-img pos-a left-center" wx:if="{{item.level>=9&&!isRefine}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/top.png"></image>
+          </view>
+        </view>
+      </scroll-view>
+      <image class="_img data-v-b3b60480 g-btn" wx:if="{{showGetBtn}}" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/get-btn.png" data-eventid="{{'3'}}" data-comkey="{{$k}}"></image>
+      <image class="_img data-v-b3b60480 g-btn" wx:else bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/preGame/start-btn.png" data-eventid="{{'2'}}" data-comkey="{{$k}}"></image>
+    </view>
+    <view class="_div data-v-b3b60480 m-intro" wx:if="{{showIntro}}" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-b3b60480 u-head">
+        <view wx:key="index" key="{{index}}" catchtap="handleProxy" data-eventid="{{'4-'+index}}" data-comkey="{{$k}}" wx:for="{{introList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-b3b60480 {{[selectIndex == index ? 't-act' : '']}}">{{item}}</view>
+      </view>
+      <view class="_div data-v-b3b60480 u-medal-list {{[selectIndex == 0 ? 'show' : '']}}">
+        <view class="_div data-v-b3b60480 u-medal-head">
+          <view class="_div data-v-b3b60480">段位名称</view>
+          <view class="_div data-v-b3b60480">赛季奖励</view>
+        </view>
+        <view class="_div data-v-b3b60480 u-medal-box">
+          <view class="_div data-v-b3b60480 u-medal-item">
+            <view class="_div data-v-b3b60480 u-item-left">
+              <image src="{{IMGHEAD+giftRankList[0].paragraphImage}}" class="_img data-v-b3b60480"></image>
+              <view class="_div data-v-b3b60480 u-txt"> 最强王者
+                <view class="_div data-v-b3b60480 pos-txt">(前五名)</view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 u-item-right">
+              <view class="_div data-v-b3b60480 u-goods-item " wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[0]}}" wx:for-index="gIndex" wx:for-item="good">
+                <image class="_img data-v-b3b60480 book" src="{{goodsMap[good.type].url}}"></image>
+                <view class="_div data-v-b3b60480"> {{goodsMap[good.type].name}} </view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-b3b60480 u-medal-item">
+            <view class="_div data-v-b3b60480 u-item-left">
+              <image src="{{IMGHEAD+giftRankList[0].paragraphImage}}" class="_img data-v-b3b60480"></image>
+              <view class="_div data-v-b3b60480 u-txt"> 最强王者
+                <view class="_div data-v-b3b60480 pos-txt">(2000星)</view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 u-item-right">
+              <view class="_div data-v-b3b60480 u-goods-item" wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[1]}}" wx:for-index="gIndex" wx:for-item="good">
+                <image src="{{goodsMap[good.type].url}}" class="_img data-v-b3b60480"></image>
+                <view class="_div data-v-b3b60480">
+                  <view class="_div data-v-b3b60480">{{good.num}}</view> {{goodsMap[good.type].name}} </view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-b3b60480 u-medal-item">
+            <view class="_div data-v-b3b60480 u-item-left">
+              <image src="{{IMGHEAD+giftRankList[0].paragraphImage}}" class="_img data-v-b3b60480"></image>
+              <view class="_div data-v-b3b60480 u-txt"> 最强王者
+                <view class="_div data-v-b3b60480 pos-txt">(1500星)</view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 u-item-right">
+              <view class="_div data-v-b3b60480 u-goods-item" wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[2]}}" wx:for-index="gIndex" wx:for-item="good">
+                <image src="{{goodsMap[good.type].url}}" class="_img data-v-b3b60480"></image>
+                <view class="_div data-v-b3b60480">
+                  <view class="_div data-v-b3b60480">{{good.num}}</view> {{goodsMap[good.type].name}} </view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-b3b60480 u-medal-item">
+            <view class="_div data-v-b3b60480 u-item-left">
+              <image src="{{IMGHEAD+giftRankList[0].paragraphImage}}" class="_img data-v-b3b60480"></image>
+              <view class="_div data-v-b3b60480 u-txt"> 最强王者
+                <view class="_div data-v-b3b60480 pos-txt">(1000星)</view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 u-item-right">
+              <view class="_div data-v-b3b60480 u-goods-item" wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[3]}}" wx:for-index="gIndex" wx:for-item="good">
+                <image src="{{goodsMap[good.type].url}}" class="_img data-v-b3b60480"></image>
+                <view class="_div data-v-b3b60480">
+                  <view class="_div data-v-b3b60480">{{good.num}}</view> {{goodsMap[good.type].name}} </view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-b3b60480 u-medal-item">
+            <view class="_div data-v-b3b60480 u-item-left">
+              <image src="{{IMGHEAD+giftRankList[0].paragraphImage}}" class="_img data-v-b3b60480"></image>
+              <view class="_div data-v-b3b60480 u-txt"> 最强王者
+                <view class="_div data-v-b3b60480 pos-txt">(500星)</view>
+              </view>
+            </view>
+            <view class="_div data-v-b3b60480 u-item-right">
+              <view class="_div data-v-b3b60480 u-goods-item" wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[4]}}" wx:for-index="gIndex" wx:for-item="good">
+                <image src="{{goodsMap[good.type].url}}" class="_img data-v-b3b60480"></image>
+                <view class="_div data-v-b3b60480">
+                  <view class="_div data-v-b3b60480">{{good.num}}</view> {{goodsMap[good.type].name}} </view>
+              </view>
+            </view>
+          </view>
+          <view class="_div data-v-b3b60480 u-medal-item" wx:key="index" key="{{index}}" wx:for="{{giftRankList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-b3b60480 u-item-left">
+              <image src="{{IMGHEAD+item.paragraphImage}}" class="_img data-v-b3b60480"></image> {{item.paragraphName}} </view>
+            <view class="_div data-v-b3b60480 u-item-right">
+              <view class="_div data-v-b3b60480 u-goods-item" wx:key="gIndex" key="{{gIndex}}" wx:for="{{giftList[index+5]}}" wx:for-index="gIndex" wx:for-item="good">
+                <image src="{{goodsMap[good.type].url}}" class="_img data-v-b3b60480"></image>
+                <view class="_div data-v-b3b60480">
+                  <view class="_div data-v-b3b60480">{{good.num}}</view> {{goodsMap[good.type].name}} </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-b3b60480 u-rank-rule {{[selectIndex == 1 ? 'show' : '']}}">
+        <view class="_div data-v-b3b60480 u-rule"> 1、赛季：
+          <view class="_div data-v-b3b60480 u-fff">一个月</view>
+        </view>
+        <view class="_div data-v-b3b60480 u-rule"> 2、段位： </view>
+        <view class="_div data-v-b3b60480 u-rule">
+          <view class="_div data-v-b3b60480 u-fff"> 共有坚韧黑铁、英勇青铜、不屈白银、荣耀黄金、华贵白金、深沉黑金、璀璨钻石、超凡大师、最强王者等9大段位。 </view>
+        </view>
+        <view class="_div data-v-b3b60480 u-rule"> 3、试炼： </view>
+        <view class="_div data-v-b3b60480 u-rule">
+          <view class="_div data-v-b3b60480 u-fff">黄金试炼：5局3胜</view>
+          <view class="_br data-v-b3b60480"></view>
+          <view class="_div data-v-b3b60480 u-fff">钻石试炼：7局4胜</view>
+          <view class="_br data-v-b3b60480"></view>
+          <view class="_div data-v-b3b60480 u-fff">王者试炼：10局6胜</view>
+          <view class="_br data-v-b3b60480"></view>
+          <view class="_div data-v-b3b60480 u-fff">王者整50星试炼：5局3胜</view>
+          <view class="_br data-v-b3b60480"></view>
+          <view class="_div data-v-b3b60480 u-fff">王者整100星试炼：10局6胜</view>
+        </view>
+        <view class="_div data-v-b3b60480 u-rule"> 4、保护制： </view>
+        <view class="_div data-v-b3b60480 u-rule">
+          <view class="_div data-v-b3b60480 u-fff">当晋升一个段位，或通过一个试炼，本赛季内将不会再掉星回之前的段位</view>
+        </view>
+      </view>
+      <view class="_div data-v-b3b60480 u-score-rule {{[selectIndex == 2 ? 'show' : '']}}">
+        <view class="_div data-v-b3b60480 u-rule">1、获胜规则：5题答完,分数高者胜</view>
+        <view class="_div data-v-b3b60480 u-rule">2、每题有10秒钟思考时间,超时未回答为0分</view>
+        <view class="_div data-v-b3b60480 u-rule">3、每道题分数包括两部分,正确分,时间分和组合分</view>
+        <view class="_div data-v-b3b60480 u-white">①:正确分:答对+100分,答错不加分</view>
+        <view class="_div data-v-b3b60480 u-white">②:时间分:答对了才有时间分,时间分=剩余秒数*10</view>
+        <view class="_div data-v-b3b60480 u-rule">4、最后一题得分双倍,
+          <view class="_div data-v-b3b60480 u-fff">不包括组合分</view>
+        </view>
+        <view class="_div data-v-b3b60480 u-rule">5、知识书加成,规则如下</view>
+        <view class="_div data-v-b3b60480 u-table">
+          <view class="_div data-v-b3b60480 u-tr" wx:key="index" key="{{index}}" wx:for="{{scoreList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-b3b60480 u-td">{{item[0]}}</view>
+            <view class="_div data-v-b3b60480 u-td">{{item[1]}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <template wx:if="{{showEnerge}}" bindclose="handleProxy" data-eventid="{{'6'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="energeModal$35d818a2"></template>
+    <template wx:if="{{showGetGift}}" bindclose="handleProxy" data-eventid="{{'7'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="get-gift$2a56eb90"></template>
+  </view>
+</template>

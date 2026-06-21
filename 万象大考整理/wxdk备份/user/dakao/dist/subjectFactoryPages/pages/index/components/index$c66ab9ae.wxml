@@ -1,0 +1,66 @@
+<template name="index$c66ab9ae">
+  <view class="_div data-v-ba533f7c m-subject sky-bg-2">
+    <view class="_div data-v-ba533f7c m-user">
+      <image class="_img data-v-ba533f7c u-btn" src="/static/ques.png" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+      <image class="_img data-v-ba533f7c u-head-img-1" src="{{appInfo.headImgUrl}}"></image>
+      <view class="_div data-v-ba533f7c u-info">
+        <view class="_div data-v-ba533f7c u-name"> {{appInfo.nickname}} </view>
+        <view class="_div data-v-ba533f7c u-row">
+          <view class="_div data-v-ba533f7c u-row-item-small" wx:if="{{dataReady}}">等级{{mySubject.Result.level}} {{mySubject.Result.name}} </view>
+        </view>
+        <view class="_div data-v-ba533f7c u-row">
+          <view class="_div data-v-ba533f7c process">
+            <view class="_div data-v-ba533f7c process-inner" style=" {{pStyle}}"></view>
+          </view>
+        </view>
+        <view class="_div data-v-ba533f7c u-row">
+          <view class="_div data-v-ba533f7c u-row-item">出题数:
+            <view class="_div data-v-ba533f7c u-txt" wx:if="{{dataReady}}">{{mySubject.Result.totalNum}}</view>
+          </view>
+          <view class="_div data-v-ba533f7c u-row-item">影响力:
+            <view class="_div data-v-ba533f7c u-txt" wx:if="{{dataReady}}">{{mySubject.Result.effectNum}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-ba533f7c u-btn-set">
+      <image src="{{wantBtn}}" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_img data-v-ba533f7c"></image>
+    </view>
+    <view class="_div data-v-ba533f7c u-btn-subject" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+      <image src="{{subjectBtn}}" class="_img data-v-ba533f7c"></image>
+    </view>
+    <view class="_div data-v-ba533f7c m-rule" wx:if="{{showRule}}" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-ba533f7c u-rule-head">1、字数要求:</view>
+      <view class="_div data-v-ba533f7c u-txt"> 题目字数≤
+        <view class="_div data-v-ba533f7c p-fff">30</view>; 选项字数≤
+        <view class="_div data-v-ba533f7c p-fff">10</view>; 解析字数≤
+        <view class="_div data-v-ba533f7c p-fff">500</view>
+      </view>
+      <view class="_div data-v-ba533f7c u-rule-head">2、题目要求:</view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">①</view>题目要
+        <view class="_div data-v-ba533f7c p-fff">完整</view>
+      </view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">②</view>
+        <view class="_div data-v-ba533f7c p-fff">有争议</view>的题目不予通过</view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">③</view>涉及
+        <view class="_div data-v-ba533f7c p-fff">政治敏感</view>的题目不予通过</view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">④</view>解析要
+        <view class="_div data-v-ba533f7c p-fff">合理</view>,要对题目进行适当分析</view>
+      <view class="_div data-v-ba533f7c u-rule-head">3、注意事项:</view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">①</view>为保证题目质量,每个人一天最多出
+        <view class="_div data-v-ba533f7c p-fff">50</view>题</view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">②</view>如果题目
+        <view class="_div data-v-ba533f7c p-fff">通过率过低</view>,将可能被撤销出题权限</view>
+      <view class="_div data-v-ba533f7c u-txt">
+        <view class="_div data-v-ba533f7c u-num">③</view>为了感谢您对知识传播的贡献,采纳的题目,将在释义区
+        <view class="_div data-v-ba533f7c p-fff">标明出题者的头像和名字</view>
+      </view>
+    </view>
+  </view>
+</template>

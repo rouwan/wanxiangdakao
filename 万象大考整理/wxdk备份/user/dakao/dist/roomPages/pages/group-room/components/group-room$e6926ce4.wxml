@@ -1,0 +1,172 @@
+<import src="/components/timeCount$55843278" />
+<template name="group-room$e6926ce4">
+  <view class="_div data-v-63e15ff4 hyb-room">
+    <image class="_img data-v-63e15ff4 entry-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/entry-test.png"></image>
+    <view class="_div data-v-63e15ff4 match bg-match_w group-icon {{[roomType == 'match' ? 'show-match' : '']}}"></view>
+    <view class="_div data-v-63e15ff4 match-success bg-match_s group-icon {{[roomType == 'matchSuccess' ? 'show-match-success' : '']}}"></view>
+    <view class="_div data-v-63e15ff4 hyb-box {{[roomType == 'match' || roomType == 'matchSuccess' ? 'box-match' : '']}}" wx:if="{{roomType!='playing'}}">
+      <view class="_div data-v-63e15ff4 time-box flex" wx:if="{{roomType=='matchSuccess'}}">{{ctime}}秒后进入</view>
+      <view class="_div data-v-63e15ff4 h-head">
+        <view class="_div data-v-63e15ff4 mode-type bg-group_type group-icon"></view>
+        <view class="_div data-v-63e15ff4 gold-box">
+          <image src="/static/gold.png" class="_img data-v-63e15ff4"></image>{{appInfo.money||0}} </view>
+      </view>
+      <view class="_div data-v-63e15ff4 h-body">
+        <view class="_div data-v-63e15ff4 user-box flex" wx:key="seatIndex" key="{{seatIndex}}" wx:for="{{emtptList}}" wx:for-index="seatIndex" wx:for-item="seat">
+          <view class="_div data-v-63e15ff4 user-head flex radius50">
+            <view class="_div data-v-63e15ff4 ques db-center bg-ques group-icon"></view>
+            <image wx:if="{{userListL[seatIndex]&&userListL[seatIndex].boot}}" class="_img data-v-63e15ff4 head-img db-center radius50" src="{{IMGHEAD+userListL[seatIndex].basicInfo.avatarUrl}}"></image>
+            <image wx:if="{{userListL[seatIndex]&&!userListL[seatIndex].boot}}" class="_img data-v-63e15ff4 head-img db-center radius50" src="{{userListL[seatIndex].basicInfo.avatarUrl}}"></image>
+            <view wx:if="{{userListL[seatIndex]&&userListL[seatIndex].isReady==1&&masterId!=userListL[seatIndex].basicInfo.userId&&roomType=='wait'}}" class="_div data-v-63e15ff4 ready db-center radius50">
+              <view class="_div data-v-63e15ff4 db-center group-icon bg-ready"></view>
+            </view>
+            <view class="_div data-v-63e15ff4 u-ant-cycle-fill" wx:if="{{!userListL[seatIndex]&&roomType=='match'}}">
+              <view class="_div data-v-63e15ff4 u-ant-dot"></view>
+              <view class="_div data-v-63e15ff4 u-ant-dot"></view>
+              <view class="_div data-v-63e15ff4 u-ant-dot"></view>
+            </view>
+          </view>
+          <view wx:if="{{userListL[seatIndex]}}" class="_div data-v-63e15ff4 user-info">
+            <view class="_div data-v-63e15ff4">{{userListL[seatIndex].basicInfo.nickName||'无名氏'}}</view>
+            <view class="_div data-v-63e15ff4">{{userListL[seatIndex].basicInfo.city||'火星'}}</view>
+          </view>
+          <view wx:else class="_div data-v-63e15ff4 user-info-empty">
+            <view class="_div data-v-63e15ff4"></view>
+            <view class="_div data-v-63e15ff4"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-63e15ff4 btn-box flex" wx:if="{{roomType=='wait'}}">
+      <view wx:if="{{masterId==appInfo.userId}}" class="_div data-v-63e15ff4 group-icon bg-start_btn" hover-class="click-active " bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+      <view wx:if="{{masterId!=appInfo.userId&&userReady==0}}" hover-class="click-active" class="_div data-v-63e15ff4 group-icon bg-ready_btn" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}"></view>
+      <view wx:if="{{masterId!=appInfo.userId&&userReady==1}}" bindtap="handleProxy" class="_div data-v-63e15ff4 group-icon bg-cancel_btn" hover-class="click-active" data-eventid="{{'2'}}" data-comkey="{{$k}}"></view>
+      <view wx:if="{{userList.length==3||userReady==1&&masterId!=appInfo.userId}}" bindtap="handleProxy" hover-class="click-active" class="_div data-v-63e15ff4 invate group-icon bg-invate_btn" data-eventid="{{'3'}}" data-comkey="{{$k}}"></view>
+      <button wx:else hover-class="click-active" open-type="share" plain="true" class="_button data-v-63e15ff4">
+        <view class="_div data-v-63e15ff4 group-icon bg-invate_btn"></view>
+      </button>
+    </view>
+    <view class="_div data-v-63e15ff4 m-ques-modal" wx:if="{{showQuesModules}}">
+      <view class="_div data-v-63e15ff4 u-time {{[showTop ? 'show-top' : '']}}" wx:if="{{showTop}}">
+        <template data="{{...$root[$kk+'0'], $root}}" is="timeCount$55843278"></template>
+      </view>
+      <view class="_div data-v-63e15ff4 top-area w100 flex {{[showTop ? 'show-top' : '']}}">
+        <view class="_div data-v-63e15ff4 g-l flex flex-col {{[showUserList ? 'show' : '']}}">
+          <view class="_div data-v-63e15ff4 u pos-r" wx:key="uindex" key="{{uindex}}" wx:for="{{userListL}}" wx:for-index="uindex" wx:for-item="uLeft">
+            <view class="_div data-v-63e15ff4 score pos-a left-center {{[uLeft.showScore ? 'show-score' : '']}}">{{uLeft.score}}</view>
+            <view class="_div data-v-63e15ff4 self-tag pos-a left-center">
+              <image class="_img data-v-63e15ff4 w100 h100" wx:if="{{uLeft.basicInfo.userId==appInfo.userId}}" src="/static/rank/arrow-d.png"></image>
+            </view>
+            <image wx:if="{{uLeft.boot}}" class="_img data-v-63e15ff4 w100 h100 border-50" src="{{IMGHEAD+uLeft.basicInfo.avatarUrl}}"></image>
+            <image wx:else class="_img data-v-63e15ff4 w100 h100 border-50" src="{{uLeft.basicInfo.avatarUrl}}"></image>
+            <view class="_div data-v-63e15ff4 u-mask w100 h100 pos-a flex border-50" wx:if="{{uLeft.showScore}}">
+              <image wx:if="{{uLeft.right}}" class="_img data-v-63e15ff4 yes pos-a db-center" src="/static/rank/yes-v.png"></image>
+              <image wx:if="{{!uLeft.right}}" class="_img data-v-63e15ff4 err pos-a db-center" src="/static/rank/err-v.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-63e15ff4 g-r flex flex-col {{[showUserList ? 'show' : '']}}">
+          <view class="_div data-v-63e15ff4 u pos-r" wx:key="ind" key="{{ind}}" wx:for="{{userListR}}" wx:for-index="ind" wx:for-item="u">
+            <view class="_div data-v-63e15ff4 score pos-a left-center {{[u.showScore ? 'show-score' : '']}}">{{u.score}}</view>
+            <view class="_div data-v-63e15ff4 self-tag pos-a left-center">
+              <image class="_img data-v-63e15ff4 w100 h100" wx:if="{{u.basicInfo.userId==appInfo.userId}}" src="/static/rank/arrow-d.png"></image>
+            </view>
+            <image class="_img data-v-63e15ff4 w100 h100 border-50" src="{{IMGHEAD+u.basicInfo.avatarUrl}}"></image>
+            <view class="_div data-v-63e15ff4 u-mask w100 h100 pos-a flex border-50" wx:if="{{u.showScore}}">
+              <image wx:if="{{u.right}}" class="_img data-v-63e15ff4 yes" src="/static/rank/yes-v.png"></image>
+              <image wx:if="{{!u.right}}" class="_img data-v-63e15ff4 err" src="/static/rank/err-v.png"></image>
+            </view>
+          </view>
+        </view>
+        <view class="_div data-v-63e15ff4 t-score pos-a flex left-center">
+          <view class="_div data-v-63e15ff4 t-l w100 h100 flex">{{groupScoreLeft}}</view>
+          <view class="_div data-v-63e15ff4 t-r w100 h100 flex">{{groupScoreRight}}</view>
+        </view>
+        <view class="_div data-v-63e15ff4 ques-title pos-a left-center">
+          <view class="_div data-v-63e15ff4 ques-tag flex flex-col pos-a top-center {{[  showQuesTag ? 'show-tag' : '',  showQuesTag && currentIndex == 7 ? 'show-tag-delay' : '']}}">
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==0}}">第一题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==1}}">第二题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==2}}">第三题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==3}}">第四题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==4}}">第五题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==5}}">第六题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==6}}">第七题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p1" wx:if="{{currentIndex==7}}">第八题</view>
+            <view class="_div data-v-63e15ff4 flex tag-p2">
+              <image src="/static/rank/icon-book.png" class="_img data-v-63e15ff4"></image>{{quesType[list[currentIndex].parentType]}}科</view>
+            <view class="_div data-v-63e15ff4 q-double flex flex-col pos-a">
+              <view class="_div data-v-63e15ff4">最后一题</view>
+              <view class="_div data-v-63e15ff4">得分X2</view>
+            </view>
+          </view>
+          <view class="_div data-v-63e15ff4 ques-box flex {{[showQuestion ? 'show-ques' : '']}}">
+            <view class="_div data-v-63e15ff4 q-img" wx:if="{{list[currentIndex].modeType==1}}">
+              <view class="_div data-v-63e15ff4 q-img-box flex">
+                <image src="{{IMGHEAD+list[currentIndex].image}}" mode="aspectFit" class="_img data-v-63e15ff4"></image>
+              </view>
+              <view class="_div data-v-63e15ff4 txt">{{list[currentIndex].title}}</view>
+            </view>
+            <view class="_div data-v-63e15ff4 q-word" wx:else> {{list[currentIndex].title}} </view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-63e15ff4 bottom-area w100 flex flex-col {{[showQuestion ? 'show-select' : '']}}">
+        <view class="_div data-v-63e15ff4 select-item flex border-1000 pos-r {{[  item.state == 'right' ? 'right-type' : '',  item.state == 'error' ? 'error-type' : '']}}" wx:key="sIndex" key="{{sIndex}}" bindtap="handleProxy" data-eventid="{{'4-'+sIndex}}"
+          data-comkey="{{$k}}" wx:for="{{list[currentIndex].optionList}}" wx:for-index="sIndex" wx:for-item="item"> {{item.name}}
+          <view class="_div data-v-63e15ff4 s-l-list pos-a top-center">
+            <view class="_div data-v-63e15ff4 s-l-item {{[  (userx.userId == appInfo.userId && showMySelect) || showBothAns    ? 'show-ans-head'    : '']}}" wx:key="xIndex" key="{{xIndex}}" wx:for="{{item.opl}}" wx:for-index="xIndex" wx:for-item="userx">
+              <image wx:if="{{userx.userId>0}}" src="{{userx.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+              <image wx:else src="{{IMGHEAD+userx.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+            </view>
+          </view>
+          <view class="_div data-v-63e15ff4 s-r-list pos-a top-center">
+            <view class="_div data-v-63e15ff4 s-r-item {{[showBothAns ? 'show-ans-head' : '']}}" wx:key="ur" key="{{ur}}" wx:for="{{item.opr}}" wx:for-index="ur" wx:for-item="userr">
+              <image wx:if="{{userr.userId>0}}" src="{{userr.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+              <image wx:else src="{{IMGHEAD+userr.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{showResult}}" class="_div data-v-63e15ff4 m-ques-result">
+      <image class="_img data-v-63e15ff4 r-t-img-s pos-a left-center {{[showResultTitle && groupScoreLeft > groupScoreRight ? 'show-r-t' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/success-word.png"></image>
+      <image class="_img data-v-63e15ff4 r-t-img-b pos-a left-center {{[showResultTitle && groupScoreLeft == groupScoreRight ? 'show-r-t' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/balance-word.png"></image>
+      <image class="_img data-v-63e15ff4 r-t-img-f pos-a left-center {{[showResultTitle && groupScoreLeft < groupScoreRight ? 'show-r-t' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/fail-word.png"></image>
+      <view class="_div data-v-63e15ff4 r-s-l pos-a flex {{[showResultTitle ? 'show-r-s' : '']}}"> {{groupScoreLeft}} </view>
+      <view class="_div data-v-63e15ff4 r-s-r pos-a flex {{[showResultTitle ? 'show-r-s' : '']}}"> {{groupScoreRight}} </view>
+      <view class="_div data-v-63e15ff4 r-l-l pos-a {{[showForm ? 'show-r-l' : '']}}">
+        <view class="_div data-v-63e15ff4 flex" wx:key="rlIndex" key="{{rlIndex}}" wx:for="{{resultData.Result.room.leftRankList}}" wx:for-index="rlIndex" wx:for-item="user">
+          <image wx:if="{{user.boot}}" src="{{IMGHEAD+user.basicInfo.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+          <image wx:else src="{{user.basicInfo.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+          <image class="_img data-v-63e15ff4 mvp {{[  groupScoreLeft > groupScoreRight && user.basicInfo.userId == mvpIdL && showMvp    ? 'show-mvp'    : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/mvp.png"></image>
+          <view class="_div data-v-63e15ff4">
+            <view class="_div data-v-63e15ff4 r-name">{{user.basicInfo.nickName}}</view>
+            <view class="_div data-v-63e15ff4 r-score">{{user.abilityInfo.score}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-63e15ff4 r-r-l pos-a {{[showForm ? 'show-r-l' : '']}}">
+        <view class="_div data-v-63e15ff4 flex" wx:key="rIndex" key="{{rIndex}}" wx:for="{{resultData.Result.room.rightRankList}}" wx:for-index="rIndex" wx:for-item="userR">
+          <image wx:if="{{userR.boot}}" src="{{IMGHEAD+userR.basicInfo.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+          <image wx:else src="{{userR.basicInfo.avatarUrl}}" class="_img data-v-63e15ff4"></image>
+          <image class="_img data-v-63e15ff4 mvp {{[  groupScoreLeft < groupScoreRight &&  userR.basicInfo.userId == mvpIdR &&  showMvp    ? 'show-mvp'    : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/mvp.png"></image>
+          <view class="_div data-v-63e15ff4">
+            <view class="_div data-v-63e15ff4 r-name">{{userR.basicInfo.nickName}}</view>
+            <view class="_div data-v-63e15ff4 r-score">{{userR.abilityInfo.score}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="_div data-v-63e15ff4 r-gift pos-a left-center {{[showGift ? 'show-gift' : '']}}">
+        <view class="_div data-v-63e15ff4 g-t">奖励</view>
+        <view class="_div data-v-63e15ff4 g-g flex">
+          <image src="/static/gold.png" class="_img data-v-63e15ff4"></image>
+          <view wx:if="{{myResult.abilityInfo&&showResult}}" class="_div data-v-63e15ff4">X{{goldValue}}</view>
+        </view>
+      </view>
+      <image bindtap="handleProxy" class="_img data-v-63e15ff4 r-btn pos-a btn-back {{[showGift ? 'show-gift' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/btn-more.png" data-eventid="{{'5'}}"
+        data-comkey="{{$k}}"></image>
+      <image bindtap="handleProxy" class="_img data-v-63e15ff4 r-btn pos-a btn-pro {{[showGift ? 'show-gift' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/newRoom/btn-pro.png" data-eventid="{{'6'}}"
+        data-comkey="{{$k}}"></image>
+    </view>
+  </view>
+</template>

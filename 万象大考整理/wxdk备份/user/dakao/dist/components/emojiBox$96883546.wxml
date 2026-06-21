@@ -1,0 +1,22 @@
+<template name="emojiBox$96883546">
+  <view class="_div data-v-05d926fc m-emoji" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">
+    <view class="_div data-v-05d926fc u-wrap">
+      <swiper indicator-dots="{{false}}" autoplay="{{false}}" current="{{sIndex}}" duration="300" bindanimationfinish="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_swiper data-v-05d926fc">
+        <swiper-item class="_swiper-item data-v-05d926fc">
+          <view class="_div data-v-05d926fc u-img-box" wx:key="index" key="{{index}}" catchtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}" wx:for="{{arr1}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{item.imgUrl}}" class="_img data-v-05d926fc"></image>
+          </view>
+        </swiper-item>
+        <swiper-item class="_swiper-item data-v-05d926fc">
+          <view class="_div data-v-05d926fc u-img-box" wx:key="index" key="{{index}}" catchtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{arr2}}" wx:for-index="index" wx:for-item="item">
+            <image src="{{item.imgUrl}}" class="_img data-v-05d926fc"></image>
+          </view>
+        </swiper-item>
+      </swiper>
+      <view class="_div data-v-05d926fc u-dot">
+        <view class="_div data-v-05d926fc {{[sIndex == 0 ? 'active' : '']}}"></view>
+        <view class="_div data-v-05d926fc {{[sIndex == 1 ? 'active' : '']}}"></view>
+      </view>
+    </view>
+  </view>
+</template>

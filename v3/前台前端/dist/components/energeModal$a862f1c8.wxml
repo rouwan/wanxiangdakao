@@ -1,0 +1,27 @@
+<template name="energeModal$a862f1c8">
+  <view class="_div data-v-8a9a7896 m-modal">
+    <view class="_div data-v-8a9a7896 u-modal-inner">
+      <view class="_div data-v-8a9a7896 close" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+      <view class="_div data-v-8a9a7896 u-head">
+        <view class="_div data-v-8a9a7896">体力</view>
+        <image class="_img data-v-8a9a7896 u-head-img" src="/static/modal-bg.png" alt></image>
+      </view>
+      <view class="_div data-v-8a9a7896 u-content">
+        <view class="_div data-v-8a9a7896 u-energe">
+          <view class="_div data-v-8a9a7896 u-icon">
+            <image src="/static/entry/energe.png" class="_img data-v-8a9a7896"></image>
+          </view> {{strengthCount}}/{{maxStrength}} </view>
+        <view class="_div data-v-8a9a7896 u-props">
+          <view class="_div data-v-8a9a7896 u-props-item" wx:key="index" key="{{index}}" wx:for="{{goodList}}" wx:for-index="index" wx:for-item="item">
+            <view class="_div data-v-8a9a7896 u-box">
+              <image src="{{item.url}}" class="_img data-v-8a9a7896"></image>
+              <view class="_div data-v-8a9a7896 u-num">X{{item.num}}</view>
+            </view>
+            <view class="_div data-v-8a9a7896 u-props-desc">体力+{{item.energe}}</view>
+            <view class="_div data-v-8a9a7896 u-btn u-btn-red u-btn-samll" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}">使用</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

@@ -1,0 +1,49 @@
+<template name="medalChange$05c5d4d2">
+  <view class="_div data-v-5aa13153 wrap medal-bg">
+    <view class="_div data-v-5aa13153 medal-box" wx:if="{{true}}">
+      <view class="_div data-v-5aa13153  m-word medal-word {{[levelUpWord && medalInfo.paragraph >= 41 ? 'show-medal-title' : '']}}">星级提升</view>
+      <view class="_div data-v-5aa13153  m-word-blue {{[levelUpWord && medalInfo.paragraph < 41 ? 'show-medal-title' : '']}}">星级提升</view>
+      <view class="_div data-v-5aa13153 m-word medal-word {{[isMedalUp ? 'show-medal-title' : '']}}">段位提升</view>
+      <view class="_div data-v-5aa13153  m-word-blue {{[streakUpWord ? 'show-medal-title' : '']}}">连胜奖励：更多星数</view>
+      <view class="_div data-v-5aa13153  m-word-black {{[levelDownWord ? 'show-medal-title' : '']}}">星级降低</view>
+      <view class="_div data-v-5aa13153  m-word-black medal-word {{[isMedalDown ? 'show-medal-title' : '']}}">段位降低</view>
+      <view class="_div data-v-5aa13153 m-color {{[showColor ? 'color-down' : '']}}">
+        <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/color-div.png" alt class="_img data-v-5aa13153"></image>
+      </view>
+      <view class="_div data-v-5aa13153 u-light-bg {{[showLightBg ? 'show' : '']}}">
+        <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/light-bg.png" alt class="_img data-v-5aa13153"></image>
+      </view>
+      <view class="_div data-v-5aa13153 u-light-bg left60 {{[showLightBg && medalInfo.paragraph >= 41 ? 'show' : '']}}">
+        <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/topLightBg.png" alt class="_img data-v-5aa13153"></image>
+      </view>
+      <view class="_div data-v-5aa13153 m-light-cycle {{[shineLightBg ? 'short-big' : '', loopLight ? 'loop-big' : '']}}">
+        <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/light-cycle.png" alt class="_img data-v-5aa13153"></image>
+      </view>
+      <view class="_div data-v-5aa13153 m-top-star {{[medalInfo.paragraph >= 41 ? 'showTopStar' : '']}}">
+        <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/star.png" class="_img data-v-5aa13153"></image> x
+        <view class="_div data-v-5aa13153 star-num">{{medalInfo.star}}</view>
+      </view>
+      <view class="_div data-v-5aa13153 m-star-list {{[  hideAllStar && needStar == 1 ? 'star-hide-1' : '',  hideAllStar && needStar == 2 ? 'star-hide-2' : '',  hideAllStar && needStar == 3 ? 'star-hide-3' : '',  hideAllStar && needStar == 4 ? 'star-hide-4' : '',  hideAllStar && needStar == 5 ? 'star-hide-5' : '',  needStar == 1 ? 'star-1' : '',  needStar == 2 ? 'star-2' : '',  needStar == 3 ? 'star-3' : '',  needStar == 4 ? 'star-4' : '',  needStar == 5 ? 'star-5' : '']}}"
+        wx:if="{{medalInfo.paragraph<41}}">
+        <view class="_div data-v-5aa13153 u-star" wx:key="index" key="{{index}}" wx:for="{{starList}}" wx:for-index="index" wx:for-item="item">
+          <image class="_img data-v-5aa13153 u-star-act {{[  item.trans ? 'tansStar' : '',  item.static ? 'showStaticStar' : '',  item.act ? 'showStar' : '',  item.down &&  ((needStar == 1 && index == 0) ||    (needStar == 3 && index == 1) ||    (needStar == 5 && index == 2))    ? 'downStar-0'    : '',  item.down && ((needStar == 2 && index == 0) || (needStar == 4 && index == 1))    ? 'downStar-l-5'    : '',  item.down && ((needStar == 2 && index == 1) || (needStar == 4 && index == 2))    ? 'downStar-r-5'    : '',  item.down && ((needStar == 3 && index == 0) || (needStar == 4 && index == 1))    ? 'downStar-l-10'    : '',  item.down && ((needStar == 3 && index == 2) || (needStar == 4 && index == 3))    ? 'downStar-r-10'    : '',  item.down && ((needStar == 4 && index == 0) || (needStar == 5 && index == 0))    ? 'downStar-l-15'    : '',  item.down && ((needStar == 4 && index == 3) || (needStar == 5 && index == 4))    ? 'downStar-r-15'    : '']}}"
+            src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/star.png"></image>
+        </view>
+      </view>
+      <view class="_div data-v-5aa13153 m-medal">
+        <view class="_div data-v-5aa13153 u-img {{[shrinkImgBtn ? 'shrinkImg' : '']}}">
+          <image src="{{IMGHEAD+medalImg}}" class="_img data-v-5aa13153"></image>
+        </view>
+        <view class="_div data-v-5aa13153 u-img {{[magnifyBtn ? 'magnify' : '']}}" wx:if="{{magnifyBtn}}">
+          <image src="{{IMGHEAD+newMedalImg}}" class="_img data-v-5aa13153"></image>
+        </view>
+      </view>
+      <view class="_div data-v-5aa13153 u-medal-level {{[smallMedalUp ? 'small-medal-change' : '']}}">
+        <image wx:if="{{showNewBg||medalInfo.paragraph>=41}}" src="/static/rank/topMedalBg.png" class="_img data-v-5aa13153"></image>
+        <image wx:else src="/static/rank/medal-bg.png" class="_img data-v-5aa13153"></image>
+        <view class="_div data-v-5aa13153 u-medal-name"> {{medalName}}{{medalNum}} </view>
+      </view>
+      <image class="_img data-v-5aa13153 u-btn {{[showBtn ? 'show' : '']}}" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/rank/close-btn-new.png" alt data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+    </view>
+  </view>
+</template>

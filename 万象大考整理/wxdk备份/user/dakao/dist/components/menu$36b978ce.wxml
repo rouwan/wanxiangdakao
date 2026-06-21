@@ -1,0 +1,57 @@
+<import src="/components/emailModal$04408b88" />
+<import src="/components/settingModal$127da148" />
+<import src="/components/packModal$61ab4e99" />
+<import src="/components/invateBox$af1975da" />
+<template name="menu$36b978ce">
+  <view class="_div data-v-0058e818 m-menu">
+    <view class="_div data-v-0058e818 mask-bg" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+    <view class="_div data-v-0058e818 menu-box {{[showBox ? 'show' : '']}}">
+      <view class="_div data-v-0058e818 menu-box-head">
+        <view class="_div data-v-0058e818 head-box" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+          <image wx:if="{{appInfo.headImgUrl}}" src="{{appInfo.headImgUrl}}" class="_img data-v-0058e818"></image>
+          <image wx:else src="/static/default-head.png" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 menu-info">
+          <view class="_div data-v-0058e818">{{appInfo.nickname}}</view>
+          <view class="_div data-v-0058e818 txt">{{appInfo.province||"宇宙"}} {{appInfo.city||"火星"}}</view>
+        </view>
+      </view>
+      <view class="_div data-v-0058e818 menu-box-list">
+        <view class="_div data-v-0058e818 {{[false ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/invate.png" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[status.isFinishDayTask == 1 ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/task.png" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[  status.isDaySign == 1 || status.isHitCat == 1 || status.isLuckNumber == 1    ? 'hasTip'    : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/dayGift.png" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[status.isBookUpLevel > 0 ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/book.png" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[appInfo.money > 50 && hasTipLottery ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/lottery.png" data-eventid="{{'6'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[false ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/pack.png" data-eventid="{{'7'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[false ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/god.png" data-eventid="{{'8'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/project.png" data-eventid="{{'9'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[status.emailNoReadNum > 0 ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/email.png" data-eventid="{{'10'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+        <view class="_div data-v-0058e818 {{[false ? 'hasTip' : '']}}">
+          <image bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/menu/setting.png" data-eventid="{{'11'}}" data-comkey="{{$k}}" class="_img data-v-0058e818"></image>
+        </view>
+      </view>
+    </view>
+    <template wx:if="{{showEmail}}" bindclose="handleProxy" data-eventid="{{'12'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="emailModal$04408b88"></template>
+    <template wx:if="{{showSetting}}" bindradioChangeOne="handleProxy" bindradioChangeTwo="handleProxy" bindclose="handleProxy" data-eventid="{{'13'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'1'], $root}}" is="settingModal$127da148"></template>
+    <template wx:if="{{showPack}}" bindclose="handleProxy" data-eventid="{{'14'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'2'], $root}}" is="packModal$61ab4e99"></template>
+    <template wx:if="{{showInvateBox}}" bindclose="handleProxy" data-eventid="{{'15'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'3'], $root}}" is="invateBox$af1975da"></template>
+  </view>
+</template>

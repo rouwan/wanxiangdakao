@@ -1,0 +1,7 @@
+<template name="timeCount$471f388d">
+  <view class="_div data-v-1ce0d15f canvas-box {{[small ? 'small' : '']}}">
+    <canvas canvas-id="canvas" class="_canvas data-v-1ce0d15f">
+      <cover-view class="_cover-view data-v-1ce0d15f time {{[showHeart ? 'heart' : '', empty ? 'fff' : '']}}">{{time}}</cover-view>
+    </canvas>
+  </view>
+</template>

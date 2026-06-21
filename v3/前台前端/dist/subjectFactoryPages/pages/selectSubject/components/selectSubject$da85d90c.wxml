@@ -1,0 +1,11 @@
+<template name="selectSubject$da85d90c">
+  <view class="_div data-v-bcef6296 m-subject sky-bg-2">
+    <view class="_div data-v-bcef6296 u-head">请选择类别</view>
+    <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/subjectFactory/class-wen.png" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_img data-v-bcef6296"></image>
+    <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/subjectFactory/class-li.png" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_img data-v-bcef6296"></image>
+    <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/subjectFactory/class-yi.png" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}" class="_img data-v-bcef6296"></image>
+    <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/subjectFactory/class-ti.png" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" class="_img data-v-bcef6296"></image>
+    <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/subjectFactory/class-shang.png" bindtap="handleProxy" data-eventid="{{'4'}}" data-comkey="{{$k}}" class="_img data-v-bcef6296"></image>
+    <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/subjectFactory/class-zong.png" bindtap="handleProxy" data-eventid="{{'5'}}" data-comkey="{{$k}}" class="_img data-v-bcef6296"></image>
+  </view>
+</template>

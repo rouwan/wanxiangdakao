@@ -1,0 +1,26 @@
+<template name="match$16c585c7">
+  <view class="_div data-v-5cb8143c match-box">
+    <view class="_div data-v-5cb8143c user-one {{[show ? 'sliderDown' : '']}}" bindtransitionend="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-5cb8143c user-box" wx:if="{{myInfo}}">
+        <image class="_img data-v-5cb8143c user-head" src="{{myInfo.basicInfo.avatarUrl}}" alt></image>
+        <view class="_div data-v-5cb8143c user-info">
+          <view class="_div data-v-5cb8143c name">{{myInfo.basicInfo.nickName}}</view>
+          <view class="_div data-v-5cb8143c winRate">胜率：{{myInfo.abilityInfo.winRatio}}%</view>
+          <view class="_div data-v-5cb8143c wins">胜场：{{myInfo.abilityInfo.winNum}}场</view>
+        </view>
+      </view>
+    </view>
+    <view class="_div data-v-5cb8143c user-two {{[show ? 'sliderUp' : '']}}">
+      <view class="_div data-v-5cb8143c user-box" wx:if="{{otherInfo}}">
+        <image wx:if="{{otherInfo.boot}}" class="_img data-v-5cb8143c user-head" src="{{IMGHEAD+otherInfo.basicInfo.avatarUrl}}" alt></image>
+        <image wx:if="{{!otherInfo.boot&&otherInfo.basicInfo.avatarUrl}}" class="_img data-v-5cb8143c user-head" src="{{otherInfo.basicInfo.avatarUrl}}" alt></image>
+        <view class="_div data-v-5cb8143c user-info">
+          <view class="_div data-v-5cb8143c name">{{otherInfo.basicInfo.nickName}}</view>
+          <view class="_div data-v-5cb8143c winRate">胜率：{{otherInfo.abilityInfo.winRatio}}%</view>
+          <view class="_div data-v-5cb8143c wins">胜场：{{otherInfo.abilityInfo.winNum}}场</view>
+        </view>
+      </view>
+    </view>
+    <image class="_img data-v-5cb8143c vs {{[showVs ? 'showVs' : '']}}" src="/static/vs.png" alt></image>
+  </view>
+</template>

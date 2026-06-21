@@ -1,0 +1,1 @@
+<import src="/subjectFactoryPages/pages/mySubjectList/components/mySubjectList$373edaf0" /><template is="mySubjectList$373edaf0" data="{{ ...$root['0'], $root }}"/>

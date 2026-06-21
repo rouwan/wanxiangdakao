@@ -1,0 +1,30 @@
+<import src="/components/gift-box$15a2211f" />
+<template name="packModal$44f295ac">
+  <view class="_div data-v-3a098a85 m-pack-modal">
+    <view class="_div data-v-3a098a85 u-pack-modal-inner">
+      <view class="_div data-v-3a098a85 close" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+      <view class="_div data-v-3a098a85 u-pack-modal-head">
+        <view class="_div data-v-3a098a85">背包</view>
+        <image src="/static/icon/pack-bg.png" class="_img data-v-3a098a85"></image>
+      </view>
+      <view class="_div data-v-3a098a85 u-pack-content">
+        <view class="_div data-v-3a098a85 u-goods">
+          <view class="_div data-v-3a098a85 u-goods-item {{[selectIndex == index && goodList[selectIndex] ? 'select' : '']}}" wx:key="index" key="{{index}}" bindtap="handleProxy" data-eventid="{{'1-'+index}}" data-comkey="{{$k}}" wx:for="{{emptyList}}"
+            wx:for-index="index" wx:for-item="item">
+            <image wx:if="{{goodList[index]&&goodList[index].num>0}}" src="{{IMGHEAD+goodList[index].image}}" class="_img data-v-3a098a85 {{[  (goodList[index].type == 1 ||    goodList[index].type == 2 ||    goodList[index].type == 3) &&  !goodList[index].book    ? 'rotate30'    : '']}}"></image>
+            <view wx:if="{{goodList[index]&&goodList[index].num>0}}" class="_div data-v-3a098a85">{{goodList[index].num}}</view>
+          </view>
+        </view>
+        <view class="_div data-v-3a098a85 u-goods-desc" wx:if="{{goodList[selectIndex]&&goodList[selectIndex].num>0&&!goodList[selectIndex].book}}"> {{goodList[selectIndex].description}} </view>
+        <view class="_div data-v-3a098a85 u-goods-desc" wx:if="{{goodList[selectIndex]&&goodList[selectIndex].num>0&&goodList[selectIndex].book}}"> {{goodList[selectIndex].remark}} </view>
+        <view class="_div data-v-3a098a85 u-btn-box {{[!goodList[selectIndex] ? 'mt64' : '']}}">
+          <view class="_div data-v-3a098a85 u-btn u-btn-big u-btn-green" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">使用</view>
+        </view>
+      </view>
+    </view>
+    <template wx:if="{{showGiftBox}}" bindclose="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}" data="{{...$root[$kk+'0'], $root}}" is="gift-box$15a2211f"></template>
+    <view class="_div data-v-3a098a85 ad-box {{[HUAWEI ? 'huawei' : '']}}">
+      <ad unit-id="adunit-973fbb985356319e" class="_ad data-v-3a098a85"></ad>
+    </view>
+  </view>
+</template>

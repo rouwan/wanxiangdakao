@@ -1,0 +1,45 @@
+<template name="catGame$81ee620c">
+  <view class="_div data-v-576eb0fb game-box">
+    <view class="_div data-v-576eb0fb cat-game">
+      <view class="_div data-v-576eb0fb process">
+        <view class="_div data-v-576eb0fb txt">剩余时间:</view>
+        <view class="_div data-v-576eb0fb p-body">
+          <image class="_img data-v-576eb0fb p-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/p-bg.png"></image>
+          <view class="_div data-v-576eb0fb p-line {{[gameStatus == 1 ? 'process-ant' : '']}}" style=" {{pStyle}}"></view>
+          <view class="_div data-v-576eb0fb sc"></view>
+          <view class="_div data-v-576eb0fb sc"></view>
+          <view class="_div data-v-576eb0fb sc"></view>
+          <view class="_div data-v-576eb0fb sc"></view>
+        </view>
+      </view>
+      <view class="_div data-v-576eb0fb platform">
+        <image class="_img data-v-576eb0fb l-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/l-bg.png"></image>
+        <view class="_div data-v-576eb0fb cat-modal-1 {{[timeType == 1 ? 'show' : '']}}"></view>
+        <view class="_div data-v-576eb0fb cat-modal-2 {{[timeType == 2 ? 'show' : '']}}">
+          <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/modal-2.png" class="_img data-v-576eb0fb"></image>
+          <image class="_img data-v-576eb0fb modal-2-ant" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/modal-2-act.png"></image>
+        </view>
+        <view class="_div data-v-576eb0fb cat-modal-3 {{[timeType == 3 ? 'show' : '']}}">
+          <image class="_img data-v-576eb0fb modal-3-l" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/modal-3-l.png"></image>
+          <image class="_img data-v-576eb0fb modal-3-r" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/modal-3-r.png"></image>
+          <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/modal-3.png" class="_img data-v-576eb0fb"></image>
+        </view>
+        <view wx:if="{{gameStatus==1}}" class="_div data-v-576eb0fb gold-ant"></view>
+      </view>
+      <view class="_div data-v-576eb0fb gold-txt">获的金币数</view>
+      <view class="_div data-v-576eb0fb gold">
+        <image src="/static/gold.png" class="_img data-v-576eb0fb"></image> {{gold}} </view>
+      <view class="_div data-v-576eb0fb guide" wx:if="{{showGuide}}">
+        <view class="_div data-v-576eb0fb guide-txt">
+          <view class="_div data-v-576eb0fb">温馨提示</view> 快速、持续点击,可以获得更多金币哦 </view>
+      </view>
+      <view class="_div data-v-576eb0fb cf" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <view wx:if="{{showGuide}}" class="_div data-v-576eb0fb cf-mask" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}"></view>
+        <image wx:if="{{showGuide}}" class="_img data-v-576eb0fb finger" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/day-gift/finger.png"></image>
+      </view>
+      <view class="_div data-v-576eb0fb cat-ad {{[showCatAd ? 'showAd' : '']}}">
+        <ad unit-id="adunit-bd7cb52099803182" class="_ad data-v-576eb0fb"></ad>
+      </view>
+    </view>
+  </view>
+</template>

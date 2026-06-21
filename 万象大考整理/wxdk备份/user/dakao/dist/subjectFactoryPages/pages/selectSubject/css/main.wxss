@@ -1,0 +1,30 @@
+@import "/vendor/css/main.wxss";
+
+.m-subject.data-v-5ab53500 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.m-subject .u-head.data-v-5ab53500 {
+  width: 100%;
+  padding: 85rpx 0;
+  box-sizing: border-box;
+  line-height: 1;
+  font-size: 48rpx;
+  color: #7efce4;
+  font-weight: bold;
+  text-align: center;
+}
+.m-subject ._img.data-v-5ab53500 {
+  width: 280rpx;
+  height: 280rpx;
+  margin-right: 50rpx;
+  margin-bottom: 50rpx;
+}
+.m-subject ._img.data-v-5ab53500:nth-of-type(2n+2) {
+  margin-right: 0;
+}
+.m-subject ._img.data-v-5ab53500:nth-of-type(5),
+.m-subject ._img.data-v-5ab53500:nth-of-type(6) {
+  margin-bottom: 0;
+}

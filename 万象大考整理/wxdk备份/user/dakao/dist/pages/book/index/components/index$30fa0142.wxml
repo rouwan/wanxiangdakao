@@ -1,0 +1,47 @@
+<template name="index$30fa0142">
+  <view class="_div data-v-3ee2f8ba m-book">
+    <image class="_img data-v-3ee2f8ba u-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/book-bg.png"></image>
+    <view class="_div data-v-3ee2f8ba book-content">
+      <view class="_div data-v-3ee2f8ba book-head">
+        <image src="/static/icon/book-head.png" class="_img data-v-3ee2f8ba"></image>
+        <view class="_div data-v-3ee2f8ba card" wx:if="{{false}}">
+          <image class="_img data-v-3ee2f8ba card-img" src="/static/icon/book-card.png"></image> {{ticket}}
+          <image class="_img data-v-3ee2f8ba card-tip {{[showTip ? 'show' : '']}}" src="/static/icon/book-tip.png"></image>
+        </view>
+      </view>
+      <view class="_div data-v-3ee2f8ba book-list" wx:if="{{dataReady}}">
+        <view class="_div data-v-3ee2f8ba book-item" wx:key="index" key="{{index}}" wx:for="{{bookList}}" wx:for-index="index" wx:for-item="item">
+          <view class="_div data-v-3ee2f8ba item-left">
+            <image class="_img data-v-3ee2f8ba book-bg" src="/static/icon/book-box-bg.png"></image>
+            <image class="_img data-v-3ee2f8ba book-book" src="{{bookType[item.type].img}}"></image>
+            <view class="_div data-v-3ee2f8ba book-name">{{bookType[item.type].bookName}}科</view>
+          </view>
+          <view class="_div data-v-3ee2f8ba item-center">
+            <view class="_div data-v-3ee2f8ba grade">
+              <view class="_div data-v-3ee2f8ba"> 等级{{item.level}} </view>
+              <view class="_div data-v-3ee2f8ba g-txt" wx:if="{{item.level==maxLevel}}">{{item.num}}/
+                <view class="_div data-v-3ee2f8ba big-txt">8</view>
+              </view>
+              <view class="_div data-v-3ee2f8ba g-txt" wx:else>{{item.num}}/{{item.nextNum}}</view>
+            </view>
+            <view class="_div data-v-3ee2f8ba process">
+              <image wx:if="{{item.num>=item.nextNum||item.level==maxLevel}}" class="_img data-v-3ee2f8ba full" src="/static/icon/book-p-act.png"></image>
+              <view class="_div data-v-3ee2f8ba process-inner" style=" {{bookType[item.type].pWidth}}"></view>
+            </view>
+            <view class="_div data-v-3ee2f8ba">{{bookType[item.type].bookName}}科得分+{{item.addition}}%</view>
+          </view>
+          <view class="_div data-v-3ee2f8ba item-right">
+            <image class="_img data-v-3ee2f8ba l-full" wx:if="{{item.level>=maxLevel}}" src="/static/icon/book-manji.png"></image>
+            <image class="_img data-v-3ee2f8ba l-btn" wx:elif="{{item.num<item.nextNum}}" src="/static/icon/book-btn.png"></image>
+            <image class="_img data-v-3ee2f8ba l-btn" wx:elif="{{item.num>=item.nextNum}}" src="/static/icon/book-btn-act.png" bindtap="handleProxy" data-eventid="{{'0-'+index}}" data-comkey="{{$k}}"></image>
+          </view>
+        </view>
+        <view class="_div data-v-3ee2f8ba place"></view>
+        <view class="_div data-v-3ee2f8ba place"></view>
+      </view>
+    </view>
+    <view class="_div data-v-3ee2f8ba ad-box">
+      <ad unit-id="adunit-275f5d9761ad9db1" class="_ad data-v-3ee2f8ba"></ad>
+    </view>
+  </view>
+</template>

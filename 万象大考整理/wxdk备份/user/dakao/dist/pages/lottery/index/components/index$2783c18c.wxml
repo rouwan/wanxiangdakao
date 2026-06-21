@@ -1,0 +1,6 @@
+<import src="/components/lottery$6235d341" />
+<template name="index$2783c18c">
+  <view class="_div data-v-76a925e5">
+    <template data="{{...$root[$kk+'0'], $root}}" is="lottery$6235d341"></template>
+  </view>
+</template>

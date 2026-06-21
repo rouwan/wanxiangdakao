@@ -1,0 +1,1 @@
+<import src="/roomPages/pages/hybird-room/components/hybird-room$3b72e9aa" /><template is="hybird-room$3b72e9aa" data="{{ ...$root['0'], $root }}"/>

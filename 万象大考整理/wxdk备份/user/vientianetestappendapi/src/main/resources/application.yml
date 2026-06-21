@@ -1,0 +1,58 @@
+server:
+  port: 8008
+spring:
+  datasource:
+#    url: jdbc:mysql://101.132.104.79:3306/smalldo?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/wxdkgamedo?useSSL=false&serverTimezone=UTC&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-test-query: SELECT 1
+      validation-timeout: 3000
+      max-lifetime: 1800000
+      idle-timeout: 600000
+      minimum-idle: 2
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+#    password: test123
+    timeout: 60000
+    pool:
+          max-active: 8
+          # 连接池最大阻塞等待时间（使用负值表示没有限制）
+          max-wait: -1
+          # 连接池中的最大空闲连接
+          max-idle: 8
+          # 连接池中的最小空闲连接
+          min-idle: 2
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 2
+  session:
+    store-type: redis
+wechat:
+  miniapp:
+    appid: wx62ccd89393890f1e
+    secret: 58d6ee533e4f83a56f9cfb70563dbc86
+
+    apikey: abcdefghijklmnopqrstuvwxyzxyzabc
+    mchid: 1270346201
+
+
+#    secret: f82425df91e6ba1fb91c8259bba6402c
+#    apikey: abcdefghijklmnopqrstuvwxyzxyzabc
+#    mchid: 1270346201
+    token:
+    aesKey:
+    msgDataFormat: JSON
+    requestUrl: http://zhuang.tunnel.qydev.com/vientianetest/mobile
+#    requestUrl: http://127.0.0.1:8080/vientianetest/mobile
+env: dev
+small:
+  vientianetest:
+    version: 0

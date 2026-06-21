@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/entry/index",
+    "pages/test/index",
+    "pages/newYear/index",
+    "pages/book/index",
+    "pages/lottery/index",
+    "pages/gameReview/index",
+    "pages/questionAdvice/index",
+    "pages/preGamePage/index",
+    "pages/game/index",
+    "pages/game/result",
+    "pages/rankPage/index",
+    "pages/talkRoom/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "万象大考",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#28235d"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx4aa94d3af51b01ce",
+    "wxea56b2d76c30cd2c",
+    "wx6b751ee0ef7702fa",
+    "wx08a22523d259abdd",
+    "wxe4f198bc849bfae1",
+    "wxded312966e93a87e",
+    "wxa059f0becd1b47d4",
+    "wxca338da970e994ba",
+    "wx6abcab3f1b8c0a1d"
+  ],
+  "subPackages": [
+    {
+      "root": "roomPages",
+      "pages": [
+        "pages/room",
+        "pages/roomList",
+        "pages/hybird-room",
+        "pages/group-room"
+      ]
+    },
+    {
+      "root": "subjectFactoryPages",
+      "pages": [
+        "pages/index",
+        "pages/selectSubject",
+        "pages/addSubject",
+        "pages/mySubjectList",
+        "pages/lookSubject"
+      ]
+    },
+    {
+      "root": "playerPages",
+      "pages": [
+        "pages/index"
+      ]
+    }
+  ]
+}

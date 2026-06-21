@@ -1,0 +1,44 @@
+<template name="success$acd05760">
+  <view class="_div data-v-03d1344f m-ant-box" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}">
+    <image class="_img data-v-03d1344f u-light {{[ant5 ? 'light-rotate' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antSuccess/light.png"></image>
+    <view class="_div data-v-03d1344f m-clear-box {{[ant3 ? 'show-clear-box' : '']}}">
+      <image class="_img data-v-03d1344f m-box-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/gift-bg(new).png"></image>
+      <view class="_div data-v-03d1344f c-content">
+        <view class="_div data-v-03d1344f c-head">答题评分</view>
+        <view class="_div data-v-03d1344f c-star-list">
+          <view class="_div data-v-03d1344f c-bg-list">
+            <image wx:key="index" key="{{index}}" class="_img data-v-03d1344f c-star-bg" src="/static/star-black.png" wx:for="{{starBgList}}" wx:for-index="index" wx:for-item="item"></image>
+          </view>
+          <view class="_div data-v-03d1344f c-act-list">
+            <image wx:key="index" key="{{index}}" class="_img data-v-03d1344f c-star-act {{[ant4 ? 'show-star' : '']}}" src="/static/star.png" wx:for="{{starActList}}" wx:for-index="index" wx:for-item="item"></image>
+          </view>
+        </view>
+        <view class="_div data-v-03d1344f c-line">
+          <view class="_div data-v-03d1344f">战力提升</view>
+        </view>
+        <view class="_div data-v-03d1344f c-fight">
+          <view class="_div data-v-03d1344f f-old">{{oldCombat}}</view>
+          <image src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/public/arrow.png" class="_img data-v-03d1344f"></image>
+          <view class="_div data-v-03d1344f f-new">{{gift.combat}}</view>
+        </view>
+        <view class="_div data-v-03d1344f c-num-box {{[gift.combatList.length == 1 ? 'align-center' : '']}}">
+          <view wx:key="index" key="{{index}}" wx:for="{{gift.combatList}}" wx:for-index="index" wx:for-item="item" class="_div data-v-03d1344f">{{fightType[item.parentType]}}{{item.combat}}</view>
+        </view>
+        <view class="_div data-v-03d1344f c-line">
+          <view class="_div data-v-03d1344f">获得奖励</view>
+        </view>
+        <view class="_div data-v-03d1344f c-gift">
+          <image src="/static/entry/energe-normal.png" class="_img data-v-03d1344f"></image>+{{gift.energe||0}} </view>
+      </view>
+    </view>
+    <image class="_img data-v-03d1344f m-box-top {{[ant1 ? 'show' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antSuccess/banner.png" alt></image>
+    <view class="_div data-v-03d1344f u-sheng-box {{[ant2 ? 'word-in' : '']}}">
+      <image class="_img data-v-03d1344f u-sheng" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antSuccess/sheng.png" alt></image>
+    </view>
+    <view class="_div data-v-03d1344f u-li-box {{[ant2 ? 'word-in' : '']}}">
+      <image class="_img data-v-03d1344f u-li" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antSuccess/li.png" alt></image>
+    </view>
+    <image class="_img data-v-03d1344f star-mask {{[ant5 ? 'show' : '']}}" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/antSuccess/star-mask.png"></image>
+    <view class="_div data-v-03d1344f tip {{[ant6 ? 'show' : '']}}">点击任意键继续</view>
+  </view>
+</template>

@@ -1,0 +1,37 @@
+<template name="quesTitle$d3c1c4aa">
+  <view class="_div data-v-66577a8a m-title" wx:if="{{dataReady}}">
+    <view class="_div data-v-66577a8a title-type {{[showTitleType ? 'titleTypeIn' : '']}}">
+      <view class="_div data-v-66577a8a title-txt rank-icon {{[  questionType == '德' ? 'rank-icon-word-de' : '',  questionType == '商' ? 'rank-icon-word-shang' : '',  questionType == '文' ? 'rank-icon-word-wen' : '',  questionType == '理' ? 'rank-icon-word-li' : '',  questionType == '艺' ? 'rank-icon-word-yi' : '',  questionType == '体' ? 'rank-icon-word-ti' : '',  questionType == '综' ? 'rank-icon-word-zong' : '']}}"></view>
+      <image class="_img data-v-66577a8a tt-bg" src="/static/title-bg.png" alt></image>
+      <view class="_div data-v-66577a8a title-number">第{{currentIndex+1}}题</view>
+      <image class="_img data-v-66577a8a tt-double" wx:if="{{showDoubleTip}}" src="/static/X2.png"></image>
+    </view>
+    <view class="_div data-v-66577a8a m-word-title {{[  showTitle ? 'titleIn' : '',  subjectList[currentIndex].modeType == 6 ? 'english' : '']}}" wx:if="{{subjectList[currentIndex].modeType==3||subjectList[currentIndex].modeType==4||subjectList[currentIndex].modeType==6}}">
+      <view class="_div data-v-66577a8a u-word-level {{[  showTitleType ? 'titleLevelIn' : '',  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}"> {{levelList[currentIndex].type}} </view> {{subjectList[currentIndex].title}} </view>
+    <view class="_div data-v-66577a8a m-idiom {{[showTitle ? 'titleIn' : '']}}" wx:if="{{subjectList[currentIndex].modeType==5}}">
+      <view class="_div data-v-66577a8a u-word-box">
+        <view class="_div data-v-66577a8a u-word" wx:key="index" key="{{index}}" wx:for="{{idiomList[currentIndex]}}" wx:for-index="index" wx:for-item="item">{{item}}</view>
+      </view>
+      <view class="_div data-v-66577a8a u-word-level {{[  showTitleType ? 'titleLevelIn' : '',  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}"> {{levelList[currentIndex].type}} </view>
+    </view>
+    <view class="_div data-v-66577a8a m-img {{[showTitle ? 'titleIn' : '']}}" wx:if="{{subjectList[currentIndex].modeType==1}}">
+      <view class="_div data-v-66577a8a img-title">
+        <view class="_div data-v-66577a8a img-level {{[  imgLevelList[currentIndex].blue ? 'blue' : '',  imgLevelList[currentIndex].red ? 'red' : '',  imgLevelList[currentIndex].yellow ? 'yellow' : '']}}">{{imgLevelList[currentIndex].type}}</view> {{list[currentIndex].title}} </view>
+      <view class="_div data-v-66577a8a img-box {{[showTitle ? 'titleIn' : '']}}">
+        <image mode="aspectFit" src="{{IMGHEAD+subjectList[currentIndex].image}}" alt class="_img data-v-66577a8a"></image>
+      </view>
+    </view>
+    <view class="_div data-v-66577a8a m-poetry {{[  subjectList[currentIndex].modeType == 8 ||  subjectList[currentIndex].modeType == 10    ? 'm-poetry-reverce'    : '',  showTitle ? 'titleIn' : '']}}" wx:if="{{list[currentIndex].modeType==7||list[currentIndex].modeType==8||list[currentIndex].modeType==9||list[currentIndex].modeType==10}}">
+      <view class="_div data-v-66577a8a u-word-level {{[  showTitleType ? 'titleLevelIn' : '',  levelList[currentIndex].blue ? 'blue' : '',  levelList[currentIndex].red ? 'red' : '',  levelList[currentIndex].yellow ? 'yellow' : '']}}"> {{levelList[currentIndex].type}} </view>
+      <view class="_div data-v-66577a8a u-sentence">{{subjectList[currentIndex].title}}
+        <view class="_div data-v-66577a8a u-symbol" wx:if="{{subjectList[currentIndex].modeType==7||subjectList[currentIndex].modeType==9}}">,</view>
+        <view class="_div data-v-66577a8a u-symbol" wx:else>。</view>
+      </view>
+      <view class="_div data-v-66577a8a u-line">
+        <view class="_div data-v-66577a8a u-line-item" wx:key="index" key="{{index}}" wx:for="{{poetryList[currentIndex]}}" wx:for-index="index" wx:for-item="item"></view>
+        <view class="_div data-v-66577a8a u-symbol" wx:if="{{subjectList[currentIndex].modeType==7||subjectList[currentIndex].modeType==9}}">。</view>
+        <view class="_div data-v-66577a8a u-symbol" wx:else>,</view>
+      </view>
+    </view>
+  </view>
+</template>

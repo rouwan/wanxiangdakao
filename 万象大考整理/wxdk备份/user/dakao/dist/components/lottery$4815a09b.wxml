@@ -1,0 +1,44 @@
+<template name="lottery$4815a09b">
+  <view class="_div data-v-72f0a4c0 m-lottery sky-bg-2">
+    <view class="_div data-v-72f0a4c0 l-head">
+      <view class="_div data-v-72f0a4c0 l-gold">
+        <image src="/static/icon/gold.png" class="_img data-v-72f0a4c0"></image> {{appInfo.money}} </view>
+    </view>
+    <view class="_div data-v-72f0a4c0 l-wrap" wx:if="{{lotteryList.length>0}}">
+      <view class="_div data-v-72f0a4c0 l-item {{[current == index ? 'selected' : '']}}" wx:key="index" key="{{index}}" wx:for="{{lotteryList}}" wx:for-index="index" wx:for-item="item">
+        <view class="_div data-v-72f0a4c0 item-num">x{{item.num}}</view>
+        <image class="_img data-v-72f0a4c0 item-gift {{[index == 6 || index == 8 || index == 13 ? 'rotate30' : '']}}" src="{{IMGHEAD+item.image}}"></image>
+        <image class="_img data-v-72f0a4c0 item-border" src="/static/icon/selected-border.png"></image>
+      </view>
+      <view class="_div data-v-72f0a4c0 l-view">
+        <image class="_img data-v-72f0a4c0 view-bg" src="/static/icon/gift-show.png"></image>
+        <image wx:if="{{current==-1}}" class="_img data-v-72f0a4c0 view-ques" src="/static/icon/ques.png"></image>
+        <image wx:else src="{{IMGHEAD+lotteryList[current].image}}" class="_img data-v-72f0a4c0 view-center {{[current == final && current != -1 ? 'finnal' : '']}}"></image>
+        <view class="_div data-v-72f0a4c0 view-txt" wx:if="{{current==-1}}"> 尚未抽奖 </view>
+        <view class="_div data-v-72f0a4c0 view-txt c-fff" wx:else> {{lotteryList[current].remark}} </view>
+      </view>
+    </view>
+    <view class="_div data-v-72f0a4c0 gp-btn">
+      <image class="_img data-v-72f0a4c0 btn-start" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/btn-lottery.png" data-eventid="{{'0'}}" data-comkey="{{$k}}"></image>
+      <image class="_img data-v-72f0a4c0 btn-start btn-start-ten" bindtap="handleProxy" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/icon/btn-lottery-10.png" data-eventid="{{'1'}}" data-comkey="{{$k}}"></image>
+    </view>
+    <view class="_div data-v-72f0a4c0 get-gift" wx:if="{{showAnt}}" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">
+      <view class="_div data-v-72f0a4c0 mask"></view>
+      <view class="_div data-v-72f0a4c0 img-box {{[showAnt ? 'showAnt' : '']}}">
+        <image class="_img data-v-72f0a4c0 box-bg" src="/static/icon/gift-light.png"></image>
+        <image class="_img data-v-72f0a4c0 img-gift" src="{{IMGHEAD+lotteryList[current].image}}"></image>
+      </view>
+      <view class="_div data-v-72f0a4c0 gift-txt" wx:if="{{showAnt}}"> {{lotteryList[current].remark}} </view>
+    </view>
+    <view class="_div data-v-72f0a4c0 auto-mask" wx:if="{{showAutoMask}}">
+      <image class="_img data-v-72f0a4c0 light-bg" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/giftAnt/box-light.png"></image>
+      <image class="_img data-v-72f0a4c0 box-head" src="https://ggbsq.xingpanwang.com/renren-fast/smallUploadSource/vientianeTestMobileAsset/images/giftAnt/box-head.png"></image>
+      <view class="_div data-v-72f0a4c0 gift-panel {{[showPanelAnt ? 'show-panel-ant' : '']}}">
+        <view wx:key="index" key="{{index}}" wx:for="{{10}}" wx:for-index="index" wx:for-item="item" class="_div data-v-72f0a4c0">
+          <image src="{{tenGiftList[index].url}}" class="_img data-v-72f0a4c0"></image>
+          <view class="_div data-v-72f0a4c0 p-text">X{{tenGiftList[index].num}}</view> {{tenGiftList[index].name}} </view>
+      </view>
+      <view class="_div data-v-72f0a4c0 auto-skip" bindtap="handleProxy" data-eventid="{{'3'}}" data-comkey="{{$k}}">领取奖励</view>
+    </view>
+  </view>
+</template>

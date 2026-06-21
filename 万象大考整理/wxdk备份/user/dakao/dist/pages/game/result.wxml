@@ -1,0 +1,1 @@
+<import src="/pages/game/result/components/result$4badb2ee" /><template is="result$4badb2ee" data="{{ ...$root['0'], $root }}"/>
